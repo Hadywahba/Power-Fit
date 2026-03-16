@@ -1,0 +1,24 @@
+import axios from "axios";
+import {
+  baseURL,
+  JSON_HEADER,
+  STORAGE_KEY,
+} from "../../constants/api/api.constant";
+
+export const axiosInstance = axios.create({
+  baseURL,
+  headers: JSON_HEADER,
+});
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem(STORAGE_KEY);
+
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error),
+);
