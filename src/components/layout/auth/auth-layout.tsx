@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import { Outlet } from 'react-router-dom';
+import AuthLayoutImages from './auth-layout-images';
 
 export default function AuthLayout() {
   return (
@@ -19,25 +20,7 @@ export default function AuthLayout() {
       <div className="relative z-10 grid min-h-screen grid-cols-1 lg:grid-cols-2">
         {/* Left */}
         <section className="hidden items-center justify-center border-r-[rgba(255,65,0,0.2)] text-white lg:flex lg:flex-col lg:border-r-2">
-          <div className="flex flex-col items-center justify-center gap-4">
-            {/* Upper Part */}
-            <div>
-              <img
-                src="/assets/images/logo.webp"
-                alt="logo"
-                className="h-full w-50.75 object-cover"
-              />
-            </div>
-
-            {/* Lower Part */}
-            <div>
-              <img
-                src="/assets/images/person.png"
-                alt="Person"
-                className="h-100 w-150"
-              />
-            </div>
-          </div>
+          <AuthLayoutImages />
         </section>
 
         {/* Right */}
