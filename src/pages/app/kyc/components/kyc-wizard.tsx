@@ -232,10 +232,8 @@ export default function KycWizard() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#090d16] text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_12%,rgba(255,255,255,0.16),transparent_30%),radial-gradient(circle_at_78%_22%,rgba(255,255,255,0.11),transparent_30%),linear-gradient(180deg,#121826_0%,#070b14_100%)]" />
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 w-28 -translate-x-1/2 bg-white/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-main/15 blur-[120px]" />
+    <section className="relative min-h-screen overflow-hidden bg-[#090d16] text-white font-sans">
+
 
       <div className="relative z-10 flex min-h-screen items-center justify-center px-5 py-10">
         <div className="w-full">

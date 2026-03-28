@@ -158,7 +158,7 @@
 /* ─── Fonts ─── */
 @font-face {
   font-family: "Baloo Thambi 2";
-  src: url("/fonts/BalooThambi2-VariableFont_wght.ttf");
+  src: url("/assets/fonts/BalooThambi2-VariableFont_wght.ttf");
   font-weight: 100 900;
   font-display: swap;
 }
