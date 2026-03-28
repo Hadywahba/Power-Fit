@@ -23,7 +23,7 @@ export default function SocialLogin() {
   const t = useTranslations();
 
   return (
-    <>
+    <div className="py-2">
       {/* Or Divider */}
       <div className="flex items-center gap-3 py-1">
         <div className="h-px flex-1 bg-white/20" />
@@ -44,6 +44,6 @@ export default function SocialLogin() {
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }

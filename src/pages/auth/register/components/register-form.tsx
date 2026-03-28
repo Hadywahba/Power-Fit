@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
 import { useRegisterStore } from "@/lib/store/register.store";
 import { createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
-import SocialIcons from "@/components/shared/social-icons";
+import SocialLogin from "@/components/shared/social-icons";
 
 const defaultValues: RegisterFields = {
   firstName: "",
@@ -23,7 +23,6 @@ const inputProps = {
   className: "bg-transparent",
   inputClassName: "text-white",
 } as const;
-
 
 export default function RegisterStepOne() {
   const t = useTranslations();
@@ -45,20 +44,20 @@ export default function RegisterStepOne() {
   }
 
   return (
-    <section className="flex w-lg flex-col items-center">
-      {/* Heading — centered, matches Figma */}
+    <section className="flex w-full max-w-lg flex-col items-center">
+      {/* Heading */}
       <div className="mb-6 text-center">
-        <p className="text-lg text-white/90 uppercase">
+        <p className="text-sm font-medium tracking-widest text-white/60 uppercase">
           {t("hey-there")}
         </p>
-        <h1 className="text-2xl text-white">
+        <h1 className="text-4xl font-extrabold text-white">
           {t("create-an-account")}
         </h1>
       </div>
 
       {/* Card */}
-      <Card className="w-11/12 max-h-150 rounded-[3.125rem] border border-gray-50 bg-transparent px-10">
-        <CardHeader className="mb-4 p-0">
+      <Card className="w-11/12 rounded-[3.125rem] border border-gray-50/20 bg-transparent px-10 py-8">
+        <CardHeader className="mb-1 p-0">
           <h2 className="text-center text-2xl font-bold text-white">
             {t("register")}
           </h2>
@@ -76,7 +75,6 @@ export default function RegisterStepOne() {
               error={errors.firstName?.message}
             />
 
-            {/* Last Name */}
             <Input
               {...inputProps}
               {...register("lastName")}
@@ -87,7 +85,6 @@ export default function RegisterStepOne() {
               error={errors.lastName?.message}
             />
 
-            {/* Email */}
             <Input
               {...inputProps}
               {...register("email")}
@@ -98,7 +95,6 @@ export default function RegisterStepOne() {
               error={errors.email?.message}
             />
 
-            {/* Password */}
             <Input
               {...inputProps}
               {...register("password")}
@@ -109,7 +105,6 @@ export default function RegisterStepOne() {
               error={errors.password?.message}
             />
 
-            {/* Confirm Password */}
             <Input
               {...inputProps}
               {...register("rePassword")}
@@ -120,9 +115,6 @@ export default function RegisterStepOne() {
               error={errors.rePassword?.message}
             />
 
-            <SocialIcons/>
-
-            {/* Submit */}
             <Button
               type="submit"
               disabled={!isValid && isSubmitted}
@@ -130,18 +122,19 @@ export default function RegisterStepOne() {
             >
               {t("register")}
             </Button>
-
-            {/* Login link */}
-            <p className="text-center text-sm text-white/70">
-              {t("already-have-account")}
-              <Link
-                to={ROUTES.auth.login}
-                className="ms-1 font-semibold text-main hover:underline"
-              >
-                {t("login")}
-              </Link>
-            </p>
           </form>
+
+          <SocialLogin />
+
+          <p className="mt-4 text-center text-sm text-white/70">
+            {t("already-have-account")}
+            <Link
+              to={ROUTES.auth.login}
+              className="ms-1 font-semibold text-main hover:underline"
+            >
+              {t("login")}
+            </Link>
+          </p>
         </CardContent>
       </Card>
     </section>
