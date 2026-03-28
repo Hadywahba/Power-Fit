@@ -11,6 +11,7 @@ export const ROUTES = {
     about: "about",
     classes: "classes",
     healthy: "healthy",
+    kyc: "kyc",
     profile: "profile",
   },
 } as const;
