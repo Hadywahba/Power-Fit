@@ -20,6 +20,7 @@ const HomePage = lazy(() => import('@/pages/app/home/page'));
 const AboutPage = lazy(() => import('@/pages/app/about/page'));
 const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
 const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
+const KycPage = lazy(() => import('@/pages/app/kyc/page'));
 const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
 const KycPage = lazy(() => import('@/pages/auth/kyc/page'));
 
@@ -68,6 +69,7 @@ export const router = createBrowserRouter([
         children: [
           { path: ROUTES.app.classes, element: withSuspense(<ClassesPage />) },
           { path: ROUTES.app.healthy, element: withSuspense(<HealthyPage />) },
+          { path: ROUTES.app.kyc, element: withSuspense(<KycPage />) },
           { path: ROUTES.app.profile, element: withSuspense(<ProfilePage />) },
         ],
       },
