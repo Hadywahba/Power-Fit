@@ -34,5 +34,8 @@
   "first-name-is-required": "Please enter your first name",
   "last-name-is-required": "Please enter your last name",
   "confirm-password-is-required": "Confirm your password",
-  "passwords-dont-match": "Passwords don't match"
+  "passwords-dont-match": "Passwords don't match",
+  "hey-there": "Hey There",
+  "create-an-account": "Create An Account",
+  "or": "or"
 }

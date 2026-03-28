@@ -5,15 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
-
 import { useRegisterStore } from "@/lib/store/register.store";
-import {
-  createRegisterSchema,
-  type RegisterFields,
-} from "@/lib/schemes/auth/register.schema";
+import { createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
+import SocialIcons from "@/components/shared/social-icons";
 
-// Default Values
 const defaultValues: RegisterFields = {
   firstName: "",
   lastName: "",
@@ -22,9 +19,14 @@ const defaultValues: RegisterFields = {
   rePassword: "",
 };
 
+const inputProps = {
+  className: "bg-transparent",
+  inputClassName: "text-white",
+} as const;
+
+
 export default function RegisterStepOne() {
   const t = useTranslations();
-
   const { data, setStepData, nextStep } = useRegisterStore();
 
   const {
@@ -43,83 +45,105 @@ export default function RegisterStepOne() {
   }
 
   return (
-    <section className="mx-auto mt-5 w-full md:w-[70%]">
-      <form
-        onSubmit={handleSubmit(handleNext)}
-        className="space-y-4 border-y-2 border-zinc-200 py-8 dark:border-zinc-600"
-      >
-        {/* First Name */}
-        <Input
-          {...register("firstName")}
-          id="firstName"
-          type="text"
-          aria-label={t("first-name")}
-          error={errors.firstName?.message}
-          placeholder={t("first-name")}
-        />
-
-        {/* Last Name */}
-        <Input
-          {...register("lastName")}
-          id="lastName"
-          type="text"
-          aria-label={t("last-name")}
-          error={errors.lastName?.message}
-          placeholder={t("last-name")}
-        />
-
-        {/* Email */}
-        <Input
-          {...register("email")}
-          id="email"
-          type="email"
-          aria-label={t("email")}
-          error={errors.email?.message}
-          placeholder={t("email")}
-        />
-
-        {/* Password */}
-        <Input
-          {...register("password")}
-          id="password"
-          type="password"
-          aria-label={t("password")}
-          error={errors.password?.message}
-          placeholder={t("password")}
-        />
-
-        {/* Confirm Password */}
-        <Input
-          {...register("rePassword")}
-          id="rePassword"
-          type="password"
-          aria-label={t("confirm-password")}
-          error={errors.rePassword?.message}
-          placeholder={t("confirm-password")}
-        />
-
-        {/* Next Step */}
-        <Button
-          type="submit"
-          disabled={!isValid && isSubmitted}
-          className="w-full"
-        >
-          {t("register")}
-        </Button>
-      </form>
-
-      {/* Navigate to Login */}
-      <div className="mt-3 flex justify-center text-sm">
-        <span>
-          {t("already-have-account")}
-          <Link
-            to={ROUTES.auth.login}
-            className="ms-1 font-semibold underline text-main"
-          >
-            {t("login")}
-          </Link>
-        </span>
+    <section className="flex w-lg flex-col items-center">
+      {/* Heading — centered, matches Figma */}
+      <div className="mb-6 text-center">
+        <p className="text-lg text-white/90 uppercase">
+          {t("hey-there")}
+        </p>
+        <h1 className="text-2xl text-white">
+          {t("create-an-account")}
+        </h1>
       </div>
+
+      {/* Card */}
+      <Card className="w-11/12 max-h-150 rounded-[3.125rem] border border-gray-50 bg-transparent px-10">
+        <CardHeader className="mb-4 p-0">
+          <h2 className="text-center text-2xl font-bold text-white">
+            {t("register")}
+          </h2>
+        </CardHeader>
+
+        <CardContent className="p-0">
+          <form onSubmit={handleSubmit(handleNext)} className="space-y-4">
+            <Input
+              {...inputProps}
+              {...register("firstName")}
+              id="firstName"
+              type="text"
+              aria-label={t("first-name")}
+              placeholder={t("first-name")}
+              error={errors.firstName?.message}
+            />
+
+            {/* Last Name */}
+            <Input
+              {...inputProps}
+              {...register("lastName")}
+              id="lastName"
+              type="text"
+              aria-label={t("last-name")}
+              placeholder={t("last-name")}
+              error={errors.lastName?.message}
+            />
+
+            {/* Email */}
+            <Input
+              {...inputProps}
+              {...register("email")}
+              id="email"
+              type="email"
+              aria-label={t("email")}
+              placeholder={t("email")}
+              error={errors.email?.message}
+            />
+
+            {/* Password */}
+            <Input
+              {...inputProps}
+              {...register("password")}
+              id="password"
+              type="password"
+              aria-label={t("password")}
+              placeholder={t("password")}
+              error={errors.password?.message}
+            />
+
+            {/* Confirm Password */}
+            <Input
+              {...inputProps}
+              {...register("rePassword")}
+              id="rePassword"
+              type="password"
+              aria-label={t("confirm-password")}
+              placeholder={t("confirm-password")}
+              error={errors.rePassword?.message}
+            />
+
+            <SocialIcons/>
+
+            {/* Submit */}
+            <Button
+              type="submit"
+              disabled={!isValid && isSubmitted}
+              className="w-full rounded-full cursor-pointer bg-main py-5 text-base font-bold text-white hover:bg-orange-700"
+            >
+              {t("register")}
+            </Button>
+
+            {/* Login link */}
+            <p className="text-center text-sm text-white/70">
+              {t("already-have-account")}
+              <Link
+                to={ROUTES.auth.login}
+                className="ms-1 font-semibold text-main hover:underline"
+              >
+                {t("login")}
+              </Link>
+            </p>
+          </form>
+        </CardContent>
+      </Card>
     </section>
   );
 }
