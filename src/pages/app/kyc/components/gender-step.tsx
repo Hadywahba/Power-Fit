@@ -1,5 +1,6 @@
 import { Mars, Venus } from "lucide-react";
 import type { ReactNode } from "react";
+import { useTranslations } from "use-intl";
 import { cn } from "@/lib/utils/tailwind-merge/cn";
 
 export type GenderOption = "male" | "female";
@@ -16,27 +17,29 @@ type GenderStepProps = {
   options?: GenderItem[];
 };
 
-const DEFAULT_OPTIONS: GenderItem[] = [
-  {
-    value: "male",
-    label: "Male",
-    icon: <Mars className="h-9 w-9" strokeWidth={1.9} />,
-  },
-  {
-    value: "female",
-    label: "Female",
-    icon: <Venus className="h-9 w-9" strokeWidth={1.9} />,
-  },
-];
-
 export default function GenderStep({
   value,
   onChange,
-  options = DEFAULT_OPTIONS,
+  options,
 }: GenderStepProps) {
+  const t = useTranslations();
+
+  const resolvedOptions: GenderItem[] = options ?? [
+    {
+      value: "male",
+      label: t("kyc-wizard.gender-options.male"),
+      icon: <Mars className="h-9 w-9" strokeWidth={1.9} />,
+    },
+    {
+      value: "female",
+      label: t("kyc-wizard.gender-options.female"),
+      icon: <Venus className="h-9 w-9" strokeWidth={1.9} />,
+    },
+  ];
+
   return (
     <div className="flex items-center justify-center gap-6">
-      {options.map((item) => (
+      {resolvedOptions.map((item) => (
         <GenderOptionButton
           key={item.value}
           label={item.label}

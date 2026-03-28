@@ -59,5 +59,71 @@
   "about-feature-equipment-desc": "Our gym is equipped with the latest cardio & strength machines.",
   "about-feature-nutrition-title": "Healthy Nutritions",
   "about-feature-nutrition-desc": "Fuel your fitness journey with customized meal plans for you.",
-  "about-cta": "Get Started"
+  "about-cta": "Get Started",
+  "first-name": "First Name",
+  "last-name": "Last Name",
+  "confirm-password": "Confirm Password",
+  "already-have-account": "Already Have an account ?",
+  "first-name-is-required": "Please enter your first name",
+  "last-name-is-required": "Please enter your last name",
+  "confirm-password-is-required": "Confirm your password",
+  "passwords-dont-match": "Passwords don't match",
+  "create-an-account": "Create An Account",
+  "or": "or",
+  "successful-register": "Account Created Successfully",
+  "kyc-wizard": {
+    "shared": {
+      "next-button": "Next",
+      "done-button": "Done",
+      "personalized-plan-subtitle": "This Helps Us Create Your Personalized Plan"
+    },
+    "steps": {
+      "gender-step": {
+        "title": "TELL US ABOUT YOURSELF!",
+        "subtitle": "We Need To Know Your Gender"
+      },
+      "age-step": {
+        "title": "How Old Are You ?"
+      },
+      "weight-step": {
+        "title": "What Is Your Weight ?"
+      },
+      "height-step": {
+        "title": "What Is Your Height ?"
+      },
+      "goal-step": {
+        "title": "What Is Your Goal ?"
+      },
+      "activity-level-step": {
+        "title": "Your Regular Physical Activity Level ?"
+      }
+    },
+    "units": {
+      "years-old": "Years Old",
+      "kg": "KG",
+      "cm": "CM"
+    },
+    "gender-options": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "goal-options": {
+      "gain-weight": "Gain Weight",
+      "lose-weight": "Lose Weight",
+      "get-fitter": "Get Fitter",
+      "gain-more-flexible": "Gain More Flexible",
+      "learn-the-basic": "Learn The Basic"
+    },
+    "activity-level-options": {
+      "level-1": "Rookie",
+      "level-2": "Beginner",
+      "level-3": "Intermediate",
+      "level-4": "Advance",
+      "level-5": "True Beast"
+    },
+    "toast": {
+      "title": "KYC completed",
+      "description": "All {totalSteps} steps are saved successfully."
+    }
+  }
 }

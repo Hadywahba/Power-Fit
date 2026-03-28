@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { useTranslations } from "use-intl";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/tailwind-merge/cn";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
@@ -34,22 +35,38 @@ type GoalOption =
 type ActivityLevelOption = "level1" | "level2" | "level3" | "level4" | "level5";
 
 // Keep option values aligned with backend payload.
-const GOAL_OPTIONS: SelectOptionItem<GoalOption>[] = [
-  { value: "Gain weight", label: "Gain Weight" },
-  { value: "Lose weight", label: "Lose Weight" },
-  { value: "Get fitter", label: "Get Fitter" },
-  { value: "Gain more flexible", label: "Gain More Flexible" },
-  { value: "Learn the basic", label: "Learn The Basic" },
+const GOAL_VALUES: GoalOption[] = [
+  "Gain weight",
+  "Lose weight",
+  "Get fitter",
+  "Gain more flexible",
+  "Learn the basic",
 ];
 
 // Labels are user-facing, values are backend-facing (level1..level5).
-const ACTIVITY_LEVEL_OPTIONS: SelectOptionItem<ActivityLevelOption>[] = [
-  { value: "level1", label: "Rookie" },
-  { value: "level2", label: "Beginner" },
-  { value: "level3", label: "Intermediate" },
-  { value: "level4", label: "Advance" },
-  { value: "level5", label: "True Beast" },
+const ACTIVITY_LEVEL_VALUES: ActivityLevelOption[] = [
+  "level1",
+  "level2",
+  "level3",
+  "level4",
+  "level5",
 ];
+
+const GOAL_TRANSLATION_KEYS: Record<GoalOption, string> = {
+  "Gain weight": "kyc-wizard.goal-options.gain-weight",
+  "Lose weight": "kyc-wizard.goal-options.lose-weight",
+  "Get fitter": "kyc-wizard.goal-options.get-fitter",
+  "Gain more flexible": "kyc-wizard.goal-options.gain-more-flexible",
+  "Learn the basic": "kyc-wizard.goal-options.learn-the-basic",
+};
+
+const ACTIVITY_LEVEL_TRANSLATION_KEYS: Record<ActivityLevelOption, string> = {
+  level1: "kyc-wizard.activity-level-options.level-1",
+  level2: "kyc-wizard.activity-level-options.level-2",
+  level3: "kyc-wizard.activity-level-options.level-3",
+  level4: "kyc-wizard.activity-level-options.level-4",
+  level5: "kyc-wizard.activity-level-options.level-5",
+};
 
 type KycStep = {
   title: string;
@@ -72,6 +89,7 @@ const INITIAL_DRAFT: KycDraft = {
 };
 
 export default function KycWizard() {
+  const t = useTranslations();
   const navigate = useNavigate();
   const [draft, setDraftState] = useState<KycDraft>(INITIAL_DRAFT);
   const [stepIndex, setStepIndex] = useState(0);
@@ -80,11 +98,28 @@ export default function KycWizard() {
     setDraftState((prev) => ({ ...prev, ...next }));
   };
 
+  const goalOptions: SelectOptionItem<GoalOption>[] = GOAL_VALUES.map(
+    (value) => ({
+      value,
+      label: t(GOAL_TRANSLATION_KEYS[value]),
+    }),
+  );
+
+  const activityLevelOptions: SelectOptionItem<ActivityLevelOption>[] =
+    ACTIVITY_LEVEL_VALUES.map((value) => ({
+      value,
+      label: t(ACTIVITY_LEVEL_TRANSLATION_KEYS[value]),
+    }));
+
+  const personalizedPlanSubtitle = t(
+    "kyc-wizard.shared.personalized-plan-subtitle",
+  );
+
   const steps: KycStep[] = [
     {
-      title: "TELL US ABOUT YOURSELF!",
-      subtitle: "We Need To Know Your Gender",
-      buttonLabel: "Next",
+      title: t("kyc-wizard.steps.gender-step.title"),
+      subtitle: t("kyc-wizard.steps.gender-step.subtitle"),
+      buttonLabel: t("kyc-wizard.shared.next-button"),
       canContinue: (data) => Boolean(data.gender),
       content: (data, update) => (
         <GenderStep
@@ -94,14 +129,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: "How Old Are You ?",
-      subtitle: "This Helps Us Create Your Personalized Plan",
-      buttonLabel: "Next",
+      title: t("kyc-wizard.steps.age-step.title"),
+      subtitle: personalizedPlanSubtitle,
+      buttonLabel: t("kyc-wizard.shared.next-button"),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="age-step"
-          label="Years Old"
+          label={t("kyc-wizard.units.years-old")}
           min={18}
           max={65}
           value={data.age}
@@ -110,14 +145,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: "What Is Your Weight ?",
-      subtitle: "This Helps Us Create Your Personalized Plan",
-      buttonLabel: "Next",
+      title: t("kyc-wizard.steps.weight-step.title"),
+      subtitle: personalizedPlanSubtitle,
+      buttonLabel: t("kyc-wizard.shared.next-button"),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="weight-step"
-          label="KG"
+          label={t("kyc-wizard.units.kg")}
           min={40}
           max={150}
           value={data.weight}
@@ -126,14 +161,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: "What Is Your Height ?",
-      subtitle: "This Helps Us Create Your Personalized Plan",
-      buttonLabel: "Next",
+      title: t("kyc-wizard.steps.height-step.title"),
+      subtitle: personalizedPlanSubtitle,
+      buttonLabel: t("kyc-wizard.shared.next-button"),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="height-step"
-          label="CM"
+          label={t("kyc-wizard.units.cm")}
           min={140}
           max={220}
           value={data.height}
@@ -142,27 +177,27 @@ export default function KycWizard() {
       ),
     },
     {
-      title: "What Is Your Goal ?",
-      subtitle: "This Helps Us Create Your Personalized Plan",
-      buttonLabel: "Next",
+      title: t("kyc-wizard.steps.goal-step.title"),
+      subtitle: personalizedPlanSubtitle,
+      buttonLabel: t("kyc-wizard.shared.next-button"),
       canContinue: (data) => Boolean(data.goal),
       content: (data, update) => (
         <SelectOptionsStep
           value={data.goal}
-          options={GOAL_OPTIONS}
+          options={goalOptions}
           onChange={(value) => update({ goal: value })}
         />
       ),
     },
     {
-      title: "Your Regular Physical Activity Level ?",
-      subtitle: "This Helps Us Create Your Personalized Plan",
-      buttonLabel: "Done",
+      title: t("kyc-wizard.steps.activity-level-step.title"),
+      subtitle: personalizedPlanSubtitle,
+      buttonLabel: t("kyc-wizard.shared.done-button"),
       canContinue: (data) => Boolean(data.activityLevel),
       content: (data, update) => (
         <SelectOptionsStep
           value={data.activityLevel}
-          options={ACTIVITY_LEVEL_OPTIONS}
+          options={activityLevelOptions}
           onChange={(value) => update({ activityLevel: value })}
         />
       ),
@@ -185,8 +220,10 @@ export default function KycWizard() {
     }
 
     // Show success feedback before redirecting the user to login.
-    toast.success("KYC completed", {
-      description: "All 6 steps are saved successfully.",
+    toast.success(t("kyc-wizard.toast.title"), {
+      description: t("kyc-wizard.toast.description", {
+        totalSteps: TOTAL_STEPS,
+      }),
     });
 
     setTimeout(() => {

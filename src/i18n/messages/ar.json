@@ -62,5 +62,72 @@
   "about-feature-equipment-desc": "صالتنا مجهزة بأحدث أجهزة الكارديو وتقوية العضلات.",
   "about-feature-nutrition-title": "تغذية صحية",
   "about-feature-nutrition-desc": "أشعل رحلتك نحو اللياقة بخطط غذائية مخصصة لك.",
-  "about-cta": "ابدأ الآن"
+  "about-cta": "ابدأ الآن",
+  "first-name": "الاسم الأول",
+  "last-name": "اسم العائلة",
+  "confirm-password": "تأكيد كلمة المرور",
+  "already-have-account": "هل لديك حساب بالفعل؟",
+  "first-name-is-required": "الرجاء إدخال اسمك الأول",
+  "last-name-is-required": "الرجاء إدخال اسمك الأخير",
+  "confirm-password-is-required": "قم بتأكيد كلمة المرور الخاصة بك",
+  "passwords-dont-match": "كلمات المرور غير متطابقة",
+  "hey-there": "مرحبًا",
+  "create-an-account": "إنشاء حساب",
+  "or": "أو",
+  "successful-register": "تم إنشاء الحساب بنجاح",
+  "kyc-wizard": {
+    "shared": {
+      "next-button": "التالي",
+      "done-button": "إنهاء",
+      "personalized-plan-subtitle": "يساعدنا هذا في إنشاء خطتك الشخصية"
+    },
+    "steps": {
+      "gender-step": {
+        "title": "أخبرنا عن نفسك!",
+        "subtitle": "نحتاج إلى معرفة جنسك"
+      },
+      "age-step": {
+        "title": "كم عمرك؟"
+      },
+      "weight-step": {
+        "title": "ما هو وزنك؟"
+      },
+      "height-step": {
+        "title": "ما هو طولك؟"
+      },
+      "goal-step": {
+        "title": "ما هو هدفك؟"
+      },
+      "activity-level-step": {
+        "title": "ما هو مستوى نشاطك البدني المعتاد؟"
+      }
+    },
+    "units": {
+      "years-old": "سنة",
+      "kg": "كجم",
+      "cm": "سم"
+    },
+    "gender-options": {
+      "male": "ذكر",
+      "female": "أنثى"
+    },
+    "goal-options": {
+      "gain-weight": "زيادة الوزن",
+      "lose-weight": "إنقاص الوزن",
+      "get-fitter": "تحسين اللياقة",
+      "gain-more-flexible": "زيادة المرونة",
+      "learn-the-basic": "تعلم الأساسيات"
+    },
+    "activity-level-options": {
+      "level-1": "مبتدئ جدا",
+      "level-2": "مبتدئ",
+      "level-3": "متوسط",
+      "level-4": "متقدم",
+      "level-5": "محترف"
+    },
+    "toast": {
+      "title": "تم استكمال بياناتك",
+      "description": "تم حفظ جميع الخطوات وعددها {totalSteps} بنجاح."
+    }
+  }
 }
