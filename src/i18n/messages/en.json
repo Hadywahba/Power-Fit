@@ -26,5 +26,60 @@
   "goal": "Goal",
   "member-since": "Member Since",
   "kg": "kg",
-  "cm": "cm"
+  "cm": "cm",
+  "kyc-wizard": {
+    "shared": {
+      "next-button": "Next",
+      "done-button": "Done",
+      "personalized-plan-subtitle": "This Helps Us Create Your Personalized Plan"
+    },
+    "steps": {
+      "gender-step": {
+        "title": "TELL US ABOUT YOURSELF!",
+        "subtitle": "We Need To Know Your Gender"
+      },
+      "age-step": {
+        "title": "How Old Are You ?"
+      },
+      "weight-step": {
+        "title": "What Is Your Weight ?"
+      },
+      "height-step": {
+        "title": "What Is Your Height ?"
+      },
+      "goal-step": {
+        "title": "What Is Your Goal ?"
+      },
+      "activity-level-step": {
+        "title": "Your Regular Physical Activity Level ?"
+      }
+    },
+    "units": {
+      "years-old": "Years Old",
+      "kg": "KG",
+      "cm": "CM"
+    },
+    "gender-options": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "goal-options": {
+      "gain-weight": "Gain Weight",
+      "lose-weight": "Lose Weight",
+      "get-fitter": "Get Fitter",
+      "gain-more-flexible": "Gain More Flexible",
+      "learn-the-basic": "Learn The Basic"
+    },
+    "activity-level-options": {
+      "level-1": "Rookie",
+      "level-2": "Beginner",
+      "level-3": "Intermediate",
+      "level-4": "Advance",
+      "level-5": "True Beast"
+    },
+    "toast": {
+      "title": "KYC completed",
+      "description": "All {totalSteps} steps are saved successfully."
+    }
+  }
 }
