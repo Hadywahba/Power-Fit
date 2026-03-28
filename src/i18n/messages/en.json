@@ -43,5 +43,19 @@
   "footer-ticker-trainers": "OUTDOOR & ONLINE TRAINERS",
   "footer-ticker-personal": "PERSONAL TRAINING",
   "footer-ticker-live": "LIVE CLASSES",
-  "footer-ticker-personal-trainers": "PERSONAL TRAINERS"
+  "footer-ticker-personal-trainers": "PERSONAL TRAINERS",
+  "about-badge": "About Us",
+  "about-heading-1": "EMPOWERING YOU TO ACHIEVE",
+  "about-heading-2": "YOUR FITNESS",
+  "about-heading-3": "GOALS",
+  "about-description": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+  "about-feature-trainer-title": "Personal Trainer",
+  "about-feature-trainer-desc": "Achieve your fitness goals with the guidance of our certified trainers.",
+  "about-feature-cardio-title": "Cardio Programs",
+  "about-feature-cardio-desc": "From steady-state runs to interval sprints, our treadmill programs.",
+  "about-feature-equipment-title": "Quality Equipment",
+  "about-feature-equipment-desc": "Our gym is equipped with the latest cardio & strength machines.",
+  "about-feature-nutrition-title": "Healthy Nutritions",
+  "about-feature-nutrition-desc": "Fuel your fitness journey with customized meal plans for you.",
+  "about-cta": "Get Started"
 }

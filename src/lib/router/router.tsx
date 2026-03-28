@@ -59,12 +59,12 @@ export const router = createBrowserRouter([
     children: [
       // public
       { index: true, element: withSuspense(<HomePage />) },
+      { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
 
       // protected
       {
         element: <ProtectedRoute />,
         children: [
-          { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
           { path: ROUTES.app.classes, element: withSuspense(<ClassesPage />) },
           { path: ROUTES.app.healthy, element: withSuspense(<HealthyPage />) },
           { path: ROUTES.app.profile, element: withSuspense(<ProfilePage />) },
