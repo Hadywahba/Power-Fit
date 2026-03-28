@@ -163,6 +163,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: url("/assets/fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── Base ─── */
 @layer base {
   html {

@@ -48,5 +48,19 @@
   "footer-ticker-trainers": "مدربون خارجيون وعبر الإنترنت",
   "footer-ticker-personal": "التدريب الشخصي",
   "footer-ticker-live": "فصول مباشرة",
-  "footer-ticker-personal-trainers": "مدربون شخصيون"
+  "footer-ticker-personal-trainers": "مدربون شخصيون",
+  "about-badge": "من نحن",
+  "about-heading-1": "نُمكّنك من تحقيق",
+  "about-heading-2": "أهداف لياقتك",
+  "about-heading-3": "البدنية",
+  "about-description": "نؤمن بأن اللياقة البدنية أكثر من مجرد تمرين — إنها أسلوب حياة. بمرافق من الدرجة الأولى ومدربين معتمدين ومجتمع داعم، نحن هنا لإلهامك وإرشادك في كل خطوة.",
+  "about-feature-trainer-title": "مدرب شخصي",
+  "about-feature-trainer-desc": "حقق أهداف لياقتك البدنية بإرشاد مدربينا المعتمدين.",
+  "about-feature-cardio-title": "برامج الكارديو",
+  "about-feature-cardio-desc": "من الجري المستمر إلى التدريب المتقطع، برامج جهاز الجري لدينا.",
+  "about-feature-equipment-title": "معدات عالية الجودة",
+  "about-feature-equipment-desc": "صالتنا مجهزة بأحدث أجهزة الكارديو وتقوية العضلات.",
+  "about-feature-nutrition-title": "تغذية صحية",
+  "about-feature-nutrition-desc": "أشعل رحلتك نحو اللياقة بخطط غذائية مخصصة لك.",
+  "about-cta": "ابدأ الآن"
 }
