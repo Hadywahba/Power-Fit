@@ -1,25 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Elevate Fitness</title>
-    <!-- to detect theme and locale to prevent flash on reload -->
-    <script>
-      const theme = localStorage.getItem('fitness_theme') ?? 'light';
-      document.documentElement.classList.add(theme);
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      const locale = localStorage.getItem('fitness_locale') ?? 'en';
-      document.documentElement.lang = locale;
-      document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
-    </script>
-  </head>
-  <body
-    class="dark:bg-zinc-800 [@media(min-width:1920px)]:container [@media(min-width:1920px)]:mx-auto"
-  >
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <title>Elevate Fitness</title>
+
+  <script>
+    const theme = localStorage.getItem('fitness_theme') ?? 'light';
+    document.documentElement.classList.add(theme);
+
+    const locale = localStorage.getItem('fitness_locale') ?? 'en';
+    document.documentElement.lang = locale;
+    document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+  </script>
+</head>
+
+<body class="dark:bg-zinc-800 [@media(min-width:1920px)]:container [@media(min-width:1920px)]:mx-auto">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

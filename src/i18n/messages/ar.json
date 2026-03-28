@@ -32,71 +32,21 @@
   "member-since": "عضو منذ",
   "kg": "كجم",
   "cm": "سم",
-  "first-name": "الاسم الأول",
-  "last-name": "اسم العائلة",
-  "confirm-password": "تأكيد كلمة المرور",
-  "already-have-account": "هل لديك حساب بالفعل؟",
-  "first-name-is-required": "الرجاء إدخال اسمك الأول",
-  "last-name-is-required": "الرجاء إدخال اسمك الأخير",
-  "confirm-password-is-required": "قم بتأكيد كلمة المرور الخاصة بك",
-  "passwords-dont-match": "كلمات المرور غير متطابقة",
-  "hey-there": "مرحبًا يا من هناك",
-  "create-an-account": "إنشاء حساب",
-  "or": "أو",
-  "successful-register": "تم إنشاء الحساب بنجاح",
-  "kyc-wizard": {
-    "shared": {
-      "next-button": "التالي",
-      "done-button": "إنهاء",
-      "personalized-plan-subtitle": "يساعدنا هذا في إنشاء خطتك الشخصية"
-    },
-    "steps": {
-      "gender-step": {
-        "title": "أخبرنا عن نفسك!",
-        "subtitle": "نحتاج إلى معرفة جنسك"
-      },
-      "age-step": {
-        "title": "كم عمرك؟"
-      },
-      "weight-step": {
-        "title": "ما هو وزنك؟"
-      },
-      "height-step": {
-        "title": "ما هو طولك؟"
-      },
-      "goal-step": {
-        "title": "ما هو هدفك؟"
-      },
-      "activity-level-step": {
-        "title": "ما هو مستوى نشاطك البدني المعتاد؟"
-      }
-    },
-    "units": {
-      "years-old": "سنة",
-      "kg": "كجم",
-      "cm": "سم"
-    },
-    "gender-options": {
-      "male": "ذكر",
-      "female": "أنثى"
-    },
-    "goal-options": {
-      "gain-weight": "زيادة الوزن",
-      "lose-weight": "إنقاص الوزن",
-      "get-fitter": "تحسين اللياقة",
-      "gain-more-flexible": "زيادة المرونة",
-      "learn-the-basic": "تعلم الأساسيات"
-    },
-    "activity-level-options": {
-      "level-1": "مبتدئ جدا",
-      "level-2": "مبتدئ",
-      "level-3": "متوسط",
-      "level-4": "متقدم",
-      "level-5": "محترف"
-    },
-    "toast": {
-      "title": "تم استكمال بياناتك",
-      "description": "تم حفظ جميع الخطوات وعددها {totalSteps} بنجاح."
-    }
-  }
+  "footer-tagline": "ادفع بقوة، اذهب أبعد. رحلتك نحو اللياقة تبدأ اليوم!",
+  "footer-contact": "تواصل معنا",
+  "footer-phone": "+٩١ ١٢٣ ٤٥٦ ٧٨٩",
+  "footer-email": "info@gmail.com",
+  "footer-timing": "مواعيد الصالة",
+  "footer-timing-weekdays": "الاثنين – الجمعة",
+  "footer-timing-weekdays-hours": "٠٨:٠٠ ص – ١٠:٠٠ م",
+  "footer-timing-weekend": "السبت – الأحد",
+  "footer-timing-weekend-hours": "٠٨:٠٠ ص – ٠٩:٠٠ م",
+  "footer-location": "موقعنا",
+  "footer-address": "٢٧١٥ شارع آش، سان خوسيه، داكوتا الجنوبية ٨٣٤٧٥",
+  "footer-copyright": "© {year} سوبر فيتنس. جميع الحقوق محفوظة.",
+  "footer-ticker-classes": "الفصول",
+  "footer-ticker-trainers": "مدربون خارجيون وعبر الإنترنت",
+  "footer-ticker-personal": "التدريب الشخصي",
+  "footer-ticker-live": "فصول مباشرة",
+  "footer-ticker-personal-trainers": "مدربون شخصيون"
 }
