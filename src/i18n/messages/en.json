@@ -26,5 +26,22 @@
   "goal": "Goal",
   "member-since": "Member Since",
   "kg": "kg",
-  "cm": "cm"
+  "cm": "cm",
+  "footer-tagline": "Push harder, go Further. Your fitness journey starts today!",
+  "footer-contact": "Contact Us",
+  "footer-phone": "+91 123 456 789",
+  "footer-email": "info@gmail.com",
+  "footer-timing": "Our Gym Timing",
+  "footer-timing-weekdays": "Mon – Fri",
+  "footer-timing-weekdays-hours": "08:00 AM – 10:00 PM",
+  "footer-timing-weekend": "Sat – Sun",
+  "footer-timing-weekend-hours": "08:00 AM – 09:00 PM",
+  "footer-location": "Our Location",
+  "footer-address": "2715 Ash Dr. San Jose, South Dakota 83475",
+  "footer-copyright": "© {year} Super Fitness. All rights reserved.",
+  "footer-ticker-classes": "CLASSES",
+  "footer-ticker-trainers": "OUTDOOR & ONLINE TRAINERS",
+  "footer-ticker-personal": "PERSONAL TRAINING",
+  "footer-ticker-live": "LIVE CLASSES",
+  "footer-ticker-personal-trainers": "PERSONAL TRAINERS"
 }

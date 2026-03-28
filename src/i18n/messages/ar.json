@@ -30,5 +30,22 @@
   "goal": "الهدف",
   "member-since": "عضو منذ",
   "kg": "كجم",
-  "cm": "سم"
+  "cm": "سم",
+  "footer-tagline": "ادفع بقوة، اذهب أبعد. رحلتك نحو اللياقة تبدأ اليوم!",
+  "footer-contact": "تواصل معنا",
+  "footer-phone": "+٩١ ١٢٣ ٤٥٦ ٧٨٩",
+  "footer-email": "info@gmail.com",
+  "footer-timing": "مواعيد الصالة",
+  "footer-timing-weekdays": "الاثنين – الجمعة",
+  "footer-timing-weekdays-hours": "٠٨:٠٠ ص – ١٠:٠٠ م",
+  "footer-timing-weekend": "السبت – الأحد",
+  "footer-timing-weekend-hours": "٠٨:٠٠ ص – ٠٩:٠٠ م",
+  "footer-location": "موقعنا",
+  "footer-address": "٢٧١٥ شارع آش، سان خوسيه، داكوتا الجنوبية ٨٣٤٧٥",
+  "footer-copyright": "© {year} سوبر فيتنس. جميع الحقوق محفوظة.",
+  "footer-ticker-classes": "الفصول",
+  "footer-ticker-trainers": "مدربون خارجيون وعبر الإنترنت",
+  "footer-ticker-personal": "التدريب الشخصي",
+  "footer-ticker-live": "فصول مباشرة",
+  "footer-ticker-personal-trainers": "مدربون شخصيون"
 }
