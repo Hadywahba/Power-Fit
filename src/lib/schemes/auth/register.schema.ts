@@ -1,31 +1,36 @@
-import { PASSWORD_PATTERN } from "@/lib/constants/auth/auth.constant";
+import { FIRST_LAST_NAME_PATTERN, PASSWORD_PATTERN } from "@/lib/constants/auth/auth.constant";
 import { useTranslations } from "use-intl";
 import z from "zod";
 
+export function createRegisterSchema(t: ReturnType<typeof useTranslations>) {
+  return z
+    .object({
+      firstName: z
+        .string()
+        .nonempty(t("first-name-is-required"))
+        .regex(FIRST_LAST_NAME_PATTERN),
 
+      lastName: z
+        .string()
+        .nonempty(t("last-name-is-required"))
+        .regex(FIRST_LAST_NAME_PATTERN),
 
-export function RegisterSchema() {
+      email: z.email({
+        error: (iss) =>
+          iss.input ? t("email-is-invalid") : t("email-is-required"),
+      }),
 
-    const t = useTranslations();
-  
-  
-  z.object({
-    email: z.email({
-      error: (iss) =>
-        iss.input ? t("email-is-invalid") : t("email-is-required"),
-    }),
-    password: z
-      .string()
-      .nonempty("Password is required")
-      .regex(
-        PASSWORD_PATTERN,
-        "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-    ),
-    confirmPassword: z.string().nonempty("Please Confirm Your Password"),
-  }).refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-  });
-  
+      password: z
+        .string()
+        .nonempty(t("password-is-required"))
+        .regex(PASSWORD_PATTERN, t("password-is-invalid")),
+
+      rePassword: z.string().nonempty(t("confirm-password-is-required")),
+    })
+    .refine((data) => data.password === data.rePassword, {
+      message: t("passwords-dont-match"),
+      path: ["rePassword"],
+    });
 }
 
-export type RegisterFields = z.infer<ReturnType<typeof RegisterSchema>>;
+export type RegisterFields = z.infer<ReturnType<typeof createRegisterSchema>>;
