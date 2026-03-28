@@ -43,7 +43,8 @@ export default function Footer() {
                             alt="Super Fitness logo"
                             className="h-14 w-auto object-contain object-left self-start"
                         />
-                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-50">
+<<<<<<< HEAD
+                        <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-[200px]">
                             {t("footer-tagline")}
                         </p>
                     </div>
