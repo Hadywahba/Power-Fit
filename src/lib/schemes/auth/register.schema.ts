@@ -23,7 +23,7 @@ export function createRegisterSchema(t: ReturnType<typeof useTranslations>) {
       password: z
         .string()
         .nonempty(t("password-is-required"))
-        .regex(PASSWORD_PATTERN, t("password-is-invalid")),
+        .regex(PASSWORD_PATTERN, t("password-pattern", { count: 8 })),
 
       rePassword: z.string().nonempty(t("confirm-password-is-required")),
     })

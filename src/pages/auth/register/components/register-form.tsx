@@ -8,7 +8,10 @@ import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
 
 import { useRegisterStore } from "@/lib/store/register.store";
-import {  createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
+import {
+  createRegisterSchema,
+  type RegisterFields,
+} from "@/lib/schemes/auth/register.schema";
 
 // Default Values
 const defaultValues: RegisterFields = {
@@ -21,8 +24,8 @@ const defaultValues: RegisterFields = {
 
 export default function RegisterStepOne() {
   const t = useTranslations();
-  
-  const { setStepOneData, nextStep } = useRegisterStore();
+
+  const { data, setStepData, nextStep } = useRegisterStore();
 
   const {
     register,
@@ -30,12 +33,12 @@ export default function RegisterStepOne() {
     formState: { errors, isValid, isSubmitted },
   } = useForm<RegisterFields>({
     resolver: zodResolver(createRegisterSchema(t)),
-    defaultValues,
+    defaultValues: { ...defaultValues, ...data },
     mode: "onTouched",
   });
 
-  function handleNext(data: RegisterFields) {
-    setStepOneData(data);
+  function handleNext(incoming: RegisterFields) {
+    setStepData(incoming);
     nextStep();
   }
 
@@ -50,9 +53,9 @@ export default function RegisterStepOne() {
           {...register("firstName")}
           id="firstName"
           type="text"
-          label={t("first-name")}
+          aria-label={t("first-name")}
           error={errors.firstName?.message}
-          placeholder={t("first-name-placeholder")}
+          placeholder={t("first-name")}
         />
 
         {/* Last Name */}
@@ -60,9 +63,9 @@ export default function RegisterStepOne() {
           {...register("lastName")}
           id="lastName"
           type="text"
-          label={t("last-name")}
+          aria-label={t("last-name")}
           error={errors.lastName?.message}
-          placeholder={t("last-name-placeholder")}
+          placeholder={t("last-name")}
         />
 
         {/* Email */}
@@ -70,9 +73,9 @@ export default function RegisterStepOne() {
           {...register("email")}
           id="email"
           type="email"
-          label={t("email")}
+          aria-label={t("email")}
           error={errors.email?.message}
-          placeholder={t("email-placeholder")}
+          placeholder={t("email")}
         />
 
         {/* Password */}
@@ -80,9 +83,9 @@ export default function RegisterStepOne() {
           {...register("password")}
           id="password"
           type="password"
-          label={t("password")}
+          aria-label={t("password")}
           error={errors.password?.message}
-          placeholder={t("password-placeholder")}
+          placeholder={t("password")}
         />
 
         {/* Confirm Password */}
@@ -90,9 +93,9 @@ export default function RegisterStepOne() {
           {...register("rePassword")}
           id="rePassword"
           type="password"
-          label={t("confirm-password")}
+          aria-label={t("confirm-password")}
           error={errors.rePassword?.message}
-          placeholder={t("confirm-password-placeholder")}
+          placeholder={t("confirm-password")}
         />
 
         {/* Next Step */}
@@ -101,7 +104,7 @@ export default function RegisterStepOne() {
           disabled={!isValid && isSubmitted}
           className="w-full"
         >
-          {t("next")}
+          {t("register")}
         </Button>
       </form>
 

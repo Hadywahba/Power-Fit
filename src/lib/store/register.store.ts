@@ -1,10 +1,12 @@
 import { create } from "zustand";
 import type { RegisterFields } from "@/lib/schemes/auth/register.schema";
 
+type RegisterData = Partial<RegisterFields>;
+
 interface RegisterState {
   step: number;
-  stepOneData: RegisterFields | null;
-  setStepOneData: (data: RegisterFields) => void;
+  data: RegisterData;
+  setStepData: (data: RegisterData) => void;
   nextStep: () => void;
   prevStep: () => void;
   reset: () => void;
@@ -12,10 +14,11 @@ interface RegisterState {
 
 export const useRegisterStore = create<RegisterState>((set) => ({
   step: 1,
-  stepOneData: null,
+  data: {},
 
-  setStepOneData: (data) => set({ stepOneData: data }),
+  setStepData: (incoming) =>
+    set((state) => ({ data: { ...state.data, ...incoming } })),
   nextStep: () => set((state) => ({ step: state.step + 1 })),
   prevStep: () => set((state) => ({ step: Math.max(1, state.step - 1) })),
-  reset: () => set({ step: 1, stepOneData: null }),
+  reset: () => set({ step: 1, data: {} }),
 }));
