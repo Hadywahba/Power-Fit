@@ -26,5 +26,44 @@
   "goal": "Goal",
   "member-since": "Member Since",
   "kg": "kg",
-  "cm": "cm"
+  "cm": "cm",
+  "forget-password": {
+    "otp-subtitle": "We sent a code to {email}. <button>Change email</button>",
+    "title": "Forget Password",
+    "otp-title": "OTP CODE",
+    "new-password-title": "Create New Password",
+    "email-card-label": "Enter Your Email",
+    "otp-card-label": "Enter The OTP You Have Received",
+    "new-password-card-label": "Make Sure To Create A Strong Password!",
+    "send-otp": "Sent OTP",
+    "confirm": "Confirm",
+    "reset-password": "Reset Password",
+    "didnt-receive": "Didn't Receive Verification Code?",
+    "resend-code": "Resend Code",
+    "resend-countdown": "Resend in {seconds}s",
+    "otp-resent": "A new OTP has been sent to your email.",
+    "resend-failed": "Failed to resend OTP. Please try again.",
+    "email-sent": "Email sent successfully. Please check your inbox.",
+    "new-password-placeholder": "New Password",
+    "confirm-password-placeholder": "Confirm New Password",
+    "remembered-password": "Remember your password?",
+    "go-to-login": "Log in"
+  },
+  "common": {
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "continue": "Continue",
+    "back": "Back",
+    "back-to-login": "Back to Login",
+    "go-back": "Go back"
+  },
+  "validation": {
+    "required": "This field is required.",
+    "invalid-email": "Please enter a valid email address.",
+    "otp-length": "The OTP code must be 6 digits.",
+    "password-min": "Password must be at least 8 characters.",
+    "passwords-not-match": "Passwords do not match."
+  },
+  "password-reset-successfully": "Password reset successfully"
 }
