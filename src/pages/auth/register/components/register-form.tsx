@@ -32,6 +32,7 @@ export default function RegisterStepOne() {
   // Store
   const { data, setStepData, nextStep } = useRegisterStore();
 
+  // TODO: remove this hook after implementing the multi-step form and use the mutation in the final step
     // Mutation
   const { onRegister} = useRegister();
 
@@ -50,6 +51,7 @@ export default function RegisterStepOne() {
   function handleNext(incoming: RegisterFields) {
     setStepData(incoming);
     nextStep();
+    // TODO: Remove hardcoded values
       onRegister({ ...incoming, gender: "male", age: 0, height: 0, weight: 0, goal: "gain weight", activityLevel: "level1" });
   }
 
