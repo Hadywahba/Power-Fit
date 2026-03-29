@@ -26,5 +26,17 @@
   "goal": "Goal",
   "member-since": "Member Since",
   "kg": "kg",
-  "cm": "cm"
+  "cm": "cm",
+  "first-name": "First Name",
+  "last-name": "Last Name",
+  "confirm-password": "Confirm Password",
+  "already-have-account": "Already Have an account ?",
+  "first-name-is-required": "Please enter your first name",
+  "last-name-is-required": "Please enter your last name",
+  "confirm-password-is-required": "Confirm your password",
+  "passwords-dont-match": "Passwords don't match",
+  "hey-there": "Hey There",
+  "create-an-account": "Create An Account",
+  "or": "or",
+  "successful-register": "Account Created Successfully"
 }

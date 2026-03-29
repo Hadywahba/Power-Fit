@@ -30,5 +30,17 @@
   "goal": "الهدف",
   "member-since": "عضو منذ",
   "kg": "كجم",
-  "cm": "سم"
+  "cm": "سم",
+  "first-name": "الاسم الأول",
+  "last-name": "اسم العائلة",
+  "confirm-password": "تأكيد كلمة المرور",
+  "already-have-account": "هل لديك حساب بالفعل؟",
+  "first-name-is-required": "الرجاء إدخال اسمك الأول",
+  "last-name-is-required": "الرجاء إدخال اسمك الأخير",
+  "confirm-password-is-required": "قم بتأكيد كلمة المرور الخاصة بك",
+  "passwords-dont-match": "كلمات المرور غير متطابقة",
+  "hey-there": "مرحبًا يا من هناك",
+  "create-an-account": "إنشاء حساب",
+  "or": "أو",
+  "successful-register": "تم إنشاء الحساب بنجاح"
 }
