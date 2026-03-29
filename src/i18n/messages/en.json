@@ -37,5 +37,6 @@
   "passwords-dont-match": "Passwords don't match",
   "hey-there": "Hey There",
   "create-an-account": "Create An Account",
-  "or": "or"
+  "or": "or",
+  "successful-register": "Account Created Successfully"
 }

@@ -41,5 +41,6 @@
   "passwords-dont-match": "كلمات المرور غير متطابقة",
   "hey-there": "مرحبًا يا من هناك",
   "create-an-account": "إنشاء حساب",
-  "or": "أو"
+  "or": "أو",
+  "successful-register": "تم إنشاء الحساب بنجاح"
 }

@@ -1,15 +1,16 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useTranslations } from "use-intl";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ROUTES } from "@/lib/constants/routes/routes.constant";
-import { useRegisterStore } from "@/lib/store/register.store";
-import { createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
 import SocialLogin from "@/components/shared/social-icons";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ROUTES } from "@/lib/constants/routes/routes.constant";
+import { createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
+import { useRegisterStore } from "@/lib/store/register.store";
+import { useRegister } from "../hooks/use-register";
 
 const defaultValues: RegisterFields = {
   firstName: "",
@@ -31,6 +32,9 @@ export default function RegisterStepOne() {
   // Store
   const { data, setStepData, nextStep } = useRegisterStore();
 
+    // Mutation
+  const { onRegister} = useRegister();
+
   // RHF
   const {
     register,
@@ -46,6 +50,7 @@ export default function RegisterStepOne() {
   function handleNext(incoming: RegisterFields) {
     setStepData(incoming);
     nextStep();
+      onRegister({ ...incoming, gender: "male", age: 0, height: 0, weight: 0, goal: "gain weight", activityLevel: "level1" });
   }
 
   return (
