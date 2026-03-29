@@ -1,26 +1,26 @@
-import { createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import AuthLayout from "@/components/layout/auth/auth-layout";
-import AppLayout from "@/components/layout/app/app-layout";
-import NotFound from "@/components/shared/not-found";
-import ProtectedRoute from "@/components/shared/protected-route";
-import GuestRoute from "@/components/shared/guest-route";
-import { ROUTES } from "@/lib/constants/routes/routes.constant";
-import Loading from "@/components/shared/loading";
+import { createBrowserRouter } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import AuthLayout from '@/components/layout/auth/auth-layout';
+import AppLayout from '@/components/layout/app/app-layout';
+import NotFound from '@/components/shared/not-found';
+import ProtectedRoute from '@/components/shared/protected-route';
+import GuestRoute from '@/components/shared/guest-route';
+import { ROUTES } from '@/lib/constants/routes/routes.constant';
+import Loading from '@/components/shared/loading';
 
 // ─── Auth Pages ───
-const LoginPage = lazy(() => import("@/pages/auth/login/page"));
-const RegisterPage = lazy(() => import("@/pages/auth/register/page"));
+const LoginPage = lazy(() => import('@/pages/auth/login/page'));
+const RegisterPage = lazy(() => import('@/pages/auth/register/page'));
 const ForgetPasswordPage = lazy(
-  () => import("@/pages/auth/forget-password/page"),
+  () => import('@/pages/auth/forget-password/page'),
 );
 
 // ─── App Pages ───
-const HomePage = lazy(() => import("@/pages/app/home/page"));
-const AboutPage = lazy(() => import("@/pages/app/about/page"));
-const ClassesPage = lazy(() => import("@/pages/app/classes/page"));
-const HealthyPage = lazy(() => import("@/pages/app/healthy/page"));
-const ProfilePage = lazy(() => import("@/pages/app/profile/page"));
+const HomePage = lazy(() => import('@/pages/app/home/page'));
+const AboutPage = lazy(() => import('@/pages/app/about/page'));
+const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
+const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
+const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
 
 // ─── Suspense Wrapper ───
 const withSuspense = (element: React.ReactNode) => (
@@ -30,7 +30,6 @@ const withSuspense = (element: React.ReactNode) => (
 export const router = createBrowserRouter([
   // ─── Auth Layout — guests only ───
   {
-    path: ROUTES.auth.root,
     element: <GuestRoute />,
     children: [
       {
@@ -46,7 +45,7 @@ export const router = createBrowserRouter([
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),
           },
-          { path: "*", element: <NotFound /> },
+          { path: '*', element: <NotFound /> },
         ],
       },
     ],
@@ -71,7 +70,7 @@ export const router = createBrowserRouter([
         ],
       },
 
-      { path: "*", element: <NotFound /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ]);

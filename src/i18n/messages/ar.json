@@ -11,7 +11,7 @@
   "email-is-invalid": "البريد الإلكتروني غير صالح",
   "email-is-required": "البريد الإلكتروني مطلوب",
   "password-is-required": "كلمة المرور مطلوبة",
-  "password-pattern": "يجب أن تتكون كلمة المرور من {count} حرفًا على الأقل وتحتوي على حرف كبير واحد وحرف صغير واحد ورقم واحد وحرف خاص واحد على الأقل (",
+  "password-pattern": "يجب أن تتكون كلمة المرور من {count} حرفًا على الأقل وتحتوي على حرف كبير واحد وحرف صغير واحد ورقم واحد وحرف خاص واحد على الأقل (#?!@$%^&*-)",
   "successful-login": "تم تسجيل الدخول بنجاح",
   "email": "البريد الالكتروني",
   "email-placeholder": "أدخل بريدك الإلكتروني",
@@ -31,6 +31,7 @@
   "member-since": "عضو منذ",
   "kg": "كجم",
   "cm": "سم",
+
   "footer-tagline": "ادفع بقوة، اذهب أبعد. رحلتك نحو اللياقة تبدأ اليوم!",
   "footer-contact": "تواصل معنا",
   "footer-phone": "+٩١ ١٢٣ ٤٥٦ ٧٨٩",
@@ -48,6 +49,7 @@
   "footer-ticker-personal": "التدريب الشخصي",
   "footer-ticker-live": "فصول مباشرة",
   "footer-ticker-personal-trainers": "مدربون شخصيون",
+
   "about-badge": "من نحن",
   "about-heading-1": "نُمكّنك من تحقيق",
   "about-heading-2": "أهداف لياقتك",
@@ -61,5 +63,18 @@
   "about-feature-equipment-desc": "صالتنا مجهزة بأحدث أجهزة الكارديو وتقوية العضلات.",
   "about-feature-nutrition-title": "تغذية صحية",
   "about-feature-nutrition-desc": "أشعل رحلتك نحو اللياقة بخطط غذائية مخصصة لك.",
-  "about-cta": "ابدأ الآن"
+  "about-cta": "ابدأ الآن",
+
+  "first-name": "الاسم الأول",
+  "last-name": "اسم العائلة",
+  "confirm-password": "تأكيد كلمة المرور",
+  "already-have-account": "هل لديك حساب بالفعل؟",
+  "first-name-is-required": "الرجاء إدخال اسمك الأول",
+  "last-name-is-required": "الرجاء إدخال اسمك الأخير",
+  "confirm-password-is-required": "قم بتأكيد كلمة المرور الخاصة بك",
+  "passwords-dont-match": "كلمات المرور غير متطابقة",
+  "hey-there": "مرحبًا",
+  "create-an-account": "إنشاء حساب",
+  "or": "أو",
+  "successful-register": "تم إنشاء الحساب بنجاح"
 }

@@ -27,6 +27,7 @@
   "member-since": "Member Since",
   "kg": "kg",
   "cm": "cm",
+
   "footer-tagline": "Push harder, go Further. Your fitness journey starts today!",
   "footer-contact": "Contact Us",
   "footer-phone": "+91 123 456 789",
@@ -44,6 +45,7 @@
   "footer-ticker-personal": "PERSONAL TRAINING",
   "footer-ticker-live": "LIVE CLASSES",
   "footer-ticker-personal-trainers": "PERSONAL TRAINERS",
+
   "about-badge": "About Us",
   "about-heading-1": "EMPOWERING YOU TO ACHIEVE",
   "about-heading-2": "YOUR FITNESS",
@@ -57,5 +59,18 @@
   "about-feature-equipment-desc": "Our gym is equipped with the latest cardio & strength machines.",
   "about-feature-nutrition-title": "Healthy Nutritions",
   "about-feature-nutrition-desc": "Fuel your fitness journey with customized meal plans for you.",
-  "about-cta": "Get Started"
+  "about-cta": "Get Started",
+
+  "first-name": "First Name",
+  "last-name": "Last Name",
+  "confirm-password": "Confirm Password",
+  "already-have-account": "Already Have an account ?",
+  "first-name-is-required": "Please enter your first name",
+  "last-name-is-required": "Please enter your last name",
+  "confirm-password-is-required": "Confirm your password",
+  "passwords-dont-match": "Passwords don't match",
+  "hey-there": "Hey There",
+  "create-an-account": "Create An Account",
+  "or": "or",
+  "successful-register": "Account Created Successfully"
 }
