@@ -25,9 +25,13 @@ const inputProps = {
 } as const;
 
 export default function RegisterStepOne() {
+  // Translations
   const t = useTranslations();
+
+  // Store
   const { data, setStepData, nextStep } = useRegisterStore();
 
+  // RHF
   const {
     register,
     handleSubmit,
@@ -38,6 +42,7 @@ export default function RegisterStepOne() {
     mode: "onTouched",
   });
 
+  // Handlers
   function handleNext(incoming: RegisterFields) {
     setStepData(incoming);
     nextStep();
@@ -65,6 +70,8 @@ export default function RegisterStepOne() {
 
         <CardContent className="p-0">
           <form onSubmit={handleSubmit(handleNext)} className="space-y-4">
+
+            {/* First Name */}
             <Input
               {...inputProps}
               {...register("firstName")}
@@ -75,6 +82,7 @@ export default function RegisterStepOne() {
               error={errors.firstName?.message}
             />
 
+              {/* Last Name */}
             <Input
               {...inputProps}
               {...register("lastName")}
@@ -85,6 +93,7 @@ export default function RegisterStepOne() {
               error={errors.lastName?.message}
             />
 
+            {/* Email */}
             <Input
               {...inputProps}
               {...register("email")}
@@ -95,6 +104,7 @@ export default function RegisterStepOne() {
               error={errors.email?.message}
             />
 
+              {/* Password */}
             <Input
               {...inputProps}
               {...register("password")}
@@ -105,6 +115,7 @@ export default function RegisterStepOne() {
               error={errors.password?.message}
             />
 
+              {/* Confirm Password */}
             <Input
               {...inputProps}
               {...register("rePassword")}
@@ -115,6 +126,7 @@ export default function RegisterStepOne() {
               error={errors.rePassword?.message}
             />
 
+            {/* Register Button */}
             <Button
               type="submit"
               disabled={!isValid && isSubmitted}
@@ -124,6 +136,7 @@ export default function RegisterStepOne() {
             </Button>
           </form>
 
+          {/* Social Login */}
           <SocialLogin />
 
           <p className="mt-4 text-center text-sm text-white/70">

@@ -1,7 +1,7 @@
 import { Facebook, Apple } from "lucide-react";
 import { useTranslations } from "use-intl";
 
-// Defined outside to avoid recreation on every render
+
 function GoogleIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
@@ -14,22 +14,21 @@ function GoogleIcon() {
 }
 
 const socialButtons = [
-  { label: "Sign up with Facebook", icon: <Facebook className="h-5 w-5" /> },
+  { label: "Sign up with Facebook", icon: <Facebook size={20} /> },
   { label: "Sign up with Google",   icon: <GoogleIcon /> },
-  { label: "Sign up with Apple",    icon: <Apple className="h-5 w-5" /> },
+  { label: "Sign up with Apple",    icon: <Apple size={20} /> },
 ];
 
 export default function SocialLogin() {
+  // Translations
   const t = useTranslations();
 
   return (
     <div className="py-2">
       {/* Or Divider */}
-      <div className="flex items-center gap-3 py-1">
-        <div className="h-px flex-1 bg-white/20" />
+    <div className="flex items-center gap-3 py-1 before:h-px before:flex-1 before:bg-white/20 after:h-px after:flex-1 after:bg-white/20">
         <span className="text-sm text-white/50">{t("or")}</span>
-        <div className="h-px flex-1 bg-white/20" />
-      </div>
+    </div>
 
       {/* Social Buttons */}
       <div className="flex justify-center gap-6">
