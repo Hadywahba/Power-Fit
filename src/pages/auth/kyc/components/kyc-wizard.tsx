@@ -6,15 +6,21 @@ import { useTranslations } from "use-intl";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/tailwind-merge/cn";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
+import { useRegisterStore } from "@/lib/store/register.store";
+import type {
+  RegisterActivityLevel,
+  RegisterBody,
+  RegisterGoal,
+} from "@/lib/types/register";
 import GenderStep, { type GenderOption } from "./gender-step";
 import NumberSelectionStep from "./number-selection-step";
 import ProgressRing from "./progress-ring";
 import SelectOptionsStep, {
   type SelectOptionItem,
 } from "./select-options-step";
+import { useRegister } from "../../register/hooks/use-register";
 
 const TOTAL_STEPS = 6;
-const LOGIN_REDIRECT_DELAY_MS = 1400;
 
 type KycDraft = {
   gender: GenderOption | null;
@@ -25,14 +31,9 @@ type KycDraft = {
   activityLevel: ActivityLevelOption | null;
 };
 
-type GoalOption =
-  | "Gain weight"
-  | "Lose weight"
-  | "Get fitter"
-  | "Gain more flexible"
-  | "Learn the basic";
+type GoalOption = RegisterGoal;
 
-type ActivityLevelOption = "level1" | "level2" | "level3" | "level4" | "level5";
+type ActivityLevelOption = RegisterActivityLevel;
 
 // Keep option values aligned with backend payload.
 const GOAL_VALUES: GoalOption[] = [
@@ -91,6 +92,8 @@ const INITIAL_DRAFT: KycDraft = {
 export default function KycWizard() {
   const t = useTranslations();
   const navigate = useNavigate();
+  const { data } = useRegisterStore();
+  const { onRegister, isPending } = useRegister();
   const [draft, setDraftState] = useState<KycDraft>(INITIAL_DRAFT);
   const [stepIndex, setStepIndex] = useState(0);
 
@@ -208,7 +211,7 @@ export default function KycWizard() {
   const canContinue = currentStep.canContinue(draft);
 
   const handleNext = () => {
-    if (!canContinue) {
+    if (!canContinue || isPending) {
       return;
     }
 
@@ -219,20 +222,40 @@ export default function KycWizard() {
       return;
     }
 
-    // Show success feedback before redirecting the user to login.
-    toast.success(t("kyc-wizard.toast.title"), {
-      description: t("kyc-wizard.toast.description", {
-        totalSteps: TOTAL_STEPS,
-      }),
-    });
+    if (
+      !data.firstName ||
+      !data.lastName ||
+      !data.email ||
+      !data.password ||
+      !data.rePassword ||
+      !draft.gender ||
+      !draft.goal ||
+      !draft.activityLevel
+    ) {
+      toast.error("Please complete register data first.");
+      navigate(ROUTES.auth.register);
+      return;
+    }
 
-    setTimeout(() => {
-      navigate(`${ROUTES.auth.root}/${ROUTES.auth.login}`);
-    }, LOGIN_REDIRECT_DELAY_MS);
+    const payload: RegisterBody = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      rePassword: data.rePassword,
+      gender: draft.gender,
+      age: draft.age,
+      height: draft.height,
+      weight: draft.weight,
+      goal: draft.goal,
+      activityLevel: draft.activityLevel,
+    };
+
+    onRegister(payload);
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#090d16] text-white font-sans">
+    <section className="relative min-h-screen overflow-hidden text-white font-sans">
 
 
       <div className="relative z-10 flex min-h-screen items-center justify-center px-5 py-10">
@@ -251,7 +274,8 @@ export default function KycWizard() {
           <Button
             type="button"
             onClick={handleNext}
-            disabled={!canContinue}
+            isLoading={isPending}
+            disabled={!canContinue || isPending}
             className={cn(
               "mt-6 h-12 w-full max-w-xs mx-auto flex items-center justify-center rounded-full cursor-pointer",
             )}

@@ -3,6 +3,7 @@ export const ROUTES = {
     login: '/login',
     register: '/register',
     forgetPassword: '/forget-password',
+    kyc: '/kyc',
   },
   app: {
     root: '/',
@@ -11,7 +12,6 @@ export const ROUTES = {
     classes: '/classes',
     healthy: '/healthy',
     profile: '/profile',
-    kyc: 'kyc',
   },
 } as const;
 
