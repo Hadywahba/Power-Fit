@@ -42,5 +42,9 @@
   "hey-there": "مرحبًا يا من هناك",
   "create-an-account": "إنشاء حساب",
   "or": "أو",
-  "successful-register": "تم إنشاء الحساب بنجاح"
+  "successful-register": "تم إنشاء الحساب بنجاح",
+  "classes": {
+    "workout-title": "حوّل جسمك مع تماريننا الديناميكية <span>القادمة</span>",
+    "fitness-class": "حصة لياقة بدنية"
+  }
 }

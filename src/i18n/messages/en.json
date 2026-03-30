@@ -38,5 +38,9 @@
   "hey-there": "Hey There",
   "create-an-account": "Create An Account",
   "or": "or",
-  "successful-register": "Account Created Successfully"
+  "successful-register": "Account Created Successfully",
+  "classes": {
+    "workout-title": " Transform Your Body with Our Dynamic <span>Upcoming Workouts</span>",
+    "fitness-class":"fitness class"
+  }
 }
