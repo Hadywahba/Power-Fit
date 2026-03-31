@@ -1,20 +1,21 @@
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "use-intl";
-import { Link } from "react-router-dom";
+import { useForm, type SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'use-intl';
+import { Link } from 'react-router-dom';
 import {
   useLoginSchema,
   type LoginFields,
-} from "@/lib/schemes/auth/login.schema";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { ROUTES } from "@/lib/constants/routes/routes.constant";
-import { useLogin } from "../hooks/use-login";
+} from '@/lib/schemes/auth/login.schema';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { ROUTES } from '@/lib/constants/routes/routes.constant';
+import { useLogin } from '../hooks/use-login';
+import { Apple, Chrome, Facebook } from 'lucide-react';
 
 // Default Values
 const defaultValues: LoginFields = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 export default function LoginForm() {
@@ -31,7 +32,7 @@ export default function LoginForm() {
     formState: { errors, isSubmitted, isValid },
   } = useForm<LoginFields>({
     defaultValues,
-    mode: "onChange",
+    mode: 'onChange',
     resolver: zodResolver(useLoginSchema()),
   });
 
@@ -41,73 +42,100 @@ export default function LoginForm() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center max-h-screen  text-white p-4">
-      <div className="text-center mb-8">
-        <p className="text-gray-400 text-sm mb-1">{t("Hey There")},</p>
-        <h1 className="text-4xl font-black tracking-wider uppercase">{t("Welcome Back")}!</h1>
+    <section className="flex max-h-screen flex-col items-center justify-center p-2 text-white">
+      <div className="mb-8 text-center">
+        <p className="mb-1 text-sm text-gray-400">{t('hey-there')},</p>
+        <h1 className="text-4xl font-black tracking-wider uppercase">
+          {t('welcome-back')}!
+        </h1>
       </div>
-      <div className="w-full max-w-[420px] backdrop-blur-md border border-white/10 rounded-[45px] p-8 md:p-10 shadow-2xl">
-        <h2 className="text-2xl font-bold text-center mb-8">Login</h2>
-      <form
-        onSubmit={handleSubmit(handleLogin)}
-        className="space-y-4 border-y-2 border-zinc-200 py-8 dark:border-zinc-600"
-      >
-        {/* Email */}
-        <Input
-          {...register("email")}
-          id="email"
-          type="email"
-          label={t("email")}
-          error={errors.email?.message}
-          placeholder={t("email-placeholder")}
-          className="bg-transparent border-zinc-600 rounded-full pl-12 h-12 focus-visible:ring-orange-600 focus-visible:border-orange-600"
-        />
-
-        {/* Password */}
-        <Input
-          {...register("password")}
-          id="password"
-          type="password"
-          label={t("password")}
-          error={errors.password?.message}
-          placeholder={t("password-placeholder")}
-          className="bg-transparent border-zinc-600 rounded-full pl-12 h-12 focus-visible:ring-orange-600 focus-visible:border-orange-600"
-        />
-
-        {/* Forget Password */}
-        <div className="flex justify-end">
-          <Link
-            to={ROUTES.auth.forgetPassword}
-            className="text-sm font-semibold text-main hover:underline"
-          >
-            {t("forgot-your-password")}
-          </Link>
-        </div>
-
-        {/* Submit */}
-        <Button
-          type="submit"
-          isLoading={isPending}
-          disabled={isPending || (!isValid && isSubmitted)}
-          serverError={loginServerError?.message}
-          className="w-full"
+      <div className="w-full max-w-96 rounded-xl border border-gray-300 p-8 shadow-2xl backdrop-blur-md md:p-10">
+        <h2 className=" text-center text-2xl font-bold">{t('login')}</h2>
+        <form
+          onSubmit={handleSubmit(handleLogin)}
+          className="space-y-4  py-4"
         >
-          {t("login")}
-        </Button>
-      </form>
-      </div>
-      {/* Navigate to Register */}
-      <div className="mt-3 flex justify-center text-sm">
+          {/* Email */}
+          <Input
+            {...register('email')}
+            id="email"
+            type="email"
+            label={t('email')}
+            error={errors.email?.message}
+            placeholder={t('email-placeholder')}
+            className="h-12 rounded-full border-gray-300 bg-transparent pl-12 focus-visible:border-orange-600 focus-visible:ring-orange-600"
+          />
+
+          {/* Password */}
+          <Input
+            {...register('password')}
+            id="password"
+            type="password"
+            label={t('password')}
+            error={errors.password?.message}
+            placeholder={t('password-placeholder')}
+            className="h-12 rounded-full border-gray-300 bg-transparent pl-12 focus-visible:border-orange-600 focus-visible:ring-orange-600"
+          />
+
+          {/* Forget Password */}
+          <div className="flex justify-end">
+            <Link
+              to={ROUTES.auth.forgetPassword}
+              className="text-main text-sm font-semibold hover:underline"
+            >
+              {t('forgot-your-password')}
+            </Link>
+          </div>
+          {/* devider */}
+         <div className="relative flex items-center justify-center">
+  <span className="relative px-3 text-xs text-gray-500 italic
+    before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:-translate-x-full before:h-1 before:w-25 before:bg-gray-500
+    after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:translate-x-full after:h-1 after:w-25 after:bg-gray-500
+  ">
+    {t('or')}
+  </span>
+</div>
+
+          {/* Social Icons Placeholder */}
+          <div className="flex justify-center gap-5 pb-2">
+            <div className="flex h-9 w-28 cursor-pointer items-center justify-around rounded-full   transition-colors ">
+              <div className="h-6 w-6 flex items-center justify-center rounded-full  opacity-70 bg-zinc-800">
+                <Facebook size={16} className="text-gray-100" />
+             
+        </div>
+                <div className="h-6 w-6 flex items-center justify-center rounded-full  opacity-70 bg-zinc-800">
+                  <Chrome size={16} className="text-gray-100" />
+                </div>
+                <div className="h-6 w-6 flex items-center justify-center rounded-full  opacity-70 bg-zinc-800">
+                  <Apple size={16} className="text-gray-100" />
+                </div>
+            </div>
+          </div>
+          {/* Submit */}
+          <Button
+            type="submit"
+            isLoading={isPending}
+            disabled={isPending || (!isValid && isSubmitted)}
+            serverError={loginServerError?.message}
+            className="w-full"
+          >
+            {t('login')}
+          </Button>
+        </form>
+          <div className="mt-3 flex justify-center text-sm">
         <span>
-          {t("dont-have-account")}
+          {t('dont-have-account')}
           <Link
             to={ROUTES.auth.register}
-            className="ms-1 font-semibold underline text-main"
+            className="text-main ms-1 font-semibold underline"
           >
-            {t("register")}
+            {t('register')}
           </Link>
         </span>
       </div>
+      </div>
+      {/* Navigate to Register */}
+    
     </section>
   );
 }
