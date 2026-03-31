@@ -21,6 +21,7 @@ const AboutPage = lazy(() => import('@/pages/app/about/page'));
 const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
 const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
 const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
+const KycPage = lazy(() => import('@/pages/auth/kyc/page'));
 
 // ─── Suspense Wrapper ───
 const withSuspense = (element: React.ReactNode) => (
@@ -41,6 +42,7 @@ export const router = createBrowserRouter([
             path: ROUTES.auth.register,
             element: withSuspense(<RegisterPage />),
           },
+          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />), },
           {
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),

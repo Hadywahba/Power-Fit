@@ -1,10 +1,34 @@
-import type { RegisterFields } from "../schemes/auth/register.schema";
+import type { RegisterFields } from '../schemes/auth/register.schema';
+import type { User } from './auth';
+
+export type RegisterGender = 'male' | 'female';
+
+export type RegisterGoal =
+  | 'Gain weight'
+  | 'Lose weight'
+  | 'Get fitter'
+  | 'Gain more flexible'
+  | 'Learn the basic';
+
+export type RegisterActivityLevel =
+  | 'level1'
+  | 'level2'
+  | 'level3'
+  | 'level4'
+  | 'level5';
 
 export type RegisterBody = RegisterFields & {
-  gender: "male" | "female";
+  gender: RegisterGender;
   age: number;
   height: number;
   weight: number;
-  goal: "gain weight" | "lose weight" | "get fitter" | "gain more flexible" | "learn the basics";
-  activityLevel: "level1" | "level2" | "level3" | "level4" | "level5" ;
+  goal: RegisterGoal;
+  activityLevel: RegisterActivityLevel;
 };
+
+export type RegisterResponseData = {
+  user: User;
+  token: string;
+};
+
+export type RegisterResponse = SuccessfullResponse<RegisterResponseData>;

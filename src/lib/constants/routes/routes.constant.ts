@@ -3,6 +3,7 @@ export const ROUTES = {
     login: '/login',
     register: '/register',
     forgetPassword: '/forget-password',
+    kyc: '/kyc',
   },
   app: {
     root: '/',
