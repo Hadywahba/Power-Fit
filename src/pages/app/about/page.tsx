@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="relative w-full max-w-150 h-185">
           <div className="absolute top-0 left-0 w-89.5 h-135.5 overflow-hidden shadow-xl" style={{ borderRadius: "18px" }}>
             <img
-              src="/assets/images/about-1.png"
+              src="/assets/images/about-athlete-training.png"
               alt="Athlete training"
               className="w-full h-full object-cover object-center"
             />
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
           <div className="absolute overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a]" style={{ width: "222px", height: "188px", top: "80px", left: "378px", borderRadius: "18px" }}>
             <img
-              src="/assets/images/about-3.png"
+              src="/assets/images/about-athlete-seated.png"
               alt="Athlete seated"
               className="w-full h-full object-cover object-top"
             />
@@ -66,7 +66,7 @@ export default function AboutPage() {
 
           <div className="absolute bottom-0 right-0 w-88.25 h-113 overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a]" style={{ borderRadius: "18px" }}>
             <img
-              src="/assets/images/about-2.png"
+              src="/assets/images/about-athlete-standing.png"
               alt="Athlete standing"
               className="w-full h-full object-cover object-top"
             />
