@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
 import SocialLogin from "@/components/shared/social-icons";
@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
 import { createRegisterSchema, type RegisterFields } from "@/lib/schemes/auth/register.schema";
 import { useRegisterStore } from "@/lib/store/register.store";
-import { useRegister } from "../hooks/use-register";
 
 const defaultValues: RegisterFields = {
   firstName: "",
@@ -28,13 +27,11 @@ const inputProps = {
 export default function RegisterStepOne() {
   // Translations
   const t = useTranslations();
+  // Navigation
+  const navigate = useNavigate();
 
   // Store
   const { data, setStepData, nextStep } = useRegisterStore();
-
-  // TODO: remove this hook after implementing the multi-step form and use the mutation in the final step
-    // Mutation
-  const { onRegister} = useRegister();
 
   // RHF
   const {
@@ -51,8 +48,7 @@ export default function RegisterStepOne() {
   function handleNext(incoming: RegisterFields) {
     setStepData(incoming);
     nextStep();
-    // TODO: Remove hardcoded values
-      onRegister({ ...incoming, gender: "male", age: 0, height: 0, weight: 0, goal: "gain weight", activityLevel: "level1" });
+    navigate(ROUTES.auth.kyc);
   }
 
   return (
