@@ -67,7 +67,6 @@ export default function AboutPage() {
           <div className="absolute bottom-0 right-0 w-88.25 h-113 overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a]" style={{ borderRadius: "18px" }}>
             <img
               src="/assets/images/about-2.png"
->>>>>>> af277f9 (feature: add footer component and about componant)
               alt="Athlete standing"
               className="w-full h-full object-cover object-top"
             />
