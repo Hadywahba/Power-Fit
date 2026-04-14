@@ -36,7 +36,7 @@ const wrapperErrorClasses =
 const innerInputClasses = cn(
   "h-full w-full bg-transparent border-0",
   "px-3 text-sm",
-  "text-zinc-900 placeholder:text-zinc-500/80",
+  "text-zinc-50 placeholder:text-zinc-500/80",
   "outline-none ring-0",
   "focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0",
   "disabled:cursor-not-allowed",
@@ -48,7 +48,7 @@ const innerInputClasses = cn(
 const plainInputClasses = cn(
   "flex h-12 w-full rounded-[1rem] border bg-white/95",
   "border-zinc-300 px-4 py-2 text-sm",
-  "text-zinc-900 placeholder:text-zinc-500/80",
+  "text-zinc-50 placeholder:text-zinc-500/80",
   "transition-all duration-200",
   "outline-none ring-0 shadow-none",
   "hover:border-zinc-400 focus:border-zinc-500",

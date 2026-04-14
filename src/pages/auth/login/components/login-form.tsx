@@ -49,7 +49,7 @@ export default function LoginForm() {
           {t('welcome-back')}!
         </h1>
       </div>
-      <div className="w-full max-w-96 rounded-xl border border-gray-300 p-8 shadow-2xl backdrop-blur-md md:p-10">
+     <div className="w-full max-w-96 rounded-xl border border-gray-300 p-8 shadow-2xl backdrop-blur-md md:p-10">
         <h2 className=" text-center text-2xl font-bold">{t('login')}</h2>
         <form
           onSubmit={handleSubmit(handleLogin)}
@@ -135,7 +135,11 @@ export default function LoginForm() {
       </div>
       </div>
       {/* Navigate to Register */}
-    
+
     </section>
+          // <SmartCoachChat />
+
+          
+
   );
 }
