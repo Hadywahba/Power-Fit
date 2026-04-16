@@ -20,6 +20,9 @@ const HomePage = lazy(() => import('@/pages/app/home/page'));
 const AboutPage = lazy(() => import('@/pages/app/about/page'));
 const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
 const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
+const HealthyDetailsPage = lazy(
+  () => import('@/pages/app/healthy-details/page'),
+);
 const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
 
 // ─── Suspense Wrapper ───
@@ -66,6 +69,10 @@ export const router = createBrowserRouter([
           { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
           { path: ROUTES.app.classes, element: withSuspense(<ClassesPage />) },
           { path: ROUTES.app.healthy, element: withSuspense(<HealthyPage />) },
+          {
+            path: ROUTES.app.healthyDetails,
+            element: withSuspense(<HealthyDetailsPage />),
+          },
           { path: ROUTES.app.profile, element: withSuspense(<ProfilePage />) },
         ],
       },

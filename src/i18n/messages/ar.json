@@ -46,5 +46,8 @@
   "classes": {
     "workout-title": "حوّل جسمك مع تماريننا الديناميكية <span>القادمة</span>",
     "fitness-class": "حصة لياقة بدنية"
+  },
+  "meals": {
+    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام {ingredient}"
   }
 }

@@ -10,6 +10,7 @@ export const ROUTES = {
     about: '/about',
     classes: '/classes',
     healthy: '/healthy',
+    healthyDetails:`healthyDetails/:id`,
     profile: '/profile',
   },
 } as const;
