@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
+
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import { useMealId } from '../hooks/use-meal-id';
 import MealCard from './meals-card';
 import { useTranslations } from 'use-intl';
+import { useParams } from 'react-router-dom';
 
 export default function MealsCategory() {
   // Translations
@@ -15,6 +16,7 @@ export default function MealsCategory() {
   const { meals } = useMealId('Chicken');
   console.log(meals);
   console.log(id);
+  if (!id) return null;
   return (
     <main
       className={cn(

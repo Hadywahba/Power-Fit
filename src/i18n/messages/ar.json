@@ -48,6 +48,6 @@
     "fitness-class": "حصة لياقة بدنية"
   },
   "meals": {
-    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام {ingredient}"
+    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام <ingredient></ingredient>"
   }
 }

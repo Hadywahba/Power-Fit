@@ -44,6 +44,6 @@
     "fitness-class":"fitness class"
   },
   "meals": {
-  "meal-title": "🍽️ Discover meals prepared with {ingredient}"
+  "meal-title": "🍽️ Discover meals prepared with <ingredient></ingredient>"
 }
 }
