@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 type MealContextType = {
   mealId: string | null;
@@ -30,4 +30,15 @@ export function MealProvider({ children }: { children: React.ReactNode }) {
       {children}
     </MealContext.Provider>
   );
+}
+
+// ✅ Custom Hook (IMPORTANT)
+export function useMeal() {
+  const context = useContext(MealContext);
+
+  if (!context) {
+    throw new Error('useMeal must be used inside MealProvider');
+  }
+
+  return context;
 }

@@ -19,7 +19,7 @@ export default function Page() {
     <MealProvider>
       <main
         className={cn(
-          'relative grid min-h-screen w-full grid-cols-1 md:grid-cols-12',
+          'relative grid  w-full grid-cols-1 md:grid-cols-12',
           'before:absolute before:inset-0',
           "before:bg-[url('/assets/images/person-fit.png')]",
           'before:bg-cover before:bg-center',
@@ -30,7 +30,7 @@ export default function Page() {
         )}
       >
         {/* Meals Title - Full Width */}
-        <section className="relative z-30 col-span-12 flex justify-center pt-8 pb-6">
+        <section className="relative z-30 col-span-12 flex justify-center pt-8 pb-6 ">
           <h1 className="rounded-2xl border border-gray-200 bg-white px-6 py-4 text-center text-2xl font-extrabold shadow-md lg:text-4xl">
             {t.rich('meal-title', {
               ingredient: () => (
