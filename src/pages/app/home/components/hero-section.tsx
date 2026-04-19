@@ -1,76 +1,76 @@
-import { Button } from '@/components/ui/button'
-import Image from '@/components/ui/image'
+import { Button } from '@/components/ui/button';
+import Image from '@/components/ui/image';
+import HeroCarousel from './hero-carousel';
 
 const stats = [
   { number: '1200+', label: 'Active Members' },
-  { number: '12+',  label: 'Certified Trainers' },
-  { number: '20+',  label: 'Year Of Experience' },
-]
+  { number: '12+', label: 'Certified Trainers' },
+  { number: '20+', label: 'Year Of Experience' },
+];
 
 export default function HeroSection() {
   return (
-    <section
-      className="relative bg-[url('/assets/images/Theo_Vance.png')] bg-no-repeat bg-bottom-right bg-cover bg-white dark:bg-transparent text-zinc-800 dark:text-white min-h-200 flex items-center p-20 mb-10 overflow-hidden">
+    <>
+      <section className="relative flex min-h-200 flex-col bg-white bg-[url('/assets/images/Theo_Vance.png')] bg-cover bg-bottom-right bg-no-repeat text-zinc-800 dark:bg-transparent dark:text-white">
+        {/* Gradient + Blur Overlay */}
+        <div className="absolute inset-0 bg-linear-to-l from-white/90 via-white/75 to-white/50 backdrop-blur-2xl dark:from-zinc-900/80 dark:via-zinc-800/60 dark:to-zinc-800/40"></div>
 
-      {/* Gradient + Blur Overlay */}
-      <div className="absolute inset-0 backdrop-blur-2xl
-        bg-linear-to-l
-        from-white/90 via-white/75 to-white/50
-        dark:from-zinc-900/80 dark:via-zinc-800/60 dark:to-zinc-800/40">
-      </div>
+        {/* Hero content row */}
+        <div className="relative z-10 flex flex-1 items-center px-20">
+          {/* Left content */}
+          <div className="max-w-[55%] flex-1 pr-8">
+            <p className="mb-6 text-5xl leading-normal font-bold uppercase">
+              Your body can
+              <span className="text-main"> stand almost </span>
+              anything.
+            </p>
 
-      {/* Left content */}
-      <div className="relative z-10 flex-1 max-w-[55%] pr-8">
+            <p className="before:bg-main relative mb-8 max-w-160 pl-4 text-xl font-normal text-zinc-600 before:absolute before:inset-0 before:h-24 before:w-1 before:content-[''] dark:text-white/80">
+              It's your mind that needs convincing. Push past your limits, stay
+              committed, and watch your body transform into a powerhouse of
+              strength and resilience. Start your journey today & truly capable
+              of!
+            </p>
 
-        <p className="text-5xl font-bold uppercase leading-normal mb-6">
-          Your body can
-          <span className="text-main"> stand almost </span>
-          anything.
-        </p>
+            <ul className="mb-16 flex list-none gap-12 py-5">
+              {stats.map(({ number, label }) => (
+                <li key={label}>
+                  <span className="text-2xl font-bold">{number}</span>
+                  <span className="mt-1 block text-xl font-normal text-zinc-700 dark:text-white/90">
+                    {label}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-        <p className="relative text-xl font-normal max-w-160 pl-4 text-zinc-600 dark:text-white/80 mb-8 before:absolute before:inset-0 before:bg-main before:w-1 before:h-24 before:content-['']">
-          It's your mind that needs convincing. Push past your limits, stay committed,
-          and watch your body transform into a powerhouse of strength and resilience.
-          Start your journey today & truly capable of!
-        </p>
+            <div className="flex gap-3">
+              <Button className="cursor-pointer">Get Started</Button>
+              <Button
+                className="text-main border-main hover:bg-main/10 hover:text-main dark:hover:bg-main/10 dark:hover:text-main cursor-pointer border dark:bg-transparent"
+                variant="outline"
+              >
+                Explore More
+              </Button>
+            </div>
+          </div>
 
-        <ul className="flex gap-12 py-5 mb-16 list-none">
-          {stats.map(({ number, label }) => (
-            <li key={label}>
-              <span className="text-2xl font-bold">
-                {number}
-              </span>
-              <span className="text-xl font-normal text-zinc-700 dark:text-white/90 mt-1 block">
-                {label}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex gap-3">
-          <Button className="cursor-pointer">
-            Get Started
-          </Button>
-          <Button
-            className="text-main dark:bg-transparent border border-main cursor-pointer hover:bg-main/10 hover:text-main dark:hover:bg-main/10 dark:hover:text-main"
-            variant="outline"
-          >
-            Explore More
-          </Button>
+          {/* Right image */}
+          <div className="relative flex max-h-180 flex-1 pt-5 items-end justify-center">
+            <Image
+              src="/assets/images/Theo-Vance.svg"
+              alt="Bodybuilder man"
+              width={467}
+              height={700}
+              className="object-contain object-top"
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Right image */}
-      <div className="relative flex-1 flex justify-center items-end max-h-180">
-          <Image
-            src="/assets/images/Theo-Vance.svg"
-            alt="Bodybuilder man"
-            width={467}
-            height={700}
-            className="object-contain object-top"
-          />
-      </div>
-
-    </section>
-  )
+        {/* Carousel */}
+        <div className="relative z-10 mt-auto">
+          <HeroCarousel />
+        </div>
+      </section>
+    </>
+  );
 }
