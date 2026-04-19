@@ -94,5 +94,30 @@
       "title": "KYC completed",
       "description": "All {totalSteps} steps are saved successfully."
     }
+  },
+  "chatbot": {
+    "title": "Smart Coach",
+    "default-question": "Hello How Can I Assist You Today ?",
+    "input-placeholder": "Ask Me Any Things",
+    "loading": "Typing...",
+    "send": "Send",
+    "cancel": "Cancel",
+    "meal-description": "Meal Description",
+    "category": "Category",
+    "cuisine": "Cuisine",
+    "ingredients": "Ingredients",
+    "tutorial": "Tutorial",
+    "suggest-u-exercises": "suggest you exercises",
+    "target": "target",
+    "level": "level",
+    "video": "Video",
+    "available-levels": "Available Levels",
+    "focused-muscles": "we focus on many muscles",
+    "and": "and",
+    "others": "others",
+     "not-available": "Not Available",
+     "suggested-meals": "i can suggest you meals from many categories like:",
+      "which-category": "Which category would you like to get meals from ?",
+      "error": "Sorry, I couldn't fetch the data. Please try again later."
   }
 }
