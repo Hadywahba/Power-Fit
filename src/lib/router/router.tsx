@@ -35,7 +35,6 @@ export const router = createBrowserRouter([
       {
         element: <AuthLayout />,
         children: [
-          { index: true, element: withSuspense(<LoginPage />) },
           { path: ROUTES.auth.login, element: withSuspense(<LoginPage />) },
           {
             path: ROUTES.auth.register,
@@ -58,7 +57,7 @@ export const router = createBrowserRouter([
     children: [
       // public
       { index: true, element: withSuspense(<HomePage />) },
-
+      
       // protected
       {
         element: <ProtectedRoute />,

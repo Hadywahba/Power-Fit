@@ -4,14 +4,16 @@ import ThemeToggle from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "use-intl";
+import HeroSection from "./components/hero-section";
 
 export default function HomePage() {
   const t = useTranslations();
   return (
+    <>
     <section className="flex flex-col justify-center items-center dark:bg-gray-800 h-screen">
       <h1> {t("hello-react")}</h1>
       <p>{t("react-number-is", { price: 2454 })}</p>
-      <div className="flex gap-3 mt-3 w-full">
+      <div className="flex gap-3 mt-3 mb-20 w-full">
         <LocaleSwitcher />
         <ThemeToggle />
         <LogoutButton />
@@ -23,6 +25,10 @@ export default function HomePage() {
           <Input  type="password" label="last name"/>
         </div>
       </div>
+
     </section>
+
+      <HeroSection />
+    </>
   );
 }
