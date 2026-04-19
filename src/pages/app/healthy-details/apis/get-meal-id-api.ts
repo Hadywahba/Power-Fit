@@ -1,3 +1,4 @@
+import type { GetMealsByIdResponse } from '@/lib/types/meals/meal-id';
 import axios from 'axios';
 
 export const getMealsById = async ({
@@ -8,7 +9,7 @@ export const getMealsById = async ({
   };
 }) => {
   const { data } = await axios.get<GetMealsByIdResponse>(
-    `www.themealdb.com/api/json/v1/1/lookup.php`,
+    `https://www.themealdb.com/api/json/v1/1/lookup.php`,
     {
       params: {
         i: params.id,

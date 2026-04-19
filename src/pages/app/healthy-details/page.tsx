@@ -12,14 +12,13 @@ export default function Page() {
   // Hook
   const { id } = useParams();
 
-  console.log(id);
   if (!id) return null;
 
   return (
     <MealProvider>
       <main
         className={cn(
-          'relative grid  w-full grid-cols-1 md:grid-cols-12',
+          'relative grid w-full grid-cols-1 md:grid-cols-12',
           'before:absolute before:inset-0',
           "before:bg-[url('/assets/images/person-fit.png')]",
           'before:bg-cover before:bg-center',
@@ -42,11 +41,11 @@ export default function Page() {
 
         {/* Left Side */}
 
-        <section className="relative z-30 md:col-span-6">
+        <section className="relative z-30 col-span-12 h-full md:col-span-4 ">
           <MealsCategory id={id} />
         </section>
         {/* Right Side */}
-        <section className="relative z-30 md:col-span-6">
+        <section className="relative z-30 col-span-12 h-full md:col-span-8">
           <Meals />
         </section>
       </main>

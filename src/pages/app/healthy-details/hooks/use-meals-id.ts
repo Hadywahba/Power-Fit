@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getMealsById } from '../apis/get-meal-id-api';
 
-export const useMeal = (id: string) => {
+export const useMealIds = (id: string) => {
   const {
     data: meals,
     isLoading,

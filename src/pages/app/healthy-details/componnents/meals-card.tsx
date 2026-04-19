@@ -17,6 +17,7 @@ export default function MealCard({
 
   //  Variable
   const isActive = mealId === idMeal;
+
   return (
     <div
       onClick={() => setMealId(idMeal)}

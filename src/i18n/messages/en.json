@@ -41,9 +41,14 @@
   "successful-register": "Account Created Successfully",
   "classes": {
     "workout-title": " Transform Your Body with Our Dynamic <span>Upcoming Workouts</span>",
-    "fitness-class":"fitness class"
+    "fitness-class": "fitness class"
   },
   "meals": {
-  "meal-title": "🍽️ Discover meals prepared with <ingredient></ingredient>"
-}
+    "meal-title": "🍽️ Discover meals prepared with <ingredient></ingredient>",
+    "Ingredients": "Ingredients",
+    "youtube": " Watch on YouTube",
+    "Instructions": "Instructions",
+    "load-more":"Load More",
+    "loading":"Loading..."
+  }
 }

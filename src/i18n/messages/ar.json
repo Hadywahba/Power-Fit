@@ -48,6 +48,11 @@
     "fitness-class": "حصة لياقة بدنية"
   },
   "meals": {
-    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام <ingredient></ingredient>"
+    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام <ingredient></ingredient>",
+    "Ingredients": "مكونات",
+    "youtube": "شاهد على يوتيوب",
+    "Instructions": "تعليمات",
+    "load-more": "تحميل المزيد",
+    "loading": "جاري التحميل..."
   }
 }

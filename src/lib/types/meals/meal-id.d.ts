@@ -1,4 +1,4 @@
-declare type Mealss = {
+export type Mealss = {
   idMeal: string;
   strMeal: string;
   strMealAlternate: string | null;
@@ -12,60 +12,26 @@ declare type Mealss = {
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: string | null;
-
-  // Ingredients (optional dynamic fields)
-  strIngredient1: string;
-  strIngredient2: string;
-  strIngredient3: string;
-  strIngredient4: string;
-  strIngredient5: string;
-  strIngredient6: string;
-  strIngredient7: string;
-  strIngredient8: string;
-  strIngredient9: string;
-  strIngredient10: string;
-  strIngredient11: string;
-  strIngredient12: string;
-  strIngredient13: string;
-  strIngredient14: string;
-  strIngredient15: string;
-  strIngredient16: string;
-  strIngredient17: string;
-  strIngredient18: string;
-  strIngredient19: string;
-  strIngredient20: string;
-
-  // Measures
-  strMeasure1: string;
-  strMeasure2: string;
-  strMeasure3: string;
-  strMeasure4: string;
-  strMeasure5: string;
-  strMeasure6: string;
-  strMeasure7: string;
-  strMeasure8: string;
-  strMeasure9: string;
-  strMeasure10: string;
-  strMeasure11: string;
-  strMeasure12: string;
-  strMeasure13: string;
-  strMeasure14: string;
-  strMeasure15: string;
-  strMeasure16: string;
-  strMeasure17: string;
-  strMeasure18: string;
-  strMeasure19: string;
-  strMeasure20: string;
 };
 
-declare type GetMealsByIdSuccessResponse = {
+export type IngredientKeys = {
+  [K in `strIngredient${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20}`]: string;
+};
+
+export type MeasureKeys = {
+  [K in `strMeasure${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20}`]: string;
+};
+
+export type MealDetails = Meal & Partial<IngredientKeys> & Partial<MeasureKeys>;
+
+export type GetMealsByIdSuccessResponse = {
   meals: Mealss[];
 };
 
-declare type GetMealsByIdFailureResponse = {
-  meals: string;
+export type GetMealsByIdFailureResponse = {
+  meals: null
 };
 
-declare type GetMealsByIdResponse =
+export type GetMealsByIdResponse =
   | GetMealsByIdSuccessResponse
   | GetMealsByIdFailureResponse;
