@@ -80,8 +80,7 @@ export const useChat = () => {
           return `لقيتلك وجبات ممتازة في قسم ${categoryName}:\n\n${mealList}\n\nحابب تعرف تفاصيل أكتر عن وجبة معينة؟`;
         }
       }
-
-      // --- 3. منطق الأكل العام (لو مفيش كاتيجوري محدد) ---
+    //    meals logic
       if (msg.includes('أكل') || msg.includes('وجبات') || msg.includes('diet') || msg.includes('جوعان')) {
         const categoriesList = categories.slice(0, 6).map((c: MealCategory) => c.strCategory).join(' - ');
         return `${t('available-categories')}: \n(${categoriesList})\n\n${t('which-category')}`;
