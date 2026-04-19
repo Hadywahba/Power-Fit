@@ -1,5 +1,5 @@
-import { useAuth } from "@/hooks/shared/use-auth";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
+import { useRegisterStore } from "@/lib/store/register.store";
 import type { RegisterBody } from "@/lib/types/register";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +12,6 @@ export function useRegister() {
   const t = useTranslations();
   // Navigation
   const navigate = useNavigate();
-  // Hooks
-  const { login: saveToken } = useAuth();
 
   // Mutation
   const {
@@ -21,12 +19,12 @@ export function useRegister() {
     isPending,
     error: registerServerError,
   } = useMutation({
-    mutationFn: async (Values: RegisterBody) => await registerApi(Values),
+    mutationFn: async (values: RegisterBody) => await registerApi(values),
 
-    onSuccess: (data) => {
-      saveToken(data.token);
+    onSuccess: () => {
+      useRegisterStore.getState().reset();
       toast.success(t("successful-register"));
-      navigate(ROUTES.app.home);
+      navigate(ROUTES.auth.login);
     },
 
     onError: (error: Error) => {

@@ -24,6 +24,7 @@ const HealthyDetailsPage = lazy(
   () => import('@/pages/app/healthy-details/page'),
 );
 const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
+const KycPage = lazy(() => import('@/pages/auth/kyc/page'));
 
 // ─── Suspense Wrapper ───
 const withSuspense = (element: React.ReactNode) => (
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
             path: ROUTES.auth.register,
             element: withSuspense(<RegisterPage />),
           },
+          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />), },
           {
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),
@@ -61,12 +63,12 @@ export const router = createBrowserRouter([
     children: [
       // public
       { index: true, element: withSuspense(<HomePage />) },
+      { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
 
       // protected
       {
         element: <ProtectedRoute />,
         children: [
-          { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
           { path: ROUTES.app.classes, element: withSuspense(<ClassesPage />) },
           { path: ROUTES.app.healthy, element: withSuspense(<HealthyPage />) },
           {

@@ -158,8 +158,16 @@
 /* ─── Fonts ─── */
 @font-face {
   font-family: "Baloo Thambi 2";
-  src: url("/fonts/BalooThambi2-VariableFont_wght.ttf");
+  src: url("/assets/fonts/BalooThambi2-VariableFont_wght.ttf");
   font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("/assets/fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -173,4 +181,15 @@
 /* ─── Utilities ─── */
 @utility container {
   margin-inline: auto;
+}
+
+/* ─── Marquee animation ─── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }

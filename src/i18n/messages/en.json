@@ -13,9 +13,11 @@
   "email-placeholder": "Enter your email",
   "password": "Password",
   "password-placeholder": "Enter your password",
-  "forgot-your-password": "forget your password ?",
+  "forgot-your-password": "forget password ?",
   "login": "Login",
-  "dont-have-account": "Dont have account ?",
+  "hey-there": "Hey There",
+  "welcome-back": "Welcome Back",
+  "dont-have-account": "Don't have an account yet ?",
   "register": "Register",
   "something-went-wrong": "Something went wrong",
   "gender": "Gender",
@@ -27,6 +29,37 @@
   "member-since": "Member Since",
   "kg": "kg",
   "cm": "cm",
+  "footer-tagline": "Push harder, go Further. Your fitness journey starts today!",
+  "footer-contact": "Contact Us",
+  "footer-phone": "+91 123 456 789",
+  "footer-email": "info@gmail.com",
+  "footer-timing": "Our Gym Timing",
+  "footer-timing-weekdays": "Mon – Fri",
+  "footer-timing-weekdays-hours": "08:00 AM – 10:00 PM",
+  "footer-timing-weekend": "Sat – Sun",
+  "footer-timing-weekend-hours": "08:00 AM – 09:00 PM",
+  "footer-location": "Our Location",
+  "footer-address": "2715 Ash Dr. San Jose, South Dakota 83475",
+  "footer-copyright": "© {year} Super Fitness. All rights reserved.",
+  "footer-ticker-classes": "CLASSES",
+  "footer-ticker-trainers": "OUTDOOR & ONLINE TRAINERS",
+  "footer-ticker-personal": "PERSONAL TRAINING",
+  "footer-ticker-live": "LIVE CLASSES",
+  "footer-ticker-personal-trainers": "PERSONAL TRAINERS",
+  "about-badge": "About Us",
+  "about-heading-1": "EMPOWERING YOU TO ACHIEVE",
+  "about-heading-2": "YOUR FITNESS",
+  "about-heading-3": "GOALS",
+  "about-description": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+  "about-feature-trainer-title": "Personal Trainer",
+  "about-feature-trainer-desc": "Achieve your fitness goals with the guidance of our certified trainers.",
+  "about-feature-cardio-title": "Cardio Programs",
+  "about-feature-cardio-desc": "From steady-state runs to interval sprints, our treadmill programs.",
+  "about-feature-equipment-title": "Quality Equipment",
+  "about-feature-equipment-desc": "Our gym is equipped with the latest cardio & strength machines.",
+  "about-feature-nutrition-title": "Healthy Nutritions",
+  "about-feature-nutrition-desc": "Fuel your fitness journey with customized meal plans for you.",
+  "about-cta": "Get Started",
   "first-name": "First Name",
   "last-name": "Last Name",
   "confirm-password": "Confirm Password",
@@ -35,7 +68,6 @@
   "last-name-is-required": "Please enter your last name",
   "confirm-password-is-required": "Confirm your password",
   "passwords-dont-match": "Passwords don't match",
-  "hey-there": "Hey There",
   "create-an-account": "Create An Account",
   "or": "or",
   "successful-register": "Account Created Successfully",
@@ -50,5 +82,59 @@
     "Instructions": "Instructions",
     "load-more":"Load More",
     "loading":"Loading..."
+  "kyc-wizard": {
+    "shared": {
+      "next-button": "Next",
+      "done-button": "Done",
+      "personalized-plan-subtitle": "This Helps Us Create Your Personalized Plan"
+    },
+    "steps": {
+      "gender-step": {
+        "title": "TELL US ABOUT YOURSELF!",
+        "subtitle": "We Need To Know Your Gender"
+      },
+      "age-step": {
+        "title": "How Old Are You ?"
+      },
+      "weight-step": {
+        "title": "What Is Your Weight ?"
+      },
+      "height-step": {
+        "title": "What Is Your Height ?"
+      },
+      "goal-step": {
+        "title": "What Is Your Goal ?"
+      },
+      "activity-level-step": {
+        "title": "Your Regular Physical Activity Level ?"
+      }
+    },
+    "units": {
+      "years-old": "Years Old",
+      "kg": "KG",
+      "cm": "CM"
+    },
+    "gender-options": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "goal-options": {
+      "gain-weight": "Gain Weight",
+      "lose-weight": "Lose Weight",
+      "get-fitter": "Get Fitter",
+      "gain-more-flexible": "Gain More Flexible",
+      "learn-the-basic": "Learn The Basic"
+    },
+    "activity-level-options": {
+      "level-1": "Rookie",
+      "level-2": "Beginner",
+      "level-3": "Intermediate",
+      "level-4": "Advance",
+      "level-5": "True Beast"
+    },
+    "toast": {
+      "title": "KYC completed",
+      "description": "All {totalSteps} steps are saved successfully."
+    }
   }
 }
