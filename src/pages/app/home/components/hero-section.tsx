@@ -1,12 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Image from '@/components/ui/image';
 import HeroCarousel from './hero-carousel';
+import { stats } from '@/lib/constants/home/hero.constants';
 
-const stats = [
-  { number: '1200+', label: 'Active Members' },
-  { number: '12+', label: 'Certified Trainers' },
-  { number: '20+', label: 'Year Of Experience' },
-];
 
 export default function HeroSection() {
   return (
@@ -33,11 +29,11 @@ export default function HeroSection() {
             </p>
 
             <ul className="mb-16 flex list-none gap-12 py-5">
-              {stats.map(({ number, label }) => (
-                <li key={label}>
-                  <span className="text-2xl font-bold">{number}</span>
+              {stats.map(( state ) => (
+                <li key={state.id}>
+                  <span className="text-2xl font-bold">{state.number}</span>
                   <span className="mt-1 block text-xl font-normal text-zinc-700 dark:text-white/90">
-                    {label}
+                    {state.label}
                   </span>
                 </li>
               ))}
