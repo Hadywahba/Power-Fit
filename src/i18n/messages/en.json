@@ -125,5 +125,12 @@
       "title": "KYC completed",
       "description": "All {totalSteps} steps are saved successfully."
     }
-  }
+  },
+  "fitnessclass": "FitnessClass",
+  "workouts": "WORKOUTS",
+  "transform-your-body-with-our-dynamic": "TRANSFORM YOUR BODY WITH OUR DYNAMIC",
+  "upcoming-workouts": "UPCOMING WORKOUTS",
+  "explore": "ُExplore",
+  "fullBody": "full-body",
+  "noMusclesFound": "no Muscle Found!"
 }

@@ -129,5 +129,12 @@
       "title": "تم استكمال بياناتك",
       "description": "تم حفظ جميع الخطوات وعددها {totalSteps} بنجاح."
     }
-  }
+  },
+  "fitnessclass": "قسم اللياقة البدنية",
+  "workouts": "التدريبات",
+  "transform-your-body-with-our-dynamic": "قم بتحويل جسمك بواسطه ",
+  "upcoming-workouts": "التدريبات القادمه",
+  "explore": "استكشف",
+  "fullBody": "كامل الجسم",
+  "noMusclesFound": "! لم يتم العثور على العضلات"
 }
