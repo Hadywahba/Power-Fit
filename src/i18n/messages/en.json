@@ -38,5 +38,25 @@
   "hey-there": "Hey There",
   "create-an-account": "Create An Account",
   "or": "or",
-  "successful-register": "Account Created Successfully"
+  "successful-register": "Account Created Successfully",
+  "hero": {
+    "title": "Your body can <span> stand almost </span> anything.",
+    "description": "It's your mind that needs convincing. Push past your limits, stay committed, and watch your body transform into a powerhouse of strength and resilience. Start your journey today & truly capable of!",
+    "start": "Get Started",
+    "cta": {
+      "start": "Get Started",
+      "explore": "Explore More"
+    },
+    "stats": {
+      "1": "Active Members",
+      "2": "Certified Trainers",
+      "3": "Year Of Experience"
+    },
+    "slides": {
+      "1": "Live Classes",
+      "2": "Personal Trainers",
+      "3": "Outdoor & Online",
+      "4": "Personal Classes"
+    }
+  }
 }
