@@ -1,17 +1,18 @@
 export const ROUTES = {
   auth: {
-    root: "/auth",
-    login: "login",
-    register: "register",
-    forgetPassword: "forget-password",
+    login: '/login',
+    register: '/register',
+    forgetPassword: '/forget-password',
+    kyc: '/kyc',
   },
   app: {
-    root: "/",
-    home: "/",
-    about: "about",
-    classes: "classes",
-    healthy: "healthy",
-    profile: "profile",
+    root: '/',
+    home: '/',
+    about: '/about',
+    classes: '/classes',
+    healthy: '/healthy',
+    kyc: '/kyc',
+    profile: '/profile',
   },
 } as const;
 
