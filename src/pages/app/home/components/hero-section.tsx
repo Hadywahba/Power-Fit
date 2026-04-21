@@ -17,21 +17,21 @@ export default function HeroSection() {
       />
 
       {/* Hero content row */}
-      <div className="relative z-10 flex flex-col items-center px-6 py-16 sm:px-12 md:flex-row md:px-20 md:py-0">
+      <div className="relative z-10 flex flex-col items-start px-6 pt-10 sm:px-12 md:flex-row md:items-center md:px-20 md:py-0">
         {/* Text Content*/}
-        <div className="w-full text-center md:max-w-[55%] md:flex-1 md:pe-8 md:text-start">
-          <h1 className="mb-6 text-3xl leading-normal font-bold uppercase sm:text-4xl md:text-5xl">
+        <div className="w-10/12 text-center md:max-w-[55%] md:flex-1 md:pe-8 md:text-start">
+          <p className="mb-6 text-start text-3xl leading-normal font-bold uppercase sm:text-4xl md:text-5xl">
             {t.rich('title', {
               span: (chunks) => <span className="text-main">{chunks}</span>,
             })}
-          </h1>
+          </p>
 
           <p className="before:bg-main relative mb-8 max-w-160 ps-4 text-base font-normal text-zinc-600 before:absolute before:inset-y-0 before:start-0 before:w-1 sm:text-lg md:text-xl dark:text-white/80">
             {t('description')}
           </p>
 
           {/* Stats List */}
-          <ul className="mb-10 flex flex-wrap justify-center gap-6 py-5 sm:gap-10 md:mb-16 md:justify-start md:gap-12">
+          <ul className="mb-10 flex flex-col items-start justify-center gap-6 py-5 sm:gap-10 sm:flex-row sm:justify-start md:gap-12">
             {stats.map((state) => (
               <li key={state.id} className="text-center md:text-start">
                 <span className="text-xl font-bold sm:text-2xl">
@@ -45,7 +45,7 @@ export default function HeroSection() {
           </ul>
 
           {/* Buttons */}
-          <div className="flex justify-center gap-3 md:justify-start">
+          <div className="flex justify-between gap-16 md:mb-2  md:justify-start">
             <Button>{t('cta.start')}</Button>
             <Button
               variant="outline"
@@ -57,13 +57,13 @@ export default function HeroSection() {
         </div>
 
         {/* Right image */}
-        <div className="relative flex max-h-80 w-full items-end justify-center pt-10 sm:max-h-120 md:max-h-180 md:flex-1 md:pt-5">
+        <div className="relative flex w-full items-end justify-center pt-10 md:flex-1 md:pt-5">
           <Image
             src="/assets/images/Theo-Vance.svg"
             alt={t('imageAlt')}
             width={467}
             height={700}
-            className="object-contain object-top"
+            className="max-h-180 w-auto object-contain object-top"
           />
         </div>
       </div>
