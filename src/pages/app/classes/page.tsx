@@ -56,7 +56,7 @@ export default function ClassesPage() {
           muscles={muscles}
           emptyText={t('noMusclesFound')}
           // ToDo By Mostafa
-          cardBasePath="/app/exercises"
+          cardBasePath="/exercises"
         />
       </div>
     </div>

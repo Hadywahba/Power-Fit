@@ -10,6 +10,7 @@ export const ROUTES = {
     home: '/',
     about: '/about',
     classes: '/classes',
+    exercises: '/exercises/:id',
     healthy: '/healthy',
     kyc: '/kyc',
     profile: '/profile',
