@@ -1,4 +1,3 @@
-// src/services/chatbot.service.ts
 const BASE_URL = 'https://fitness.elevateegy.com/api/v1';
 
 export const ChatService = {
@@ -25,7 +24,7 @@ export const ChatService = {
     const data = await res.json();
     return data.categories;
   },
-  // جلب الوجبات من MealDB
+//   meals
   async getMealsByCategory(category: string) {
     try {
       const response = await fetch(
@@ -39,16 +38,13 @@ export const ChatService = {
     }
   },
 
-  // محاكاة رد الـ AI (يمكنك ربطه بـ OpenAI لاحقاً)
   async getChatResponse(message: string) {
-    // هنا نضع منطق بسيط لفهم إذا كان المستخدم يطلب أكلة
     const msg = message.toLowerCase();
     
     if (msg.includes('seafood') || msg.includes('سمك') || msg.includes('بحرية')) {
       return { type: 'meals', category: 'Seafood' };
     }
     
-    // رد افتراضي
     return { type: 'text', content: "أنا هنا لمساعدتك! هل تريد اقتراحات لوجبات صحية؟ جرب كتابة 'Seafood'." };
   }
 
