@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import ExercisesPlaylist from './exercises-playlist';
+import type { Exercise } from '@/lib/types/exercises';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -374,7 +375,7 @@ function FeaturesBar() {
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
-export default function FitnessWorkoutPage() {
+export default function MainExercises(exercises: Exercise[] | undefined) {
   const [activeLevel, setActiveLevel] = useState<Level>('Beginner');
   const [activeVideo, setActiveVideo] = useState<Workout>(workouts.Beginner[0]);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -397,7 +398,6 @@ export default function FitnessWorkoutPage() {
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-zinc-950 text-zinc-100">
-
       {/* ── MAIN LAYOUT ── */}
       <div className="flex flex-1 overflow-hidden">
         <ExercisesPlaylist
@@ -424,7 +424,6 @@ export default function FitnessWorkoutPage() {
             <Separator className="bg-zinc-800/60" />
 
             <FeaturesBar />
-
           </div>
         </ScrollArea>
       </div>
