@@ -31,7 +31,7 @@ export default function ClassesPage() {
 
   return (
     <div className="space-y-8">
-      <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
         <PageHero
           badge={t('fitnessclass')}
           backgroundText={t('workouts')}

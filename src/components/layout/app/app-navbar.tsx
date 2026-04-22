@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ROUTES } from '@/lib/constants/routes/routes.constant';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
+import { LogoutButton } from '@/components/shared/logout-button';
+import ThemeToggle from '@/components/shared/theme-toggle';
+import LocaleSwitcher from '@/components/shared/locale-switcher';
 
 type NavItem = {
   name: string;
@@ -22,7 +25,7 @@ export default function AppNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 z-40 border-b border-white/10 bg-[#242424] ">
+    <header className="absolute inset-x-0 z-40 border-b border-white/10 bg-[#242424]">
       <div className="mx-auto flex h-17 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link
           to={ROUTES.app.home}
@@ -47,7 +50,7 @@ export default function AppNavbar() {
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  'text-[15px] leading-none font-semibold hover:text-main transition-colors duration-300',
+                  'hover:text-main text-[15px] leading-none font-semibold transition-colors duration-300',
                   isActive ? 'text-main' : 'text-white/90',
                 )
               }
@@ -56,7 +59,12 @@ export default function AppNavbar() {
             </NavLink>
           ))}
         </nav>
-
+        {/* logout-button */}
+        <LogoutButton />
+        {/* them toggle */}
+        <ThemeToggle />
+        {/*locale toggle */}
+        <LocaleSwitcher />
         <div className="hidden md:flex">
           <Link
             to={ROUTES.app.profile}
