@@ -7,6 +7,7 @@ import ProtectedRoute from '@/components/shared/protected-route';
 import GuestRoute from '@/components/shared/guest-route';
 import { ROUTES } from '@/lib/constants/routes/routes.constant';
 import Loading from '@/components/shared/loading';
+import KycPage from '@/pages/auth/kyc/page';
 
 // ─── Auth Pages ───
 const LoginPage = lazy(() => import('@/pages/auth/login/page'));
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
             path: ROUTES.auth.register,
             element: withSuspense(<RegisterPage />),
           },
+          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />) },
           {
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),
