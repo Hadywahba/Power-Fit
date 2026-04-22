@@ -3,10 +3,11 @@ import { cn } from '@/lib/utils/tailwind-merge/cn';
 import type { Exercise } from '@/lib/types/exercises';
 import type { LevelTab } from './main-exercises';
 import PlaylistItem from './playlist-item';
+import { levelTabActiveClass } from '@/lib/constants/exercises/exercises.constant';
 
 interface ExercisesPlaylistProps {
+  getYouTubeThumbnail: (url: string | null | undefined) => string | null;
   levels: readonly LevelTab[];
-  levelTabActiveClass: Record<string, string>;
   activeLevelId: string;
   onLevelChange: (levelId: string) => void;
   list: Exercise[];
@@ -15,8 +16,8 @@ interface ExercisesPlaylistProps {
 }
 
 export default function ExercisesPlaylist({
+  getYouTubeThumbnail,
   levels,
-  levelTabActiveClass,
   activeLevelId,
   onLevelChange,
   list,
@@ -24,7 +25,8 @@ export default function ExercisesPlaylist({
   onSelectVideo,
 }: ExercisesPlaylistProps) {
   return (
-    <aside className="flex w-90 shrink-0 flex-col overflow-hidden border-r border-zinc-800/60 bg-zinc-900">
+    <aside className="flex h-full w-90 shrink-0 flex-col overflow-hidden border-r border-zinc-800/60 bg-zinc-900">
+      {/* Tabs */}
       <div className="flex gap-1 px-4 pt-3.5">
         {levels.map((level) => (
           <button
@@ -32,10 +34,9 @@ export default function ExercisesPlaylist({
             type="button"
             onClick={() => onLevelChange(level.id)}
             className={cn(
-              'flex-1 rounded-t-lg border-b-2 py-2 text-[11px] font-black tracking-widest uppercase transition-all duration-200',
+              'flex-1 cursor-pointer rounded-t-lg border-b-2 py-2 text-[11px] font-black tracking-widest uppercase transition-all duration-200',
               level.id === activeLevelId
-                ? (levelTabActiveClass[level.name] ??
-                    'border-b-orange-400 bg-orange-500/10 text-orange-400')
+                ? levelTabActiveClass[level.name as keyof typeof levelTabActiveClass]
                 : 'border-b-transparent bg-zinc-800/50 text-zinc-600 hover:text-zinc-300',
             )}
           >
@@ -44,11 +45,13 @@ export default function ExercisesPlaylist({
         ))}
       </div>
 
-      <ScrollArea className="flex-1">
+      {/* Scroll */}
+      <ScrollArea className="min-h-0 flex-1">
         <div className="py-2">
           {list.map((item) => (
             <PlaylistItem
               key={item._id}
+              getYouTubeThumbnail={getYouTubeThumbnail}
               item={item}
               isActive={activeVideoId === item._id}
               onSelect={onSelectVideo}

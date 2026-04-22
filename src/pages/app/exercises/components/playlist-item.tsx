@@ -3,22 +3,15 @@ import type { Exercise } from '@/lib/types/exercises';
 import { Play } from 'lucide-react';
 import Image from '@/components/ui/image';
 
-// get YouTube thumbnail
-function getYouTubeThumbnail(url: string | null | undefined) {
-  if (!url) return null;
-
-  const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
-
-  return match ? `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg` : null;
-}
-
 interface PlaylistItemProps {
+  getYouTubeThumbnail: (url: string | null | undefined) => string | null;
   item: Exercise;
   isActive: boolean;
   onSelect: (item: Exercise) => void;
 }
 
 export default function PlaylistItem({
+  getYouTubeThumbnail,
   item,
   isActive,
   onSelect,
@@ -31,7 +24,7 @@ export default function PlaylistItem({
       onClick={() => onSelect(item)}
       aria-label={`Play ${item.exercise}`}
       className={cn(
-        'flex w-full items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-colors hover:bg-white/5',
+        'flex w-full cursor-pointer items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-colors hover:bg-white/5',
         isActive ? 'border-l-main bg-orange-500/10' : 'border-l-transparent',
       )}
     >
@@ -63,7 +56,7 @@ export default function PlaylistItem({
             {item.movement_pattern_1}
           </p>
           <p className="mt-0.5 truncate text-xs text-zinc-500">
-            {item.body_region}
+            {item.primary_equipment}
           </p>
         </div>
       </div>
