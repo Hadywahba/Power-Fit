@@ -1,7 +1,5 @@
-import { useParams } from 'react-router-dom';
+import FitnessWorkoutPage from './components/main-exercises';
 
 export default function ExercisePage() {
-  const { id } = useParams();
-
-  return <div>Exercise ID: {id}</div>;
+  return <FitnessWorkoutPage />;
 }
