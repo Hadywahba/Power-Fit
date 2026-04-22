@@ -91,9 +91,20 @@ export default function HealthyPage() {
       </nav>
 
       {isLoading && (
-        <p className="py-6 text-center text-sm text-white/80">
-          {t('healthy-loading')}
-        </p>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              className="relative h-80 animate-pulse overflow-hidden rounded-xl border border-white/15 bg-white/5 sm:h-85"
+            >
+              <div className="absolute inset-0 bg-white/10" />
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-white/8 p-4">
+                <div className="h-4 w-2/3 rounded-md bg-white/15" />
+                <div className="h-3 w-1/3 rounded-md bg-white/10" />
+              </div>
+            </div>
+          ))}
+        </div>
       )}
 
       {isError && (

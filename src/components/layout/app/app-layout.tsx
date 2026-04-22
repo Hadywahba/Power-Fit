@@ -2,13 +2,18 @@ import { cn } from '@/lib/utils/tailwind-merge/cn';
 import SmartCoachChat from '@/pages/app/chatbot/page';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import AppNavbar from './app-navbar';
+import Footer from './Footer';
 
 export default function AppLayout() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
     <main>
+      <AppNavbar />
       <Outlet />
+      <Footer />
+
       <button
         className={cn(
           'fixed right-4 z-50 cursor-pointer rounded-full p-3 text-white',
