@@ -9,6 +9,7 @@ import {
   useHealthyCategories,
 } from './hooks/use-healthy-categories';
 
+// Variables
 const TAB_OPTIONS: HealthyMealTime[] = ['breakfast', 'lunch', 'dinner'];
 
 const CATEGORY_SLICES: Record<HealthyMealTime, [number, number]> = {
@@ -17,6 +18,7 @@ const CATEGORY_SLICES: Record<HealthyMealTime, [number, number]> = {
   dinner: [6, 12],
 };
 
+// Functions
 function getCategoriesByMealTime(
   categories: HealthyCategory[],
   mealTime: HealthyMealTime,
@@ -29,9 +31,13 @@ function getCategoriesByMealTime(
 }
 
 export default function HealthyPage() {
+  // Translation
   const t = useTranslations();
+
+  // State
   const [activeTab, setActiveTab] = useState<HealthyMealTime>('dinner');
 
+  // Queries
   const {
     data: categories = [],
     isLoading,
@@ -40,6 +46,7 @@ export default function HealthyPage() {
     refetch,
   } = useHealthyCategories();
 
+  // Variables
   const visibleCategories = useMemo(
     () => getCategoriesByMealTime(categories, activeTab),
     [categories, activeTab],
@@ -120,10 +127,7 @@ export default function HealthyPage() {
               title={category.strCategory}
               text={t('healthy-card-cta')}
               icon="/assets/icon/Vector.svg"
-              href={
-                'https://www.themealdb.com/category/' +
-                encodeURIComponent(category.strCategory)
-              }
+              to={`/HealthyDetails/${encodeURIComponent(category.strCategory)}`}
               className="h-80 sm:h-85"
             />
           ))}

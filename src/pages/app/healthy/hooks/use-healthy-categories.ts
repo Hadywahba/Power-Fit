@@ -5,6 +5,7 @@ import { getHealthyCategories } from '../apis/healthy.api';
 export type HealthyMealTime = 'breakfast' | 'lunch' | 'dinner';
 
 export function useHealthyCategories() {
+  // Queries
   const query = useQuery<HealthyCategory[]>({
     queryKey: ['healthy-categories'],
     queryFn: async () => {

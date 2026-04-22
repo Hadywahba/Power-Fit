@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils/tailwind-merge/cn';
+import { Link } from 'react-router-dom';
 
 interface CommonCardProps {
   image: string;
@@ -6,8 +7,7 @@ interface CommonCardProps {
   title: string;
   text: string;
   icon: string;
-  goto?: () => void;
-  href?: string;
+  to: string;
   className?: string;
 }
 export default function CommonCard({
@@ -16,8 +16,7 @@ export default function CommonCard({
   icon,
   image,
   alt,
-  goto,
-  href,
+  to,
   className,
 }: CommonCardProps) {
   const actionClassName =
@@ -57,20 +56,9 @@ export default function CommonCard({
               {title}
             </h3>
 
-            {href ? (
-              <a
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className={actionClassName}
-              >
-                {actionContent}
-              </a>
-            ) : (
-              <button type="button" onClick={goto} className={actionClassName}>
-                {actionContent}
-              </button>
-            )}
+            <Link to={to} className={actionClassName}>
+              {actionContent}
+            </Link>
           </div>
         </figcaption>
       </figure>

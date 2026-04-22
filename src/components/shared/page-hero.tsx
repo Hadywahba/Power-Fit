@@ -1,20 +1,6 @@
 import { Dumbbell } from 'lucide-react';
-import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
-
-type PageHeroProps = {
-  badge: string;
-  titleStart?: string;
-  titleHighlight?: string;
-  titleEnd?: string;
-  backgroundText?: string;
-  className?: string;
-  icon?: ReactNode;
-  contentClassName?: string;
-  badgeClassName?: string;
-  titleClassName?: string;
-  backgroundTextClassName?: string;
-};
+import type { PageHeroProps } from '../../lib/types/page-hero';
 
 export default function PageHero({
   badge,
@@ -29,6 +15,7 @@ export default function PageHero({
   titleClassName,
   backgroundTextClassName,
 }: PageHeroProps) {
+  // Variables
   const hasTitle = Boolean(titleStart || titleHighlight || titleEnd);
 
   return (

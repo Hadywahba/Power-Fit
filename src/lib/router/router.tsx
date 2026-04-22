@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
             path: ROUTES.auth.register,
             element: withSuspense(<RegisterPage />),
           },
-          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />), },
+          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />) },
           {
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),
