@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Elevate Fitness</title>
+    <!-- to detect theme and locale to prevent flash on reload -->
+    <script>
+      const theme = localStorage.getItem("fitness_theme") ?? "light";
+      document.documentElement.classList.add(theme);
+
+      const locale = localStorage.getItem("fitness_locale") ?? "en";
+      document.documentElement.lang = locale;
+      document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+    </script>
+    <script type="module" crossorigin src="/assets/index-JbFJeOFm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Df8RUegU.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
