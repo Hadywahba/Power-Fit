@@ -57,7 +57,7 @@ export default function ForgetPasswordLayout() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-800">
+    <section className="min-h-screen w-full">
       {/* Back button */}
       <button
         type="button"

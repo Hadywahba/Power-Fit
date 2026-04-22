@@ -30,7 +30,7 @@ const withSuspense = (element: React.ReactNode) => (
 
 export const router = createBrowserRouter([
   // ─── Auth Layout — guests only ───
-  {path: '/auth',
+  {
     element: <GuestRoute />,
     children: [
       {
