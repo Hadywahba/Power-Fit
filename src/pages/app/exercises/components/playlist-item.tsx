@@ -1,11 +1,21 @@
 import { cn } from '@/lib/utils/tailwind-merge/cn';
+import type { Exercise } from '@/lib/types/exercises';
 import { Play } from 'lucide-react';
-import type { Workout } from './main-exercises';
+import Image from '@/components/ui/image';
+
+// get YouTube thumbnail
+function getYouTubeThumbnail(url: string | null | undefined) {
+  if (!url) return null;
+
+  const match = url.match(/(?:v=|youtu\.be\/|embed\/)([^&?/]+)/);
+
+  return match ? `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg` : null;
+}
 
 interface PlaylistItemProps {
-  item: Workout;
+  item: Exercise;
   isActive: boolean;
-  onSelect: (item: Workout) => void;
+  onSelect: (item: Exercise) => void;
 }
 
 export default function PlaylistItem({
@@ -13,37 +23,56 @@ export default function PlaylistItem({
   isActive,
   onSelect,
 }: PlaylistItemProps) {
+  const thumbnail = getYouTubeThumbnail(item.short_youtube_demonstration_link);
+
   return (
     <button
       type="button"
       onClick={() => onSelect(item)}
+      aria-label={`Play ${item.exercise}`}
       className={cn(
-        'flex w-full items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-all duration-150 hover:bg-white/5',
-        isActive
-          ? 'border-l-main bg-orange-500/10'
-          : 'border-l-transparent',
+        'flex w-full items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-colors hover:bg-white/5',
+        isActive ? 'border-l-main bg-orange-500/10' : 'border-l-transparent',
       )}
     >
+      {/* LEFT: Thumbnail + Text */}
+      <div className="flex w-1 flex-1 items-center gap-3">
+        {/* Thumbnail */}
+        <div className="relative h-13 w-18 shrink-0 overflow-hidden rounded-lg bg-zinc-700">
+          {thumbnail ? (
+            <Image
+              src={thumbnail}
+              width={72}
+              height={52}
+              alt={item.exercise}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold tracking-wide text-zinc-400 uppercase">
+              No preview
+            </span>
+          )}
+        </div>
 
-      <div className="relative flex h-13 w-18 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-linear-to-br from-zinc-700 to-zinc-600 text-2xl">
-        <span className="select-none" aria-hidden>
-          {item.emoji}
-        </span>
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-orange-500/10 to-transparent" />
+        {/* Text */}
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-bold text-zinc-100">
+            {item.exercise}
+          </p>
+          <p className="mt-0.5 text-xs text-zinc-300">
+            {item.movement_pattern_1}
+          </p>
+          <p className="mt-0.5 truncate text-xs text-zinc-500">
+            {item.body_region}
+          </p>
+        </div>
       </div>
 
-      <div className="min-w-0 flex-1">
-        <p className="mb-0.5 truncate text-sm leading-tight font-bold tracking-wide text-zinc-100">
-          {item.title}
-        </p>
-        <p className="mb-0.5 text-[11px] text-zinc-400">{item.sets}</p>
-        <p className="truncate text-[11px] text-zinc-600">{item.desc}</p>
-      </div>
-
+      {/* RIGHT: Play Icon */}
       <div
         className={cn(
-          'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-main shadow-lg transition-all duration-200',
-          isActive && 'scale-110 shadow-orange-500/40',
+          'bg-main ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform',
+          isActive && 'scale-110',
         )}
       >
         <Play className="ml-0.5 h-3 w-3 fill-zinc-800 text-zinc-800" />

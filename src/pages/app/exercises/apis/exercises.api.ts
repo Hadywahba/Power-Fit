@@ -1,4 +1,4 @@
-import type { ExercisesResponse, Level } from '@/lib/types/exercises';
+import type { ExercisesResponse, LevelsResponse } from '@/lib/types/exercises';
 import { apiRequest } from '@/lib/utils/api/api-request';
 
 //  get exercises by muscle and difficulty
@@ -8,7 +8,7 @@ export const getExercises = (muscleId: string, difficultyId: string) =>
   });
 
   // get difficulty levels
-export const getLevels = () =>  
-  apiRequest<Level[]>({
-    endpoint: `/levels`,
+export const getLevels = () =>
+  apiRequest<LevelsResponse>({
+    endpoint: '/levels',
   });

@@ -38,6 +38,10 @@ export interface Exercise {
   in_depth_youtube_explanation_link?: string
 }
 
+export type LevelsResponse = {
+  message: string;
+  levels: Level[];
+};
 
 export interface Level {
   _id: string
