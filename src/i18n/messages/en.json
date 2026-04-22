@@ -201,5 +201,12 @@
     "password-min": "Password must be at least 8 characters.",
     "passwords-not-match": "Passwords do not match."
   },
-  "password-reset-successfully": "Password reset successfully"
+  "password-reset-successfully": "Password reset successfully",
+  "fitnessclass": "FitnessClass",
+  "workouts": "WORKOUTS",
+  "transform-your-body-with-our-dynamic": "TRANSFORM YOUR BODY WITH OUR DYNAMIC",
+  "upcoming-workouts": "UPCOMING WORKOUTS",
+  "explore": "ُExplore",
+  "fullBody": "full-body",
+  "noMusclesFound": "no Muscle Found!"
 }

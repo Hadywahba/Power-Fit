@@ -1,6 +1,8 @@
-import { Dumbbell } from 'lucide-react';
-import { cn } from '@/lib/utils/tailwind-merge/cn';
+
 import type { PageHeroProps } from '../../lib/types/page-hero';
+import { Dumbbell } from "lucide-react";
+import { cn } from "@/lib/utils/tailwind-merge/cn";
+
 
 export default function PageHero({
   badge,
