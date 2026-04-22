@@ -1,4 +1,4 @@
-import type { ResetPasswordPayload, ResetPasswordResponse } from "@/lib/types/auth";
+import type { ResetPasswordPayload, ResetPasswordResponse } from "@/lib/types/forget-password";
 import { apiRequest } from "@/lib/utils/api/api-request";
 
 

@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useTranslations } from "use-intl";
-import { ArrowLeft } from "lucide-react";
-import { ROUTES } from "@/lib/constants/routes/routes.constant";
-import EmailStepOne from "./email-step-one";
-import VerifyOtpStepTwo from "./verify-otp-step-two";
-import NewPasswordStepThree from "./new-password-step-three";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslations } from 'use-intl';
+import { ArrowLeft } from 'lucide-react';
+import { ROUTES } from '@/lib/constants/routes/routes.constant';
+import EmailStepOne from './email-step-one';
+import VerifyOtpStepTwo from './verify-otp-step-two';
+import NewPasswordStepThree from './new-password-step-three';
 import type {
   ForgetPasswordStep,
   ForgetPasswordStepsMap,
-} from "@/lib/types/forget-password";
+} from '@/lib/types/forget-password';
 
 const STEPS = {
-  EMAIL: "EMAIL",
-  OTP: "OTP",
-  NEW_PASSWORD: "NEW_PASSWORD",
+  EMAIL: 'EMAIL',
+  OTP: 'OTP',
+  NEW_PASSWORD: 'NEW_PASSWORD',
 } as const;
 
 export default function ForgetPasswordLayout() {
@@ -24,19 +24,18 @@ export default function ForgetPasswordLayout() {
   const navigate = useNavigate();
   // States
   const [step, setStep] = useState<ForgetPasswordStep>(STEPS.EMAIL);
-  const [currentEmail, setCurrentEmail] = useState("");
+  const [currentEmail, setCurrentEmail] = useState('');
 
   // Functions
   function handleGoBack() {
-    if (step === STEPS.EMAIL)
-      navigate(`${ROUTES.auth.root}/${ROUTES.auth.login}`);
+    if (step === STEPS.EMAIL) navigate(`${ROUTES.auth.login}`);
     else if (step === STEPS.OTP) setStep(STEPS.EMAIL);
     else setStep(STEPS.OTP);
   }
 
   const steps: ForgetPasswordStepsMap = {
     [STEPS.EMAIL]: {
-      title: t("forget-password.title"),
+      title: t('forget-password.title'),
       component: (
         <EmailStepOne
           onSetStep={setStep}
@@ -46,47 +45,47 @@ export default function ForgetPasswordLayout() {
       ),
     },
     [STEPS.OTP]: {
-      title: t("forget-password.otp-title"),
+      title: t('forget-password.otp-title'),
       component: (
         <VerifyOtpStepTwo onSetStep={setStep} currentEmail={currentEmail} />
       ),
     },
     [STEPS.NEW_PASSWORD]: {
-      title: t("forget-password.new-password-title"),
+      title: t('forget-password.new-password-title'),
       component: <NewPasswordStepThree currentEmail={currentEmail} />,
     },
   };
 
   return (
-    <section className="bg-gray-800 min-h-screen">
+    <section className="min-h-screen bg-gray-800">
       {/* Back button */}
       <button
         type="button"
         onClick={handleGoBack}
-        aria-label={t("common.go-back")}
-        className="flex items-center cursor-pointer gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors mb-4"
+        aria-label={t('common.go-back')}
+        className="mb-4 flex cursor-pointer items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-white"
       >
         <ArrowLeft size={16} />
         <span>
-          {step === STEPS.EMAIL ? t("common.back-to-login") : t("common.back")}
+          {step === STEPS.EMAIL ? t('common.back-to-login') : t('common.back')}
         </span>
       </button>
 
       {/* Title */}
-      <h1 className="text-center my-3 text-white font-extrabold text-3xl capitalize">
+      <h1 className="my-3 text-center text-3xl font-extrabold text-white capitalize">
         {steps[step].title}
       </h1>
 
       {step === STEPS.OTP && (
         // change-email button
-        <p className="text-center text-sm text-zinc-400 mb-4">
-          {t.rich("forget-password.otp-subtitle", {
+        <p className="mb-4 text-center text-sm text-zinc-400">
+          {t.rich('forget-password.otp-subtitle', {
             email: currentEmail,
             button: (chunks) => (
               <button
                 type="button"
                 onClick={() => setStep(STEPS.EMAIL)}
-                className="font-semibold text-main underline cursor-pointer"
+                className="text-main cursor-pointer font-semibold underline"
               >
                 {chunks}
               </button>
@@ -95,12 +94,12 @@ export default function ForgetPasswordLayout() {
         </p>
       )}
       {step === STEPS.NEW_PASSWORD && (
-        <p className="text-center text-sm text-zinc-400 mb-4">
-          {t("forget-password.new-password-card-label")}
+        <p className="mb-4 text-center text-sm text-zinc-400">
+          {t('forget-password.new-password-card-label')}
         </p>
       )}
 
-      <section className="p-8 border rounded-3xl md:w-[80%] mx-auto border-white">
+      <section className="mx-auto rounded-3xl border border-white p-8 md:w-[80%]">
         {/* Active step */}
         <main>{steps[step].component}</main>
       </section>

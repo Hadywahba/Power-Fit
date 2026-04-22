@@ -18,7 +18,7 @@ export function useResetPassword() {
       toast.success(t("password-reset-successfully"), {
         duration: AUTH_LOADING_DURATION,
         onAutoClose: () => {
-          navigate(`${ROUTES.auth.root}/${ROUTES.auth.login}`);
+          navigate(`${ROUTES.auth.login}`);
         },
       });
     },
