@@ -6,7 +6,7 @@ export default function GuestRoute() {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
-    return <Navigate to={ROUTES.app.home} replace />;
+    return <Navigate to={ROUTES.app.root} replace />;
   }
 
   return <Outlet />;

@@ -1,9 +1,9 @@
 export const ROUTES = {
   auth: {
-    login: '/login',
-    register: '/register',
-    forgetPassword: '/forget-password',
-    kyc: '/kyc',
+    login: 'auth/login',
+    register: 'auth/register',
+    forgetPassword: 'auth/forget-password',
+    kyc: 'auth/kyc',
   },
   app: {
     root: '/',
