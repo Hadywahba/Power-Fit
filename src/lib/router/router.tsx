@@ -8,6 +8,7 @@ import GuestRoute from '@/components/shared/guest-route';
 import { ROUTES } from '@/lib/constants/routes/routes.constant';
 import Loading from '@/components/shared/loading';
 import KycPage from '@/pages/auth/kyc/page';
+import HomePage from '@/pages/app/home/page';
 
 // ─── Auth Pages ───
 const LoginPage = lazy(() => import('@/pages/auth/login/page'));
@@ -17,7 +18,6 @@ const ForgetPasswordPage = lazy(
 );
 
 // ─── App Pages ───
-const HomePage = lazy(() => import('@/pages/app/home/page'));
 const AboutPage = lazy(() => import('@/pages/app/about/page'));
 const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
 const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       // public
-      { index: true, element: withSuspense(<HomePage />) },
+      { index: true, element: <HomePage /> },
       { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
 
       // protected
