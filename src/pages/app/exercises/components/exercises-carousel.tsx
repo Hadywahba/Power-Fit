@@ -1,39 +1,34 @@
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-// } from '@/components/ui/carousel';
-// import type { CarouselApi } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
+import MuscleCard from '@/components/features/muscle/muscle-card';
+import type { Muscle } from '@/lib/types/muscle';
 
+interface ExercisesCarouselProps {
+  pages: Muscle[][];
+  cardBasePath: string;
+}
 
-// export default function ExercisesCarousel() {
-//   return (
-//     <>
-//       {' '}
-//       <Carousel
-//         setApi={setApi}
-//         opts={{
-//           align: 'start',
-//           containScroll: 'trimSnaps',
-//         }}
-//         className="w-full"
-//       >
-//         <CarouselContent>
-//           {pages.map((page, pageIndex) => (
-//             <CarouselItem key={pageIndex} className="basis-full">
-//               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-//                 {page.map((muscle) => (
-//                   <MuscleCard
-//                     key={muscle._id}
-//                     muscle={muscle}
-//                     to={`${cardBasePath}/${muscle._id}`}
-//                   />
-//                 ))}
-//               </div>
-//             </CarouselItem>
-//           ))}
-//         </CarouselContent>
-//       </Carousel>
-//     </>
-//   );
-// }
+export default function ExercisesCarousel({
+  pages,
+  cardBasePath,
+}: ExercisesCarouselProps) {
+  return (
+    <Carousel
+      plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+      opts={{ align: 'start', containScroll: 'trimSnaps', loop: true }}
+      className="w-full"
+    >
+      <CarouselContent>
+        {pages.flat().map((muscle) => (
+          <CarouselItem key={muscle._id} className="basis-1/4 ">
+            <MuscleCard muscle={muscle} to={`${cardBasePath}/${muscle._id}`} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
+  );
+}

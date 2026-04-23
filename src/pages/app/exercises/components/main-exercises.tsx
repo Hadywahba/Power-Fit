@@ -7,6 +7,8 @@ import { useEffect, useMemo, useState } from 'react';
 import ExercisesPlaylist from './exercises-playlist';
 import VideoInfo from './video-info';
 import VideoPlayer from './video-player';
+import ExercisesCarousel from './exercises-carousel';
+import type { Muscle } from '@/lib/types/muscle';
 
 export interface LevelTab {
   id: string;
@@ -54,6 +56,7 @@ function FeaturesBar() {
 }
 
 interface MainExercisesProps {
+  pages: Muscle[][];
   levels: ApiLevel[];
   activeLevelId: string;
   onLevelChange: (levelId: string) => void;
@@ -62,6 +65,7 @@ interface MainExercisesProps {
 }
 
 export default function MainExercises({
+  pages,
   levels,
   activeLevelId,
   onLevelChange,
@@ -89,52 +93,54 @@ export default function MainExercises({
   }, [exercises, selectedId]);
 
 return (
-    <div className="min-h-screen bg-zinc-900 text-zinc-100">
+  <div className="min-h-screen bg-zinc-900 text-zinc-100">
     <div className="flex items-start">
-      
       {/* Sidebar */}
-        <aside className="sticky top-0 h-screen w-80 shrink-0 border-r border-zinc-800">
-          <ExercisesPlaylist
-            getYouTubeThumbnail={getYouTubeThumbnail}
-            levels={mappedLevels}
-            activeLevelId={activeLevelId}
-            onLevelChange={onLevelChange}
-            list={exercises}
-            activeVideoId={activeVideo?._id ?? ''}
-            onSelectVideo={(item) => {
-              setSelectedId(item._id);
-              setIsPlaying(false);
-            }}
-          />
-        </aside>
+      <aside className="sticky top-0 h-screen w-80 shrink-0 border-r border-zinc-800">
+        <ExercisesPlaylist
+          getYouTubeThumbnail={getYouTubeThumbnail}
+          levels={mappedLevels}
+          activeLevelId={activeLevelId}
+          onLevelChange={onLevelChange}
+          list={exercises}
+          activeVideoId={activeVideo?._id ?? ''}
+          onSelectVideo={(item) => {
+            setSelectedId(item._id);
+            setIsPlaying(false);
+          }}
+        />
+      </aside>
 
-        {/* Main Content */}
-        <main className="flex-1">
-          <div className="flex flex-col gap-5 py-4 max-w-5xl mx-auto">
-            {isLoading || !activeVideo ? (
-              <div className="flex min-h-100 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40 text-zinc-400">
-                {isLoading ? 'Loading exercises...' : 'No exercises found'}
-              </div>
-            ) : (
-              <>
-                <VideoPlayer
-                  getYouTubeEmbed={getYouTubeEmbed}
-                  getYouTubeThumbnail={getYouTubeThumbnail}
-                  exercise={activeVideo}
-                  isPlaying={isPlaying}
-                  onToggle={() => setIsPlaying((p) => !p)}
-                />
-                <VideoInfo exercise={activeVideo} />
-              </>
-            )}
+      {/* Main Content */}
+      <main className="flex-1">
+        <div className="mx-auto flex max-w-5xl flex-col gap-5 py-4">
+          {isLoading || !activeVideo ? (
+            <div className="flex min-h-100 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40 text-zinc-400">
+              {isLoading ? 'Loading exercises...' : 'No exercises found'}
+            </div>
+          ) : (
+            <>
+              <VideoPlayer
+                getYouTubeEmbed={getYouTubeEmbed}
+                getYouTubeThumbnail={getYouTubeThumbnail}
+                exercise={activeVideo}
+                isPlaying={isPlaying}
+                onToggle={() => setIsPlaying((p) => !p)}
+              />
+              <VideoInfo exercise={activeVideo} />
+            </>
+          )}
 
-            <Separator className="bg-zinc-800/60" />
-            <FeaturesBar />
-            
+          <Separator className="bg-zinc-800/60" />
+          <FeaturesBar />
+          <p className="text-zinc-100  text-xl font-medium">
+            Discover a wide range of exercises to help you achieve your fitness goals.
+          </p>
+          <ExercisesCarousel pages={pages} cardBasePath="/exercises" />
         </div>
-        </main>
-      </div>
+      </main>
     </div>
-  );
+  </div>
+);
 }
 
