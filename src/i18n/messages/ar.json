@@ -75,6 +75,17 @@
   "create-an-account": "إنشاء حساب",
   "or": "أو",
   "successful-register": "تم إنشاء الحساب بنجاح",
+  "classes": {
+    "workout-title": "حوّل جسمك مع تماريننا الديناميكية <span>القادمة</span>",
+    "fitness-class": "حصة لياقة بدنية"
+  },
+  "meals": {
+    "meal-title": "🍽️ اكتشف وجبات مُحضّرة باستخدام <ingredient></ingredient>",
+    "Ingredients": "مكونات",
+    "youtube": "شاهد على يوتيوب",
+    "Instructions": "تعليمات",
+    "load-more": "تحميل المزيد",
+    "loading": "جاري التحميل..."
   "healthy-badge": "تغذية صحية",
   "healthy-heading-start": "عزّز رحلتك الرياضية بخطط",
   "healthy-heading-highlight": "وجبات",
