@@ -4,15 +4,15 @@ import MealCard from './meals-card';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'use-intl';
 
-export default function MealsCategory({ id }: { id: string }) {
+export default function MealsCategory({ title }: { title: string }) {
   // Translations
   const t = useTranslations('meals');
 
   // Query
   const { meals, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useMealId('Chicken');
+    useMealId(title);
 
-  if (!id) return null;
+  if (!title) return null;
 
   return (
     <main>

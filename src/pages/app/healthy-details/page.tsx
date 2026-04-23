@@ -4,10 +4,12 @@ import MealsCategory from './componnents/meals-category';
 import { useTranslations } from 'use-intl';
 import { useParams } from 'react-router-dom';
 import { MealProvider } from '@/components/providers/meals/meal-provider';
+import PageHero from '@/components/shared/page-hero';
+import { Dumbbell } from 'lucide-react';
 
 export default function Page() {
   // Translations
-  const t = useTranslations('meals');
+  const t = useTranslations('');
 
   // Hook
   const { id } = useParams();
@@ -29,20 +31,23 @@ export default function Page() {
         )}
       >
         {/* Meals Title - Full Width */}
-        <section className="relative z-30 col-span-12 flex justify-center pt-8 pb-6 ">
-          <h1 className="rounded-2xl border border-gray-200 bg-white px-6 py-4 text-center text-2xl font-extrabold shadow-md lg:text-4xl">
-            {t.rich('meal-title', {
-              ingredient: () => (
-                <span className="font-bold text-orange-500">{id}</span>
-              ),
-            })}
-          </h1>
+        <section className="relative z-30 col-span-12 flex justify-center pt-20 pb-2">
+          <PageHero
+            badge={t('healthy-badge')}
+            titleStart={t('healthy-heading-start')}
+            titleHighlight={t('healthy-heading-highlight')}
+            titleEnd={t('healthy-heading-end')}
+            backgroundText={t('healthy-background-text')}
+            icon={<Dumbbell size={20} />}
+            className="pt-8 pb-6 sm:pt-10"
+            titleClassName="max-w-190 text-[30px] leading-[1.22] text-white sm:text-[42px]"
+          />
         </section>
 
         {/* Left Side */}
 
-        <section className="relative z-30 col-span-12 h-full md:col-span-4 ">
-          <MealsCategory id={id} />
+        <section className="relative z-30 col-span-12 h-full md:col-span-4">
+          <MealsCategory title={id} />
         </section>
         {/* Right Side */}
         <section className="relative z-30 col-span-12 h-full md:col-span-8">
