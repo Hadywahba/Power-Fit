@@ -8,7 +8,9 @@ import ExercisesPlaylist from './exercises-playlist';
 import VideoInfo from './video-info';
 import VideoPlayer from './video-player';
 import ExercisesCarousel from './exercises-carousel';
-import type { Muscle } from '@/lib/types/muscle';
+import type { Muscle, MuscleGroup } from '@/lib/types/muscle';
+import FilterTabs from '@/components/shared/filter-tabes';
+import { useTranslations } from 'use-intl/react';
 
 export interface LevelTab {
   id: string;
@@ -56,6 +58,10 @@ function FeaturesBar() {
 }
 
 interface MainExercisesProps {
+  groupsLoading: boolean;
+  groups: MuscleGroup[] | undefined;
+  selectedGroupId: string | null;
+  setSelectedGroupId: (groupId: string | null) => void;
   pages: Muscle[][];
   levels: ApiLevel[];
   activeLevelId: string;
@@ -65,6 +71,10 @@ interface MainExercisesProps {
 }
 
 export default function MainExercises({
+  groupsLoading,
+  groups,
+  selectedGroupId,
+  setSelectedGroupId,
   pages,
   levels,
   activeLevelId,
@@ -72,6 +82,8 @@ export default function MainExercises({
   exercises,
   isLoading,
 }: MainExercisesProps) {
+    const t = useTranslations();
+  
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -96,7 +108,7 @@ return (
   <div className="min-h-screen bg-zinc-900 text-zinc-100">
     <div className="flex items-start">
       {/* Sidebar */}
-      <aside className="sticky top-0 h-screen w-80 shrink-0 border-r border-zinc-800">
+      <aside className="min-h-screen w-80 shrink-0 border-r border-zinc-800">
         <ExercisesPlaylist
           getYouTubeThumbnail={getYouTubeThumbnail}
           levels={mappedLevels}
@@ -133,8 +145,22 @@ return (
 
           <Separator className="bg-zinc-800/60" />
           <FeaturesBar />
-          <p className="text-zinc-100  text-xl font-medium">
-            Discover a wide range of exercises to help you achieve your fitness goals.
+          <FilterTabs
+            className="mt-2"
+            isLoading={groupsLoading}
+            activeId={selectedGroupId}
+            allTab={{ id: 'full-body', label: t('fullBody') }}
+            items={
+              groups?.map((group) => ({
+                id: group._id,
+                label: group.name,
+              })) ?? []
+            }
+            onChange={setSelectedGroupId}
+          />
+          <p className="text-xl font-medium text-zinc-100">
+            Discover a wide range of exercises to help you achieve your fitness
+            goals.
           </p>
           <ExercisesCarousel pages={pages} cardBasePath="/exercises" />
         </div>

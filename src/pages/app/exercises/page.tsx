@@ -30,7 +30,7 @@ export default function ExercisePage() {
   const { data: exercises = [], isLoading: isExercisesLoading } =
     useGetExercises(muscleId as string, selectedLevelId);
 
-  const { data: groups } = useGetMuscleGroups();
+  const { data: groups, isLoading: groupsLoading } = useGetMuscleGroups();
   const { data: allMuscles } = useGetAllMuscles(
     selectedGroupId === null ? groups : null,
   );
@@ -46,6 +46,10 @@ export default function ExercisePage() {
       </div>
 
       <MainExercises
+        groupsLoading={groupsLoading}
+        groups={groups}
+        selectedGroupId={selectedGroupId}
+        setSelectedGroupId={setSelectedGroupId}
         pages={pages}
         levels={levels}
         activeLevelId={selectedLevelId}
