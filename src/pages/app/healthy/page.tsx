@@ -53,7 +53,7 @@ export default function HealthyPage() {
   );
 
   return (
-    <section className="overflow-hidden border border-white/8 bg-[#1b1b1d] py-6 sm:py-12">
+    <section className="overflow-hidden border border-background/8 bg-white dark:bg-[#1a1a1a] py-6 sm:py-12">
       <PageHero
         badge={t('healthy-badge')}
         titleStart={t('healthy-heading-start')}
@@ -67,7 +67,7 @@ export default function HealthyPage() {
 
       <nav
         aria-label={t('healthy-meal-time-filter')}
-        className="mx-auto mb-8 flex w-fit items-center gap-2 rounded-full bg-white/8 p-1"
+        className="mx-auto mb-8 flex w-fit items-center gap-2 rounded-full bg-gray-200 dark:bg-background/80 p-1"
       >
         {TAB_OPTIONS.map((tab) => {
           const isActive = tab === activeTab;
@@ -80,8 +80,8 @@ export default function HealthyPage() {
               aria-pressed={isActive}
               className={
                 isActive
-                  ? 'bg-main rounded-full px-4 py-1.5 text-sm font-semibold text-white'
-                  : 'rounded-full px-4 py-1.5 text-sm font-semibold text-white/75'
+                  ? 'bg-main rounded-full px-4 py-1.5 text-sm font-semibold text-background '
+                  : 'rounded-full px-4 py-1.5 text-sm font-semibold text-foreground/75 dark:hover:bg-white/10 hover:bg-black/10 hover:text-foreground cursor-pointer transition-colors duration-300'
               }
             >
               {t(`healthy-tab-${tab}`)}

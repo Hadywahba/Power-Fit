@@ -28,7 +28,7 @@ export function LogoutButton({ variant = "subtle", className }: Props) {
     <button
       onClick={logout}
       className={cn(
-        "inline-flex items-center gap-2 h-9 px-4 rounded-md text-sm font-medium transition-all active:scale-[0.98]",
+        "inline-flex items-center cursor-pointer gap-2 h-9 px-4 rounded-md text-sm font-medium transition-all active:scale-[0.98]",
         variants[variant],
         className,
       )}
