@@ -86,6 +86,18 @@
     "Instructions": "تعليمات",
     "load-more": "تحميل المزيد",
     "loading": "جاري التحميل..."
+  "healthy-badge": "تغذية صحية",
+  "healthy-heading-start": "عزّز رحلتك الرياضية بخطط",
+  "healthy-heading-highlight": "وجبات",
+  "healthy-heading-end": "مخصصة لك",
+  "healthy-background-text": "صحي",
+  "healthy-meal-time-filter": "تصفية وقت الوجبة",
+  "healthy-tab-breakfast": "فطور",
+  "healthy-tab-lunch": "غداء",
+  "healthy-tab-dinner": "عشاء",
+  "healthy-card-cta": "استكشف",
+  "healthy-retry": "حاول مرة أخرى",
+  "healthy-empty": "لا توجد تصنيفات متاحة حاليًا.",
   "kyc-wizard": {
     "shared": {
       "next-button": "التالي",
@@ -116,7 +128,46 @@
     "units": {
       "years-old": "سنة",
       "kg": "كجم",
-      "cm": "سم"
+      "cm": "سم",
+  "forget-password": {
+    "otp-subtitle": "أرسلنا رمزاً إلى {email}. <button>تغيير البريد</button>",
+    "title": "نسيت كلمة المرور",
+    "otp-title": "رمز التحقق",
+    "new-password-title": "إنشاء كلمة مرور جديدة",
+    "email-card-label": "أدخل بريدك الإلكتروني",
+    "otp-card-label": "أدخل رمز التحقق الذي استلمته",
+    "new-password-card-label": "تأكد من إنشاء كلمة مرور قوية!",
+    "send-otp": "إرسال الرمز",
+    "confirm": "تأكيد",
+    "reset-password": "إعادة تعيين كلمة المرور",
+    "didnt-receive": "لم تستلم رمز التحقق؟",
+    "resend-code": "إعادة الإرسال",
+    "resend-countdown": "إعادة الإرسال خلال {seconds} ثانية",
+    "otp-resent": "تم إرسال رمز جديد إلى بريدك الإلكتروني.",
+    "resend-failed": "فشل إعادة الإرسال. حاول مجدداً.",
+    "email-sent": "تم إرسال البريد بنجاح. تحقق من صندوق الوارد.",
+    "new-password-placeholder": "كلمة المرور الجديدة",
+    "confirm-password-placeholder": "تأكيد كلمة المرور",
+    "remembered-password": "تتذكر كلمة مرورك؟",
+    "go-to-login": "تسجيل الدخول"
+  },
+  "common": {
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm-password": "تأكيد كلمة المرور",
+    "continue": "متابعة",
+    "back": "رجوع",
+    "back-to-login": "العودة لتسجيل الدخول",
+    "go-back": "رجوع"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب.",
+    "invalid-email": "يرجى إدخال بريد إلكتروني صحيح.",
+    "otp-length": "رمز التحقق يجب أن يكون 6 أرقام.",
+    "password-min": "كلمة المرور يجب أن تكون 8 أحرف على الأقل.",
+    "passwords-not-match": "كلمتا المرور غير متطابقتين."
+  },
+  "password-reset-successfully": "تم إعادة تعيين كلمة المرور بنجاح"
     },
     "gender-options": {
       "male": "ذكر",
@@ -140,5 +191,12 @@
       "title": "تم استكمال بياناتك",
       "description": "تم حفظ جميع الخطوات وعددها {totalSteps} بنجاح."
     }
-  }
+  },
+  "fitnessclass": "قسم اللياقة البدنية",
+  "workouts": "التدريبات",
+  "transform-your-body-with-our-dynamic": "قم بتحويل جسمك بواسطه ",
+  "upcoming-workouts": "التدريبات القادمه",
+  "explore": "استكشف",
+  "fullBody": "كامل الجسم",
+  "noMusclesFound": "! لم يتم العثور على العضلات"
 }

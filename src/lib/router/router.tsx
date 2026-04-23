@@ -7,6 +7,8 @@ import ProtectedRoute from '@/components/shared/protected-route';
 import GuestRoute from '@/components/shared/guest-route';
 import { ROUTES } from '@/lib/constants/routes/routes.constant';
 import Loading from '@/components/shared/loading';
+import KycPage from '@/pages/auth/kyc/page';
+import HomePage from '@/pages/app/home/page';
 
 // ─── Auth Pages ───
 const LoginPage = lazy(() => import('@/pages/auth/login/page'));
@@ -16,7 +18,6 @@ const ForgetPasswordPage = lazy(
 );
 
 // ─── App Pages ───
-const HomePage = lazy(() => import('@/pages/app/home/page'));
 const AboutPage = lazy(() => import('@/pages/app/about/page'));
 const ClassesPage = lazy(() => import('@/pages/app/classes/page'));
 const HealthyPage = lazy(() => import('@/pages/app/healthy/page'));
@@ -24,7 +25,6 @@ const HealthyDetailsPage = lazy(
   () => import('@/pages/app/healthy-details/page'),
 );
 const ProfilePage = lazy(() => import('@/pages/app/profile/page'));
-const KycPage = lazy(() => import('@/pages/auth/kyc/page'));
 
 // ─── Suspense Wrapper ───
 const withSuspense = (element: React.ReactNode) => (
@@ -39,13 +39,12 @@ export const router = createBrowserRouter([
       {
         element: <AuthLayout />,
         children: [
-          { index: true, element: withSuspense(<LoginPage />) },
           { path: ROUTES.auth.login, element: withSuspense(<LoginPage />) },
           {
             path: ROUTES.auth.register,
             element: withSuspense(<RegisterPage />),
           },
-          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />), },
+          { path: ROUTES.auth.kyc, element: withSuspense(<KycPage />) },
           {
             path: ROUTES.auth.forgetPassword,
             element: withSuspense(<ForgetPasswordPage />),
@@ -62,7 +61,7 @@ export const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       // public
-      { index: true, element: withSuspense(<HomePage />) },
+      { index: true, element: <HomePage /> },
       { path: ROUTES.app.about, element: withSuspense(<AboutPage />) },
 
       // protected
