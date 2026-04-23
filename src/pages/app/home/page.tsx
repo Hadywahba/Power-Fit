@@ -2,6 +2,7 @@ import AboutPage from '../about/page';
 import ClassesPage from '../classes/page';
 import HealthyPage from '../healthy/page';
 import HeroSection from './components/hero-section';
+import WhyUsSection from './components/why-us-section';
 
 export default function HomePage() {
   return (
@@ -11,6 +12,9 @@ export default function HomePage() {
 
       {/* About */}
       <AboutPage />
+
+      {/* Why Us */}
+      <WhyUsSection />
 
       {/* Healthy */}
       <HealthyPage />
