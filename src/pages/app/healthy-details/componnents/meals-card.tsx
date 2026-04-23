@@ -15,22 +15,24 @@ export default function MealCard({
   // Context
   const { setMealId, mealId } = useMeal();
 
-  //  Variable
   const isActive = mealId === idMeal;
 
   return (
     <div
       onClick={() => setMealId(idMeal)}
       className={cn(
-        'flex cursor-pointer items-center gap-4 border-b border-white/5 px-4 py-3 transition-colors last:border-0 hover:bg-white/5',
-        isActive && 'border-orange-500/30 bg-orange-500/10',
+        'flex cursor-pointer items-center gap-4 px-4 py-3 transition-colors last:border-0',
+        'border-b border-zinc-200 dark:border-white/5',
+        'hover:bg-zinc-100 dark:hover:bg-white/5',
+        isActive && 'border-orange-500/30 bg-orange-100 dark:bg-orange-500/10',
       )}
     >
       <img
         src={strMealThumb}
         alt={strMeal}
         className={cn(
-          'size-20 shrink-0 rounded-xl border border-white/10 object-cover transition',
+          'size-20 shrink-0 rounded-xl object-cover transition',
+          'border border-zinc-200 dark:border-white/10',
           isActive && 'border-orange-400',
         )}
       />
@@ -38,8 +40,9 @@ export default function MealCard({
       <div className="min-w-0 flex-1">
         <p
           className={cn(
-            'mb-0.5 text-sm font-medium text-gray-100',
-            isActive && 'text-orange-300',
+            'mb-0.5 text-sm font-medium',
+            'text-zinc-800 dark:text-gray-100',
+            isActive && 'text-orange-600 dark:text-orange-300',
           )}
         >
           {strMeal}
@@ -50,14 +53,19 @@ export default function MealCard({
         className={cn(
           'shrink-0 rounded-full border px-2.5 py-1 text-xs font-medium',
           isActive
-            ? 'border-orange-500/50 bg-orange-500/20 text-orange-300'
-            : 'border-orange-900/50 bg-orange-950 text-orange-300',
+            ? 'border-orange-400 bg-orange-100 text-orange-600 dark:border-orange-500/50 dark:bg-orange-500/20 dark:text-orange-300'
+            : 'border-zinc-300 bg-zinc-100 text-zinc-600 dark:border-orange-900/50 dark:bg-orange-950 dark:text-orange-300',
         )}
       >
         #{idMeal}
       </span>
 
-      <span className={cn('text-gray-600', isActive && 'text-orange-400')}>
+      <span
+        className={cn(
+          'text-zinc-400 dark:text-gray-600',
+          isActive && 'text-orange-500 dark:text-orange-400',
+        )}
+      >
         ›
       </span>
     </div>

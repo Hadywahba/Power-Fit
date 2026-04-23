@@ -1,8 +1,6 @@
-
 import type { PageHeroProps } from '../../lib/types/page-hero';
-import { Dumbbell } from "lucide-react";
-import { cn } from "@/lib/utils/tailwind-merge/cn";
-
+import { Dumbbell } from 'lucide-react';
+import { cn } from '@/lib/utils/tailwind-merge/cn';
 
 export default function PageHero({
   badge,
@@ -37,7 +35,7 @@ export default function PageHero({
           'text-[42px] sm:text-[54px] lg:text-[64px]',
           'whitespace-nowrap select-none',
           'text-transparent',
-          'bg-linear-to-r from-white/22 to-[#232425]',
+          'bg-linear-to-r from-[#232425] to-gray-400 dark:bg-linear-to-r dark:from-white/22 dark:to-[#232425]',
           'bg-clip-text [-webkit-background-clip:text]',
           '[-webkit-text-stroke:1px_rgba(255,255,255,0.05)]',
           backgroundTextClassName,
@@ -62,7 +60,7 @@ export default function PageHero({
             aria-hidden="true"
             className={cn(
               'absolute inset-0 rounded-full blur-xl',
-              'bg-main/20 dark:bg-main/25',
+              'bg-main/35 dark:bg-main/25',
             )}
           />
 
