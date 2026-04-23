@@ -59,12 +59,14 @@ export default function AppNavbar() {
             </NavLink>
           ))}
         </nav>
-        {/* logout-button */}
-        <LogoutButton />
-        {/* them toggle */}
-        <ThemeToggle />
-        {/*locale toggle */}
-        <LocaleSwitcher />
+        <div className="switcher flex items-center gap-4 grow justify-end me-3">
+          {/* logout-button */}
+          <LogoutButton />
+          {/* them toggle */}
+          <ThemeToggle />
+          {/*locale toggle */}
+          <LocaleSwitcher />
+        </div>
         <div className="hidden md:flex">
           <Link
             to={ROUTES.app.profile}
