@@ -1,4 +1,3 @@
-
 import AboutPage from '../about/page';
 import ClassesPage from '../classes/page';
 import HealthyPage from '../healthy/page';
