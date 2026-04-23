@@ -6,19 +6,17 @@ import HeroSection from './components/hero-section';
 export default function HomePage() {
   return (
     <main className="relative grid w-full grid-cols-1">
-      <div className="pt-12">
-        {/* Hero */}
-        <HeroSection />
+      {/* Hero */}
+      <HeroSection />
 
-        {/* About */}
-        <AboutPage />
+      {/* About */}
+      <AboutPage />
 
-        {/* Healthy */}
-        <HealthyPage />
+      {/* Healthy */}
+      <HealthyPage />
 
-        {/* Classes */}
-        <ClassesPage />
-      </div>
+      {/* Classes */}
+      <ClassesPage />
     </main>
   );
 }
