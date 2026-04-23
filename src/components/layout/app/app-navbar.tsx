@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils/tailwind-merge/cn';
 import { LogoutButton } from '@/components/shared/logout-button';
 import ThemeToggle from '@/components/shared/theme-toggle';
 import LocaleSwitcher from '@/components/shared/locale-switcher';
+import { useAuth } from '@/hooks/shared/use-auth';
+import { useTranslations } from 'use-intl';
 
 type NavItem = {
   name: string;
@@ -21,9 +23,12 @@ const navigation: NavItem[] = [
 ];
 
 export default function AppNavbar() {
+  // Translation
+  const t = useTranslations()
   // State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  // hook
+  const { isAuthenticated } = useAuth();
   return (
     <header className="absolute inset-x-0 z-40 border-b border-white/10 bg-[#242424]">
       <div className="mx-auto flex h-17 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -59,9 +64,15 @@ export default function AppNavbar() {
             </NavLink>
           ))}
         </nav>
-        <div className="switcher flex items-center gap-4 grow justify-end me-3">
+        <div className="switcher me-3 flex grow items-center justify-end gap-4">
           {/* logout-button */}
-          <LogoutButton />
+          {isAuthenticated ? (
+            <LogoutButton />
+          ) : (
+            <Link to={ROUTES.auth.login} className='text-zinc-100'>
+              {t('login')}
+            </Link>
+          )}
           {/* them toggle */}
           <ThemeToggle />
           {/*locale toggle */}
