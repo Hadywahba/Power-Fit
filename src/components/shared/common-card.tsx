@@ -20,7 +20,7 @@ export default function CommonCard({
   className,
 }: CommonCardProps) {
   const actionClassName =
-    'flex w-fit cursor-pointer items-center justify-start gap-2';
+    'flex w-fit cursor-pointer items-center justify-start gap-2 transition-transform duration-300 group-hover:translate-x-1';
 
   const actionContent = (
     <>
@@ -37,7 +37,7 @@ export default function CommonCard({
   return (
     <article
       className={cn(
-        'relative h-full overflow-hidden rounded-xl border border-white/15 bg-white/5',
+        'group relative h-full overflow-hidden rounded-xl border border-white/15 bg-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)] dark:bg-white/5',
         className,
       )}
     >
@@ -47,10 +47,10 @@ export default function CommonCard({
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        <figcaption className="absolute inset-x-0 bottom-0 bg-white/70 p-4 text-black backdrop-blur-xl dark:bg-black/45 dark:text-white">
+        <figcaption className="absolute inset-x-0 bottom-0 bg-white/70 p-4 text-black backdrop-blur-xl dark:bg-black/70 dark:text-white">
           <div className="flex flex-col gap-2">
             <h3 className="text-base font-extrabold tracking-[0.06em] uppercase sm:text-lg">
               {title}

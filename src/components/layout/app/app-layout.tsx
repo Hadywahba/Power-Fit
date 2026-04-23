@@ -9,9 +9,16 @@ export default function AppLayout() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <main>
+    <main className="relative">
+      {/* Navbar */}
       <AppNavbar />
-      <Outlet />
+
+      {/* Main Content */}
+      <section className="pt-16">
+        <Outlet />
+      </section>
+
+      {/* Footer */}
       <Footer />
 
       <button

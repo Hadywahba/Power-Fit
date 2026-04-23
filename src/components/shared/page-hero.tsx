@@ -37,7 +37,7 @@ export default function PageHero({
           'text-[42px] sm:text-[54px] lg:text-[64px]',
           'whitespace-nowrap select-none',
           'text-transparent',
-          'bg-linear-to-r from-white/22 to-[#232425]',
+          'bg-linear-to-r from-foreground/22 to-[#232425]',
           'bg-clip-text [-webkit-background-clip:text]',
           '[-webkit-text-stroke:1px_rgba(255,255,255,0.05)]',
           backgroundTextClassName,
@@ -87,11 +87,11 @@ export default function PageHero({
               titleClassName,
             )}
           >
-            {titleStart ? <span>{titleStart} </span> : null}
+            {titleStart ? <span className="text-foreground">{titleStart} </span> : null}
             {titleHighlight ? (
               <span className="text-main">{titleHighlight}</span>
             ) : null}
-            {titleEnd ? <span> {titleEnd}</span> : null}
+            {titleEnd ? <span className="text-foreground"> {titleEnd}</span> : null}
           </h1>
         )}
       </div>

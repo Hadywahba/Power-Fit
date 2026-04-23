@@ -10,27 +10,27 @@ import { useAuth } from '@/hooks/shared/use-auth';
 import { useTranslations } from 'use-intl';
 
 type NavItem = {
-  name: string;
+  labelKey: string;
   to: string;
   end?: boolean;
 };
 
 const navigation: NavItem[] = [
-  { name: 'Home', to: ROUTES.app.home, end: true },
-  { name: 'About', to: ROUTES.app.about },
-  { name: 'Classes', to: ROUTES.app.classes },
-  { name: 'Healthy', to: ROUTES.app.healthy },
+  { labelKey: 'nav-home', to: ROUTES.app.home, end: true },
+  { labelKey: 'nav-about', to: ROUTES.app.about },
+  { labelKey: 'nav-classes', to: ROUTES.app.classes },
+  { labelKey: 'nav-healthy', to: ROUTES.app.healthy },
 ];
 
 export default function AppNavbar() {
   // Translation
-  const t = useTranslations()
+  const t = useTranslations();
   // State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // hook
   const { isAuthenticated } = useAuth();
   return (
-    <header className="absolute inset-x-0 z-40 border-b border-white/10 bg-[#242424]">
+    <header className="fixed inset-x-0 z-40 border-b border-foreground/10 bg-white dark:bg-[#1a1a1a] backdrop-blur-sm">
       <div className="mx-auto flex h-17 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link
           to={ROUTES.app.home}
@@ -50,42 +50,42 @@ export default function AppNavbar() {
         >
           {navigation.map((item) => (
             <NavLink
-              key={item.name}
+              key={item.labelKey}
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  'hover:text-main text-[15px] leading-none font-semibold transition-colors duration-300',
-                  isActive ? 'text-main' : 'text-white/90',
+                  'hover:text-main text-lg leading-none font-semibold transition-colors duration-300',
+                  isActive ? 'text-main' : 'text-foreground/90',
                 )
               }
             >
-              {item.name}
+              {t(item.labelKey)}
             </NavLink>
           ))}
         </nav>
-        <div className="switcher me-3 flex grow items-center justify-end gap-4">
+        <div className="switcher me-3 hidden grow items-center justify-end gap-4 md:flex">
+          {/*locale toggle */}
+          <LocaleSwitcher />
+          {/* them toggle */}
+          <ThemeToggle />
+          <div className="hidden md:flex">
+            <Link
+              to={ROUTES.app.profile}
+              aria-label="Open profile"
+              className="bg-main hover:bg-background hover:text-main inline-flex size-9 items-center justify-center rounded-full text-white transition-colors duration-300"
+            >
+              <UserRound size={14} />
+            </Link>
+          </div>
           {/* logout-button */}
           {isAuthenticated ? (
             <LogoutButton />
           ) : (
-            <Link to={ROUTES.auth.login} className='text-zinc-100'>
+            <Link to={ROUTES.auth.login} className="text-zinc-100">
               {t('login')}
             </Link>
           )}
-          {/* them toggle */}
-          <ThemeToggle />
-          {/*locale toggle */}
-          <LocaleSwitcher />
-        </div>
-        <div className="hidden md:flex">
-          <Link
-            to={ROUTES.app.profile}
-            aria-label="Open profile"
-            className="bg-main inline-flex size-9 items-center justify-center rounded-full text-white"
-          >
-            <UserRound size={14} />
-          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -111,28 +111,50 @@ export default function AppNavbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-white/10 bg-[#242424] md:hidden">
-          <nav
-            aria-label="Mobile navigation"
-            className="mx-auto flex w-full max-w-7xl flex-col px-4 py-3 sm:px-6"
-          >
-            {navigation.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.to}
-                end={item.end}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    'rounded-md px-2 py-2 text-[15px] font-semibold',
-                    isActive ? 'text-main' : 'text-white/90',
-                  )
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </nav>
+        <div className="border-t border-white/10 bg-white dark:bg-[#1a1a1a] backdrop-blur-sm md:hidden">
+          <div className="mx-auto w-full max-w-7xl px-4 py-3 sm:px-6">
+            <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
+              {navigation.map((item) => (
+                <NavLink
+                  key={item.labelKey}
+                  to={item.to}
+                  end={item.end}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      'rounded-md px-3 py-2 text-[15px] font-semibold transition-colors duration-300',
+                      isActive
+                        ? 'text-main bg-white/10'
+                        : 'text-white/90 hover:bg-white/5',
+                    )
+                  }
+                >
+                  {t(item.labelKey)}
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="mt-3 border-t border-white/10 pt-3">
+              <div className="mb-3 flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2">
+                <LocaleSwitcher />
+                <ThemeToggle />
+              </div>
+
+              {isAuthenticated ? (
+                <div className="flex justify-start">
+                  <LogoutButton />
+                </div>
+              ) : (
+                <Link
+                  to={ROUTES.auth.login}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full rounded-md border border-white/15 bg-white/5 px-3 py-2 text-center text-sm font-semibold text-white/95"
+                >
+                  {t('login')}
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </header>
