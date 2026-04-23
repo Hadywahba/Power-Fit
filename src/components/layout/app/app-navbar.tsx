@@ -35,7 +35,7 @@ export default function AppNavbar() {
         <Link
           to={ROUTES.app.home}
           aria-label="Go to home page"
-          className="flex items-center"
+          className="flex items-center md:pe-4"
         >
           <img
             src="/assets/logo.png"
@@ -103,7 +103,7 @@ export default function AppNavbar() {
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="inline-flex size-9 items-center justify-center rounded-md border border-white/20 text-white"
+            className="inline-flex size-9 items-center justify-center rounded-md border border-foreground/20 text-foreground/90 hover:bg-foreground/5 focus:outline-none focus:ring-2 focus:ring-main focus:ring-offset-2 md:hidden cursor-pointer transition-colors duration-300"
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -124,8 +124,8 @@ export default function AppNavbar() {
                     cn(
                       'rounded-md px-3 py-2 text-[15px] font-semibold transition-colors duration-300',
                       isActive
-                        ? 'text-main bg-white/10'
-                        : 'text-white/90 hover:bg-white/5',
+                        ? 'text-main bg-foreground/10'
+                        : 'text-foreground/90 hover:bg-foreground/5',
                     )
                   }
                 >
@@ -134,8 +134,8 @@ export default function AppNavbar() {
               ))}
             </nav>
 
-            <div className="mt-3 border-t border-white/10 pt-3">
-              <div className="mb-3 flex items-center justify-between rounded-md border border-white/10 bg-white/5 px-3 py-2">
+            <div className="mt-3 border-t border-foreground/10 pt-3">
+              <div className="mb-3 flex items-center justify-between rounded-md border border-foreground/10 bg-foreground/5 px-3 py-2">
                 <LocaleSwitcher />
                 <ThemeToggle />
               </div>
@@ -148,7 +148,7 @@ export default function AppNavbar() {
                 <Link
                   to={ROUTES.auth.login}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full rounded-md border border-white/15 bg-white/5 px-3 py-2 text-center text-sm font-semibold text-white/95"
+                  className="block w-full rounded-md border border-foreground/15 bg-foreground/5 px-3 py-2 text-center text-sm font-semibold text-foreground/95"
                 >
                   {t('login')}
                 </Link>
