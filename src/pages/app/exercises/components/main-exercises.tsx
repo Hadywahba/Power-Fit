@@ -1,10 +1,9 @@
 'use client';
 
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { featureItems } from '@/lib/constants/exercises/exercises.constant';
 import type { Level as ApiLevel, Exercise } from '@/lib/types/exercises';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ExercisesPlaylist from './exercises-playlist';
 import VideoInfo from './video-info';
 import VideoPlayer from './video-player';
@@ -72,6 +71,12 @@ export default function MainExercises({
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    if (!activeLevelId && levels.length > 0) {
+      onLevelChange(levels[0]._id);
+    }
+  }, [levels, activeLevelId, onLevelChange]);
+
   const mappedLevels = useMemo(
     () => levels.map((level) => ({ id: level._id, name: level.name })),
     [levels],
@@ -83,26 +88,31 @@ export default function MainExercises({
     return exercises.find((e) => e._id === selectedId) || exercises[0];
   }, [exercises, selectedId]);
 
-  return (
-    <div className="flex h-screen flex-col overflow-hidden bg-zinc-950 text-zinc-100">
-      <div className="flex flex-1 overflow-hidden">
-        <ExercisesPlaylist
-          getYouTubeThumbnail={getYouTubeThumbnail}
-          levels={mappedLevels}
-          activeLevelId={activeLevelId}
-          onLevelChange={onLevelChange}
-          list={exercises}
-          activeVideoId={activeVideo?._id ?? ''}
-          onSelectVideo={(item) => {
-            setSelectedId(item._id);
-            setIsPlaying(false);
-          }}
-        />
+return (
+    <div className="min-h-screen bg-zinc-900 text-zinc-100">
+    <div className="flex items-start">
+      
+      {/* Sidebar */}
+        <aside className="sticky top-0 h-screen w-80 shrink-0 border-r border-zinc-800">
+          <ExercisesPlaylist
+            getYouTubeThumbnail={getYouTubeThumbnail}
+            levels={mappedLevels}
+            activeLevelId={activeLevelId}
+            onLevelChange={onLevelChange}
+            list={exercises}
+            activeVideoId={activeVideo?._id ?? ''}
+            onSelectVideo={(item) => {
+              setSelectedId(item._id);
+              setIsPlaying(false);
+            }}
+          />
+        </aside>
 
-        <ScrollArea className="flex-1 bg-zinc-950">
-          <div className="flex flex-col gap-5 p-6">
+        {/* Main Content */}
+        <main className="flex-1">
+          <div className="flex flex-col gap-5 py-4 max-w-5xl mx-auto">
             {isLoading || !activeVideo ? (
-              <div className="flex min-h-70 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40 text-zinc-400">
+              <div className="flex min-h-100 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40 text-zinc-400">
                 {isLoading ? 'Loading exercises...' : 'No exercises found'}
               </div>
             ) : (
@@ -120,9 +130,11 @@ export default function MainExercises({
 
             <Separator className="bg-zinc-800/60" />
             <FeaturesBar />
-          </div>
-        </ScrollArea>
+            
+        </div>
+        </main>
       </div>
     </div>
   );
 }
+

@@ -2,9 +2,9 @@ import { Dumbbell } from "lucide-react";
 import { cn } from "@/lib/utils/tailwind-merge/cn";
 
 type PageHeroProps = {
-  badge: string;
-  titleStart: string;
-  titleHighlight: string;
+  badge?: string;
+  titleStart?: string;
+  titleHighlight?: string;
   backgroundText?: string;
   className?: string;
 };
@@ -45,8 +45,8 @@ export default function PageHero({
         aria-hidden="true"
         className={cn(
           "absolute w-full h-[70%] bottom-0 e-0",
-          "bg-linear-to-r from-foreground/3 via-transparent to-foreground/3",
-          "dark:from-white/2 dark:to-white/2",
+          // "bg-linear-to-r from-foreground/3 via-transparent to-foreground/3",
+          // "dark:from-white/2 dark:to-white/2",
         )}
       />
 

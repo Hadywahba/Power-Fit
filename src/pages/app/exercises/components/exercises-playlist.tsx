@@ -25,7 +25,7 @@ export default function ExercisesPlaylist({
   onSelectVideo,
 }: ExercisesPlaylistProps) {
   return (
-    <aside className="flex h-full w-90 shrink-0 flex-col overflow-hidden border-r border-zinc-800/60 bg-zinc-900">
+    <div className="flex h-full w-90 shrink-0 flex-col overflow-hidden border-r border-zinc-800/60 bg-zinc-900">
       {/* Tabs */}
       <div className="flex gap-1 px-4 pt-3.5">
         {levels.map((level) => (
@@ -59,6 +59,6 @@ export default function ExercisesPlaylist({
           ))}
         </div>
       </ScrollArea>
-    </aside>
+    </div>
   );
 }

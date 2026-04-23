@@ -55,7 +55,6 @@ export default function ClassesPage() {
           onChange={setSelectedGroupId}
           muscles={muscles}
           emptyText={t('noMusclesFound')}
-          // ToDo By Mostafa
           cardBasePath="/exercises"
         />
       </div>
