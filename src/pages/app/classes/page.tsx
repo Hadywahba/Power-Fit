@@ -30,7 +30,7 @@ export default function ClassesPage() {
   const musclesLoading = isFullBody ? allMusclesLoading : filteredLoading;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 bg-orange-50 dark:bg-[#201f1f]">
       <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
         <PageHero
           badge={t('fitnessclass')}

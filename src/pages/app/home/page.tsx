@@ -1,7 +1,18 @@
+
+import AboutPage from '../about/page';
+import ClassesPage from '../classes/page';
+import HealthyPage from '../healthy/page';
+
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1>Hello from Home</h1>
-    </div>
+    <main className='relative grid w-full grid-cols-1 '>
+     <div className='pt-8'>
+       <ClassesPage />
+     </div>
+
+      <AboutPage />
+
+      <HealthyPage />
+    </main>
   );
 }
