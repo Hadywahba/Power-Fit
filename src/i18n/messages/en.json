@@ -71,6 +71,18 @@
   "create-an-account": "Create An Account",
   "or": "or",
   "successful-register": "Account Created Successfully",
+  "classes": {
+    "workout-title": " Transform Your Body with Our Dynamic <span>Upcoming Workouts</span>",
+    "fitness-class": "fitness class"
+  },
+  "meals": {
+    "meal-title": "🍽️ Discover meals prepared with <ingredient></ingredient>",
+    "Ingredients": "Ingredients",
+    "youtube": " Watch on YouTube",
+    "Instructions": "Instructions",
+    "load-more":"Load More",
+    "loading":"Loading..."
+  },
   "healthy-badge": "Healthy Nutritions",
   "healthy-heading-start": "Fuel Your Fitness Journey With Customized",
   "healthy-heading-highlight": "Meal Plans",
