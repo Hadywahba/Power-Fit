@@ -1,7 +1,7 @@
 import type { Exercise } from '@/lib/types/exercises';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import { Play } from 'lucide-react';
-
+import { useState } from 'react';
 
 export default function VideoPlayer({
   getYouTubeEmbed,
@@ -16,26 +16,44 @@ export default function VideoPlayer({
   isPlaying: boolean;
   onToggle: () => void;
 }) {
-  const embedUrl = getYouTubeEmbed(exercise.in_depth_youtube_explanation_link);
+  const [isLoaded, setIsLoaded] = useState(false);
 
+  const embedUrl = getYouTubeEmbed(exercise.in_depth_youtube_explanation_link);
   const thumbnail = getYouTubeThumbnail(
     exercise.in_depth_youtube_explanation_link,
   );
 
+  const handleToggle = () => {
+    setIsLoaded(false);
+    onToggle();
+  };
+
   return (
     <div className="group relative mb-2 aspect-video max-h-134 w-full overflow-hidden rounded-2xl">
-      {/* 🎥 VIDEO */}
-      {embedUrl && isPlaying ? (
-        <iframe
-          title={exercise.exercise}
-          src={embedUrl}
-          className="absolute inset-0 h-full w-full"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
+      {!embedUrl ? (
+        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-zinc-900">
+          <span className="text-l font-medium text-zinc-500">
+            No video available
+          </span>
+        </div>
+      ) : isPlaying ? (
+        <>
+          {!isLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+              <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-orange-500" />
+            </div>
+          )}
+          <iframe
+            title={exercise.exercise}
+            src={embedUrl}
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            onLoad={() => setIsLoaded(true)}
+          />
+        </>
       ) : (
-        <div onClick={onToggle} className="absolute inset-0 cursor-pointer">
-          {/* 🖼️ Thumbnail */}
+        <div onClick={handleToggle} className="absolute inset-0 cursor-pointer">
           {thumbnail ? (
             <img
               src={thumbnail}
@@ -52,10 +70,9 @@ export default function VideoPlayer({
         </div>
       )}
 
-      {/* ▶️ Overlay */}
       {!isPlaying && (
         <div
-          onClick={onToggle}
+          onClick={handleToggle}
           className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center bg-linear-to-t from-black/80 via-transparent to-transparent"
         >
           <div className="relative mb-4">

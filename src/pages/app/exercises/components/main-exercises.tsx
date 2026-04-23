@@ -11,6 +11,7 @@ import ExercisesCarousel from './exercises-carousel';
 import type { Muscle, MuscleGroup } from '@/lib/types/muscle';
 import FilterTabs from '@/components/shared/filter-tabes';
 import { useTranslations } from 'use-intl/react';
+import { Spinner } from '@/components/ui/spinner';
 
 export interface LevelTab {
   id: string;
@@ -128,7 +129,7 @@ return (
         <div className="mx-auto flex max-w-5xl flex-col gap-5 py-4">
           {isLoading || !activeVideo ? (
             <div className="flex min-h-100 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40 text-zinc-400">
-              {isLoading ? 'Loading exercises...' : 'No exercises found'}
+              {isLoading ? <Spinner className="size-6" /> : 'No exercises found'}
             </div>
           ) : (
             <>
