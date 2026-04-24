@@ -40,7 +40,7 @@ export default function ExercisePage() {
   const pages = chunkArray(muscles ?? [], PAGE_SIZE);
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-zinc-100">
+    <div className="min-h-screen">
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
         <PageHero backgroundText={t('workouts')} className="lg:pb-1" />
       </div>

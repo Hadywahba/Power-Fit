@@ -6,13 +6,10 @@ import { cn } from '@/lib/utils/tailwind-merge/cn';
 import type { Exercise } from '@/lib/types/exercises';
 import { levelBadgeClass } from '@/lib/constants/exercises/exercises.constant';
 
-
-// Get badge class based on level name, with a fallback for unknown levels
 const getLevelClass = (levelName: string) =>
   levelBadgeClass[levelName as keyof typeof levelBadgeClass] ??
-  'bg-zinc-700/20 text-zinc-300 border-zinc-700';
+  'bg-zinc-100 dark:bg-zinc-700/20 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700';
 
-  
 export default function VideoInfo({ exercise }: { exercise: Exercise }) {
   const badges = [
     {
@@ -22,12 +19,12 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
     {
       value: exercise.target_muscle_group,
       className:
-        'border-zinc-700 text-xs font-bold tracking-widest text-zinc-400 uppercase',
+        'border-zinc-300 dark:border-zinc-700 text-xs font-bold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase',
     },
     {
       value: exercise.mechanics,
       className:
-        'border-zinc-700 text-xs font-bold tracking-widest text-zinc-400 uppercase',
+        'border-zinc-300 dark:border-zinc-700 text-xs font-bold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase',
     },
   ];
 
@@ -35,8 +32,9 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
     {
       icon: Timer,
       value: 'N/A',
-      className: 'border-zinc-700 text-zinc-300',
-      iconClass: 'text-zinc-500',
+      className:
+        'border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300',
+      iconClass: 'text-zinc-400 dark:text-zinc-500',
     },
     {
       icon: Flame,
@@ -47,15 +45,16 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
     {
       icon: ClipboardList,
       value: exercise.primary_exercise_classification,
-      className: 'border-zinc-700 text-zinc-300',
-      iconClass: 'text-zinc-500',
+      className:
+        'border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300',
+      iconClass: 'text-zinc-400 dark:text-zinc-500',
     },
   ];
 
   return (
     <div className="space-y-4">
       {/* Title */}
-      <h3 className="text-xl font-black tracking-wide text-zinc-100 uppercase">
+      <h3 className="text-xl font-black tracking-wide text-zinc-900 uppercase dark:text-zinc-100">
         {exercise.exercise}
       </h3>
 
@@ -76,7 +75,7 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
       </div>
 
       {/* Description */}
-      <p className="text-sm leading-relaxed text-zinc-500">
+      <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-500">
         A targeted {exercise.target_muscle_group?.toLowerCase()} workout{' '}
         {exercise.movement_pattern_1}. Follow along at your own pace.
       </p>
@@ -85,7 +84,6 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
       <div className="flex flex-wrap gap-3">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
-
           return (
             <div
               key={index}

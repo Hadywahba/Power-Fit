@@ -24,14 +24,14 @@ export default function PlaylistItem({
       onClick={() => onSelect(item)}
       aria-label={`Play ${item.exercise}`}
       className={cn(
-        'flex w-full cursor-pointer items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-colors hover:bg-white/5',
+        'flex w-full cursor-pointer items-center gap-3 border-l-[3px] px-4 py-3 text-left transition-colors hover:bg-black/5 dark:hover:bg-white/5',
         isActive ? 'border-l-main bg-orange-500/10' : 'border-l-transparent',
       )}
     >
       {/* LEFT: Thumbnail + Text */}
       <div className="flex w-1 flex-1 items-center gap-3">
         {/* Thumbnail */}
-        <div className="relative h-13 w-18 shrink-0 overflow-hidden rounded-lg bg-zinc-700">
+        <div className="relative h-13 w-18 shrink-0 overflow-hidden rounded-lg bg-zinc-200 dark:bg-zinc-700">
           {thumbnail ? (
             <Image
               src={thumbnail}
@@ -41,7 +41,7 @@ export default function PlaylistItem({
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold tracking-wide text-zinc-400 uppercase">
+            <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
               No preview
             </span>
           )}
@@ -49,13 +49,13 @@ export default function PlaylistItem({
 
         {/* Text */}
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-bold text-zinc-100">
+          <p className="truncate text-sm font-bold text-zinc-900 dark:text-zinc-100">
             {item.exercise}
           </p>
-          <p className="mt-0.5 text-xs text-zinc-300">
+          <p className="mt-0.5 text-xs text-zinc-600 dark:text-zinc-300">
             {item.movement_pattern_1}
           </p>
-          <p className="mt-0.5 truncate text-xs text-zinc-500">
+          <p className="mt-0.5 truncate text-xs text-zinc-500 dark:text-zinc-500">
             {item.primary_equipment}
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function PlaylistItem({
           isActive && 'scale-110',
         )}
       >
-        <Play className="ml-0.5 h-3 w-3 fill-zinc-800 text-zinc-800" />
+        <Play className="ml-0.5 h-3 w-3 fill-white text-white dark:fill-zinc-800 dark:text-zinc-800" />
       </div>
     </button>
   );

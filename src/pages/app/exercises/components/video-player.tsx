@@ -31,16 +31,16 @@ export default function VideoPlayer({
   return (
     <div className="group relative mb-2 aspect-video max-h-134 w-full overflow-hidden rounded-2xl">
       {!embedUrl ? (
-        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-zinc-900">
-          <span className="text-l font-medium text-zinc-500">
+        <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-zinc-100 dark:bg-zinc-900">
+          <span className="text-l font-medium text-zinc-500 dark:text-zinc-500">
             No video available
           </span>
         </div>
       ) : isPlaying ? (
         <>
           {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-orange-500" />
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-100 dark:bg-zinc-900">
+              <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-300 border-t-orange-500 dark:border-zinc-700" />
             </div>
           )}
           <iframe
@@ -61,8 +61,8 @@ export default function VideoPlayer({
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-              <span className="px-6 text-center text-3xl font-black tracking-wide text-zinc-700 uppercase">
+            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-zinc-100 via-zinc-200 to-zinc-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900">
+              <span className="px-6 text-center text-3xl font-black tracking-wide text-zinc-400 uppercase dark:text-zinc-700">
                 {exercise.exercise}
               </span>
             </div>
@@ -73,7 +73,7 @@ export default function VideoPlayer({
       {!isPlaying && (
         <div
           onClick={handleToggle}
-          className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center bg-linear-to-t from-black/80 via-transparent to-transparent"
+          className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center bg-linear-to-t from-black/60 via-transparent to-transparent dark:from-black/80"
         >
           <div className="relative mb-4">
             <div

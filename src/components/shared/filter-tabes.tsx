@@ -155,6 +155,7 @@ export default function FilterTabs({
       <div className={cn("md:hidden", className)}>
         <button
           type="button"
+          aria-label="Open filters"
           onClick={() => setSheetOpen(true)}
           className={cn(
             mobileTriggerBase,
@@ -232,6 +233,7 @@ export default function FilterTabs({
                 {allTab?.label ?? "Filter"}
               </p>
               <button
+                aria-label="Close"
                 type="button"
                 onClick={() => setSheetOpen(false)}
                 className={sheetCloseBtn}
