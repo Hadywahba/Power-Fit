@@ -1,19 +1,12 @@
-import * as React from 'react';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
 import { Dumbbell } from 'lucide-react';
-import type { CarouselApi } from '@/components/ui/carousel';
-
-import FilterTabs from '@/components/shared/filter-tabes';
+import * as React from 'react';
 import CarouselDots from '@/components/shared/carousel-dots';
+import FilterTabs from '@/components/shared/filter-tabes';
 import MuscleCardSkeleton from '@/components/skeletons/shared/muscle-card-skeleton';
-import MuscleCard from '@/components/features/muscle/muscle-card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
-
 import type { Muscle } from '@/lib/types/muscle';
 import { useEffect, useMemo } from 'react';
+import MuscleCard from './muscle-card';
 
 type FilterItem = {
   id: string;
@@ -136,7 +129,8 @@ export default function MuscleCarouselSection({
               ))}
             </CarouselContent>
           </Carousel>
-
+            
+            
           {/* Carousel Dots */}
           <CarouselDots
             count={snapCount}

@@ -9,6 +9,7 @@ import { ROUTES } from '@/lib/constants/routes/routes.constant';
 import Loading from '@/components/shared/loading';
 import KycPage from '@/pages/auth/kyc/page';
 import HomePage from '@/pages/app/home/page';
+import ExercisesPage from '@/pages/app/exercises/page';
 
 // ─── Auth Pages ───
 const LoginPage = lazy(() => import('@/pages/auth/login/page'));
@@ -69,6 +70,9 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute />,
         children: [
           { path: ROUTES.app.classes, element: withSuspense(<ClassesPage />) },
+          {
+            path: ROUTES.app.exercises,element: withSuspense(<ExercisesPage />),
+          },
           { path: ROUTES.app.healthy, element: withSuspense(<HealthyPage />) },
           {
             path: ROUTES.app.healthyDetails,

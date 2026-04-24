@@ -256,5 +256,16 @@
       "3": "Outdoor & Online",
       "4": "Personal Classes"
     }
-  }
+  },
+  "noVideoAvailable": "No video available",
+  "noExercisesFound": "No exercises found",
+  "noPreview": "No preview",
+  "discoverExercises": "Discover a wide range of exercises to help you achieve your fitness goals.",
+  "playExercise": "Play {name}",
+  "aTargetedWorkout": "A targeted {muscle} workout {pattern}. Follow along at your own pace.",
+  "expertDesignedWorkout": "Expert-designed workout",
+  "trackYourProgress": "Track your progress",
+  "hdVideoQuality": "HD Video quality"
+
+
 }
