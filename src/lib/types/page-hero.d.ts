@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 export type PageHeroProps = {
-  badge: string;
+  badge?: string;
   titleStart?: string;
   titleHighlight?: string;
   titleEnd?: string;
