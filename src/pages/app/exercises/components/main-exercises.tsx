@@ -35,18 +35,20 @@ function getYouTubeThumbnail(url: string | null | undefined) {
 }
 
 function FeaturesBar() {
+  const t = useTranslations();
+
   return (
     <div className="grid grid-cols-3 gap-3">
-      {featureItems.map(({ icon: Icon, label }) => (
+      {featureItems.map(({ icon: Icon, labelKey }) => (
         <div
-          key={label}
+          key={labelKey}
           className="flex items-center gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-800 dark:bg-zinc-900"
         >
           <div className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-500">
             <Icon className="h-3.5 w-3.5 text-white" />
           </div>
           <span className="text-[11px] font-bold tracking-wide text-zinc-600 uppercase dark:text-zinc-500">
-            {label}
+            {t(labelKey)}
           </span>
         </div>
       ))}
@@ -127,7 +129,7 @@ export default function MainExercises({
                 {isLoading ? (
                   <Spinner className="size-6" />
                 ) : (
-                  'No exercises found'
+                  t('noExercisesFound')
                 )}
               </div>
             ) : (
@@ -159,8 +161,7 @@ export default function MainExercises({
               onChange={setSelectedGroupId}
             />
             <p className="text-xl font-medium text-zinc-900 dark:text-zinc-100">
-              Discover a wide range of exercises to help you achieve your
-              fitness goals.
+              {t('discoverExercises')}
             </p>
             <ExercisesCarousel pages={pages} cardBasePath="/exercises" />
           </div>

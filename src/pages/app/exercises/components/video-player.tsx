@@ -2,6 +2,7 @@ import type { Exercise } from '@/lib/types/exercises';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import { Play } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslations } from 'use-intl/react';
 
 export default function VideoPlayer({
   getYouTubeEmbed,
@@ -16,6 +17,7 @@ export default function VideoPlayer({
   isPlaying: boolean;
   onToggle: () => void;
 }) {
+  const t = useTranslations();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const embedUrl = getYouTubeEmbed(exercise.in_depth_youtube_explanation_link);
@@ -33,7 +35,7 @@ export default function VideoPlayer({
       {!embedUrl ? (
         <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-zinc-100 dark:bg-zinc-900">
           <span className="text-l font-medium text-zinc-500 dark:text-zinc-500">
-            No video available
+            {t('noVideoAvailable')}
           </span>
         </div>
       ) : isPlaying ? (
@@ -83,7 +85,7 @@ export default function VideoPlayer({
                 'group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(249,115,22,0.6)]',
               )}
             >
-              <Play className="ml-1 h-6 w-6 fill-white text-white" />
+              <Play className="ms-1 h-6 w-6 fill-white text-white" />
             </div>
           </div>
         </div>

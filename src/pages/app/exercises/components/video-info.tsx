@@ -5,12 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils/tailwind-merge/cn';
 import type { Exercise } from '@/lib/types/exercises';
 import { levelBadgeClass } from '@/lib/constants/exercises/exercises.constant';
+import { useTranslations } from 'use-intl/react';
 
 const getLevelClass = (levelName: string) =>
   levelBadgeClass[levelName as keyof typeof levelBadgeClass] ??
   'bg-zinc-100 dark:bg-zinc-700/20 text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700';
 
 export default function VideoInfo({ exercise }: { exercise: Exercise }) {
+  const t = useTranslations();
+
   const badges = [
     {
       value: exercise.difficulty_level,
@@ -58,7 +61,7 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
         {exercise.exercise}
       </h3>
 
-      {/* Badges */}
+      {/* Badges — flex-wrap is direction-agnostic */}
       <div className="flex flex-wrap gap-2">
         {badges.map((badge, index) => (
           <Badge
@@ -76,8 +79,10 @@ export default function VideoInfo({ exercise }: { exercise: Exercise }) {
 
       {/* Description */}
       <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-500">
-        A targeted {exercise.target_muscle_group?.toLowerCase()} workout{' '}
-        {exercise.movement_pattern_1}. Follow along at your own pace.
+        {t('aTargetedWorkout', {
+          muscle: exercise.target_muscle_group?.toLowerCase() ?? '',
+          pattern: exercise.movement_pattern_1 ?? '',
+        })}
       </p>
 
       {/* Stats */}

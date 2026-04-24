@@ -135,6 +135,15 @@
   "transform-your-body-with-our-dynamic": "قم بتحويل جسمك بواسطه ",
   "upcoming-workouts": "التدريبات القادمه",
   "explore": "استكشف",
-  "fullBody": "كامل الجسم",
-  "noMusclesFound": "! لم يتم العثور على العضلات"
+  "noMusclesFound": "! لم يتم العثور على العضلات",
+  "expertDesignedWorkout": "تمرين مصمم من قبل خبراء",
+  "trackYourProgress": "تتبع تقدمك",
+  "hdVideoQuality": "جودة فيديو عالية الدقة",
+  "noVideoAvailable": "لا يوجد فيديو متاح",
+  "noExercisesFound": "لم يتم العثور على تمارين",
+  "noPreview": "لا يوجد معاينة",
+  "discoverExercises": "اكتشف مجموعة واسعة من التمارين لمساعدتك في تحقيق أهدافك اللياقية.",
+  "playExercise": "تشغيل {name}",
+  "aTargetedWorkout": "تمرين يستهدف {muscle} {pattern}. تابع بالوتيرة التي تناسبك.",
+  "fullBody": "الجسم كامل"
 }

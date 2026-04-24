@@ -15,7 +15,7 @@ export const levelBadgeClass = {
 } as const;
 
 export const featureItems = [
-  { icon: Star, label: 'Expert-designed workout' },
-  { icon: BarChart2, label: 'Track your progress' },
-  { icon: Video, label: 'HD Video quality' },
+  { icon: Star, labelKey: 'expertDesignedWorkout' },
+  { icon: BarChart2, labelKey: 'trackYourProgress' },
+  { icon: Video, labelKey: 'hdVideoQuality' },
 ] as const;
