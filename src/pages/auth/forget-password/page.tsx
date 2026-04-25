@@ -1,3 +1,5 @@
+import ForgetPasswordLayout from "./components/forget-password-layout";
+
 export default function ForgetPasswordPage() {
-  return <div>forget password page</div>;
+  return <ForgetPasswordLayout/>;
 }
