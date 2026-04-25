@@ -36,37 +36,31 @@ export default function AboutPage() {
       <img
         src="/assets/images/WOrkouts.svg"
         alt="workouts background"
-        className="absolute select-none pointer-events-none"
-        style={{
-          top: "100px",
-          left: "730px",
-          zIndex: 0,
-          width: "332px"
-        }}
+        className="absolute select-none pointer-events-none top-[100px] start-[730px] z-0 w-[332px]"
       />
 
       <div className="relative w-full max-w-7xl min-h-185 mx-auto px-10 pt-10 pb-10 grid grid-cols-1 lg:grid-cols-[600px_1fr] gap-15 items-center">
-        {/* ── Left section */}
+        {/* ── Start section */}
         <div className="relative w-full max-w-150 h-185">
-          <div className="absolute top-0 left-0 w-89.5 h-135.5 overflow-hidden shadow-xl" style={{ borderRadius: "18px" }}>
+          <div className="absolute top-0 start-0 w-89.5 h-135.5 overflow-hidden shadow-xl rounded-[18px]">
             <img
-              src="/assets/images/about-1.png"
+              src="/assets/images/about-athlete-training.png"
               alt="Athlete training"
               className="w-full h-full object-cover object-center"
             />
           </div>
 
-          <div className="absolute overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a]" style={{ width: "222px", height: "188px", top: "80px", left: "378px", borderRadius: "18px" }}>
+          <div className="absolute overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a] w-[222px] h-[188px] top-[80px] start-[378px] rounded-[18px]">
             <img
-              src="/assets/images/about-3.png"
+              src="/assets/images/about-athlete-seated.png"
               alt="Athlete seated"
               className="w-full h-full object-cover object-top"
             />
           </div>
 
-          <div className="absolute bottom-0 right-0 w-88.25 h-113 overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a]" style={{ borderRadius: "18px" }}>
+          <div className="absolute bottom-0 end-0 w-88.25 h-113 overflow-hidden shadow-xl border-4 border-white dark:border-[#1a1a1a] rounded-[18px]">
             <img
-              src="/assets/images/about-2.png"
+              src="/assets/images/about-athlete-standing.png"
               alt="Athlete standing"
               className="w-full h-full object-cover object-top"
             />
@@ -74,7 +68,7 @@ export default function AboutPage() {
         </div>
 
 
-        {/* Right: content */}
+        {/* End: content */}
         <div className="flex flex-col w-full max-w-135 gap-10 z-10">
           {/* Badge */}
           <div className="flex items-center gap-2 w-fit mb-2">
@@ -122,7 +116,7 @@ export default function AboutPage() {
               {t("about-cta")}
               {/* Overlapping icon */}
               <span
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 flex items-center justify-center w-9 h-9 rounded-full border-2 border-white bg-[#FF3C00] shadow"
+                className="absolute end-0 top-1/2 -translate-y-1/2 translate-x-1/3 flex items-center justify-center w-9 h-9 rounded-full border-2 border-white bg-[#FF3C00] shadow"
                 style={{ boxShadow: "0 2px 8px 0 rgba(255,60,0,0.15)" }}
               >
                 <ArrowUpRight size={20} className="text-white" />

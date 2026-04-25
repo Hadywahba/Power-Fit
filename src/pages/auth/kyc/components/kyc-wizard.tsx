@@ -7,11 +7,15 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils/tailwind-merge/cn";
 import { ROUTES } from "@/lib/constants/routes/routes.constant";
 import { useRegisterStore } from "@/lib/store/register.store";
-import type {
-  RegisterActivityLevel,
-  RegisterBody,
-  RegisterGoal,
-} from "@/lib/types/register";
+import type { RegisterBody } from "@/lib/types/register";
+import {
+  ACTIVITY_LEVEL_OPTIONS,
+  ACTIVITY_LEVEL_TRANSLATION_KEYS,
+  GOAL_OPTIONS,
+  GOAL_TRANSLATION_KEYS,
+  type ActivityLevelOption,
+  type GoalOption,
+} from "@/lib/constants/user-options.constant";
 import GenderStep, { type GenderOption } from "./gender-step";
 import NumberSelectionStep from "./number-selection-step";
 import ProgressRing from "./progress-ring";
@@ -31,43 +35,11 @@ type KycDraft = {
   activityLevel: ActivityLevelOption | null;
 };
 
-type GoalOption = RegisterGoal;
+// Use shared configuration from register input data
+const GOAL_VALUES: GoalOption[] = [...GOAL_OPTIONS];
+const ACTIVITY_LEVEL_VALUES: ActivityLevelOption[] = [...ACTIVITY_LEVEL_OPTIONS];
 
-type ActivityLevelOption = RegisterActivityLevel;
-
-// Keep option values aligned with backend payload.
-const GOAL_VALUES: GoalOption[] = [
-  "Gain weight",
-  "Lose weight",
-  "Get fitter",
-  "Gain more flexible",
-  "Learn the basic",
-];
-
-// Labels are user-facing, values are backend-facing (level1..level5).
-const ACTIVITY_LEVEL_VALUES: ActivityLevelOption[] = [
-  "level1",
-  "level2",
-  "level3",
-  "level4",
-  "level5",
-];
-
-const GOAL_TRANSLATION_KEYS: Record<GoalOption, string> = {
-  "Gain weight": "kyc-wizard.goal-options.gain-weight",
-  "Lose weight": "kyc-wizard.goal-options.lose-weight",
-  "Get fitter": "kyc-wizard.goal-options.get-fitter",
-  "Gain more flexible": "kyc-wizard.goal-options.gain-more-flexible",
-  "Learn the basic": "kyc-wizard.goal-options.learn-the-basic",
-};
-
-const ACTIVITY_LEVEL_TRANSLATION_KEYS: Record<ActivityLevelOption, string> = {
-  level1: "kyc-wizard.activity-level-options.level-1",
-  level2: "kyc-wizard.activity-level-options.level-2",
-  level3: "kyc-wizard.activity-level-options.level-3",
-  level4: "kyc-wizard.activity-level-options.level-4",
-  level5: "kyc-wizard.activity-level-options.level-5",
-};
+// Use shared translation keys from register input data
 
 type KycStep = {
   title: string;
