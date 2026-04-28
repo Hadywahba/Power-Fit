@@ -1,75 +1,99 @@
-# React + TypeScript + Vite
+# Super Fitness
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Super Fitness is a React + TypeScript fitness web app built with Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Authentication flow with guarded guest/protected routes
+- Exercise browsing by muscle group via dynamic routes
+- Class, nutrition, profile, and healthy meal detail screens
+- API data fetching and caching through React Query
+- Reusable forms with schema validation using React Hook Form + Zod
+- Global app state with Zustand and context providers
+- Multi-language support with locale-aware API headers
+- Theme support and global toast notifications
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- React Query
+- Zustand
+- i18next / react-i18next
+- React Hook Form + Zod
 
-Note: This will impact Vite dev & build performances.
+## Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 18+ (Node.js 20+ recommended)
+- pnpm (recommended, `pnpm-lock.yaml` is included)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app runs in development mode with hot reload at the local Vite URL (typically `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `pnpm dev` - Start the Vite development server
+- `pnpm build` - Type-check and build for production
+- `pnpm preview` - Preview the production build locally
+- `pnpm lint` - Run ESLint
+
+## Main Routes
+
+- `/` - Home page
+- `/about` - About page
+- `/login`, `/register`, `/forget-password`, `/kyc` - Auth flow
+- `/classes` - Classes page (protected)
+- `/exercises/:id` - Exercises by selected category/muscle (protected)
+- `/healthy` - Healthy meals page (protected)
+- `/healthyDetails/:id` - Meal details page (protected)
+- `/profile` - User profile page (protected)
+
+## Architecture Notes
+
+- Routing is managed with `react-router-dom` and lazy-loaded pages
+- Access control uses `GuestRoute` and `ProtectedRoute`
+- Shared app providers are composed in `src/components/providers/app/index.tsx`
+- Global providers include auth, i18n, theme, React Query, meals context, and Sonner toast
+
+## API & Authentication
+
+- API base URL is configured in `src/lib/constants/api/api.constant.ts`
+- Axios instance adds:
+  - `Authorization: Bearer <token>` from local storage (`ELEVATE_FITNESS_USER`)
+  - `accept-language` from stored locale (fallback `en`)
+- API requests support dynamic route params and query params through a shared request utility
+
+## Project Structure
+
+- `src/components` - Shared UI, layouts, providers, and common components
+- `src/pages` - Route-level feature modules (`auth` and `app`)
+- `src/lib` - Constants, API config, router, utilities, and schema/type helpers
+- `src/hooks` - Reusable custom hooks
+- `src/i18n` - Localization assets and formatting utilities
+- `public` - Static public assets
+
+## Build Output
+
+Production build files are generated in `dist/`.
+
+## Development Guidelines
+
+- Keep environment-specific values outside source code where possible.
+- Run `pnpm lint` before opening a PR.
+- Keep features grouped under route-based folders for maintainability.
+- Prefer the shared API utility and constants instead of ad-hoc fetch calls.
+
+## Troubleshooting
+
+- If dependencies fail to install, verify Node.js version and retry `pnpm install`.
+- If the dev server port is busy, run `pnpm dev -- --port <new-port>`.
+- If protected routes always redirect to login, verify token presence in local storage.
