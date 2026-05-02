@@ -268,9 +268,9 @@
       "explore": "Explore More"
     },
     "stats": {
-      "1": "Active Members",
-      "2": "Certified Trainers",
-      "3": "Year Of Experience"
+      "1": { "number": "1200+", "label": "Members" },
+      "2": { "number": "12+", "label": "Programs" },
+      "3": { "number": "20+", "label": "Trainers" }
     },
     "slides": {
       "1": "Live Classes",
@@ -288,6 +288,4 @@
   "expertDesignedWorkout": "Expert-designed workout",
   "trackYourProgress": "Track your progress",
   "hdVideoQuality": "HD Video quality"
-
-
 }

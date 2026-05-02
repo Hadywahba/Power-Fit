@@ -33,13 +33,13 @@ export default function HeroSection() {
 
           {/* Stats List */}
           <ul className="mb-10 flex flex-col items-start justify-center gap-6 py-5 sm:flex-row sm:justify-start sm:gap-10 md:gap-12">
-            {stats.map((state) => (
-              <li key={state.id} className="text-center md:text-start">
+            {stats.map((stat) => (
+              <li key={stat.id} className="text-center md:text-start">
                 <span className="text-xl font-bold sm:text-2xl">
-                  {state.number}
+                  {t(`stats.${stat.id}.number`)}
                 </span>
                 <span className="mt-1 block text-base font-normal text-zinc-700 sm:text-xl dark:text-white/90">
-                  {t(`stats.${state.id}`)}
+                  {t(`stats.${stat.id}.label`)}
                 </span>
               </li>
             ))}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           <div className="flex justify-between gap-16 md:mb-2 md:justify-start">
             <Button className="group relative w-36 cursor-pointer">
               {t('cta.start')}
-              <span className="bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600">
+              <span className="bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600 rtl:rotate-270">
                 <ArrowUpRight size={20} className="text-white" />
               </span>
             </Button>
@@ -59,7 +59,7 @@ export default function HeroSection() {
               className="group border-main text-main hover:bg-main/10 hover:text-main relative w-36 cursor-pointer dark:bg-transparent"
             >
               {t('cta.explore')}
-              <span className="bg-main group-hover:bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110">
+              <span className="bg-main group-hover:bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 rtl:rotate-270">
                 <ArrowUpRight size={20} className="text-white" />
               </span>
             </Button>
