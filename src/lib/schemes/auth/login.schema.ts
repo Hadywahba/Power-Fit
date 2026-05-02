@@ -1,4 +1,3 @@
-import { PASSWORD_PATTERN } from "@/lib/constants/auth/auth.constant";
 import { useTranslations } from "use-intl";
 import z from "zod";
 
@@ -14,7 +13,6 @@ export function useLoginSchema() {
     password: z
       .string()
       .nonempty(t("password-is-required"))
-      .regex(PASSWORD_PATTERN, t("password-pattern", { count: 8 })),
   });
 }
 
