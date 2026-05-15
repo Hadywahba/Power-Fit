@@ -1,23 +1,18 @@
-import { ErrorBoundary } from "@/components/shared/error-boundary";
-import { LogoutCard } from "./components/logout-card";
-import { MoodCard } from "./components/mood-card";
-import { PrivacyCard } from "./components/privacy-card";
-import { SecurityCard } from "./components/security-card";
-import { ChangePasswordCard } from "./components/change-password-card";
-import { LanguageCard } from "./components/language-card";
-import { HelpCard } from "./components/help-card";
-import ProfileHeader from "./components/profile-header";
-import ProfileStatsRow from "./components/profile-stats-row";
+import { ErrorBoundary } from '@/components/shared/error-boundary';
+import { LogoutCard } from './components/logout-card';
+import { MoodCard } from './components/mood-card';
+import { PrivacyCard } from './components/privacy-card';
+import { SecurityCard } from './components/security-card';
+import { ChangePasswordCard } from './components/change-password-card';
+import { LanguageCard } from './components/language-card';
+import { HelpCard } from './components/help-card';
+import ProfileStatsRow from './components/profile-stats-row';
 
 export default function ProfilePage() {
   return (
     <section className="mx-auto w-full max-w-5xl pb-10">
-      <div className="relative min-h-screen overflow-hidden ">
-
+      <div className="relative min-h-screen overflow-hidden">
         <div className="relative z-10 pb-16">
-
-          <ProfileHeader />
-
           <ErrorBoundary>
             <ProfileStatsRow />
           </ErrorBoundary>

@@ -61,7 +61,7 @@ export default function Page() {
         {mealId ? (
           <Meals />
         ) : (
-          <p className="text-center text-zinc-500">Select a meal</p>
+          <p className="text-center text-zinc-500">{t('healthy-select-meal')}</p>
         )}
       </section>
     </main>

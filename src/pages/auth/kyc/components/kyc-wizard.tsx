@@ -1,13 +1,20 @@
-import { useState } from "react";
-import type { ReactNode } from "react";
-import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
-import { useTranslations } from "use-intl";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils/tailwind-merge/cn";
-import { ROUTES } from "@/lib/constants/routes/routes.constant";
-import { useRegisterStore } from "@/lib/store/register.store";
-import type { RegisterBody } from "@/lib/types/register";
+import { useState } from 'react';
+import type { ReactNode } from 'react';
+import { toast } from 'sonner';
+import { useNavigate } from 'react-router-dom';
+import { useTranslations } from 'use-intl';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils/tailwind-merge/cn';
+import { ROUTES } from '@/lib/constants/routes/routes.constant';
+import { useRegisterStore } from '@/lib/store/register.store';
+import type { RegisterBody } from '@/lib/types/register';
+import GenderStep, { type GenderOption } from './gender-step';
+import NumberSelectionStep from './number-selection-step';
+import ProgressRing from './progress-ring';
+import SelectOptionsStep, {
+  type SelectOptionItem,
+} from './select-options-step';
+import { useRegister } from '../../register/hooks/use-register';
 import {
   ACTIVITY_LEVEL_OPTIONS,
   ACTIVITY_LEVEL_TRANSLATION_KEYS,
@@ -15,14 +22,7 @@ import {
   GOAL_TRANSLATION_KEYS,
   type ActivityLevelOption,
   type GoalOption,
-} from "@/lib/constants/user-options.constant";
-import GenderStep, { type GenderOption } from "./gender-step";
-import NumberSelectionStep from "./number-selection-step";
-import ProgressRing from "./progress-ring";
-import SelectOptionsStep, {
-  type SelectOptionItem,
-} from "./select-options-step";
-import { useRegister } from "../../register/hooks/use-register";
+} from '@/lib/constants/user-options.constant';
 
 const TOTAL_STEPS = 6;
 
@@ -37,7 +37,9 @@ type KycDraft = {
 
 // Use shared configuration from register input data
 const GOAL_VALUES: GoalOption[] = [...GOAL_OPTIONS];
-const ACTIVITY_LEVEL_VALUES: ActivityLevelOption[] = [...ACTIVITY_LEVEL_OPTIONS];
+const ACTIVITY_LEVEL_VALUES: ActivityLevelOption[] = [
+  ...ACTIVITY_LEVEL_OPTIONS,
+];
 
 // Use shared translation keys from register input data
 
@@ -87,14 +89,14 @@ export default function KycWizard() {
     }));
 
   const personalizedPlanSubtitle = t(
-    "kyc-wizard.shared.personalized-plan-subtitle",
+    'kyc-wizard.shared.personalized-plan-subtitle',
   );
 
   const steps: KycStep[] = [
     {
-      title: t("kyc-wizard.steps.gender-step.title"),
-      subtitle: t("kyc-wizard.steps.gender-step.subtitle"),
-      buttonLabel: t("kyc-wizard.shared.next-button"),
+      title: t('kyc-wizard.steps.gender-step.title'),
+      subtitle: t('kyc-wizard.steps.gender-step.subtitle'),
+      buttonLabel: t('kyc-wizard.shared.next-button'),
       canContinue: (data) => Boolean(data.gender),
       content: (data, update) => (
         <GenderStep
@@ -104,14 +106,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: t("kyc-wizard.steps.age-step.title"),
+      title: t('kyc-wizard.steps.age-step.title'),
       subtitle: personalizedPlanSubtitle,
-      buttonLabel: t("kyc-wizard.shared.next-button"),
+      buttonLabel: t('kyc-wizard.shared.next-button'),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="age-step"
-          label={t("kyc-wizard.units.years-old")}
+          label={t('kyc-wizard.units.years-old')}
           min={18}
           max={65}
           value={data.age}
@@ -120,14 +122,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: t("kyc-wizard.steps.weight-step.title"),
+      title: t('kyc-wizard.steps.weight-step.title'),
       subtitle: personalizedPlanSubtitle,
-      buttonLabel: t("kyc-wizard.shared.next-button"),
+      buttonLabel: t('kyc-wizard.shared.next-button'),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="weight-step"
-          label={t("kyc-wizard.units.kg")}
+          label={t('kyc-wizard.units.kg')}
           min={40}
           max={150}
           value={data.weight}
@@ -136,14 +138,14 @@ export default function KycWizard() {
       ),
     },
     {
-      title: t("kyc-wizard.steps.height-step.title"),
+      title: t('kyc-wizard.steps.height-step.title'),
       subtitle: personalizedPlanSubtitle,
-      buttonLabel: t("kyc-wizard.shared.next-button"),
+      buttonLabel: t('kyc-wizard.shared.next-button'),
       canContinue: () => true,
       content: (data, update) => (
         <NumberSelectionStep
           key="height-step"
-          label={t("kyc-wizard.units.cm")}
+          label={t('kyc-wizard.units.cm')}
           min={140}
           max={220}
           value={data.height}
@@ -152,9 +154,9 @@ export default function KycWizard() {
       ),
     },
     {
-      title: t("kyc-wizard.steps.goal-step.title"),
+      title: t('kyc-wizard.steps.goal-step.title'),
       subtitle: personalizedPlanSubtitle,
-      buttonLabel: t("kyc-wizard.shared.next-button"),
+      buttonLabel: t('kyc-wizard.shared.next-button'),
       canContinue: (data) => Boolean(data.goal),
       content: (data, update) => (
         <SelectOptionsStep
@@ -165,9 +167,9 @@ export default function KycWizard() {
       ),
     },
     {
-      title: t("kyc-wizard.steps.activity-level-step.title"),
+      title: t('kyc-wizard.steps.activity-level-step.title'),
       subtitle: personalizedPlanSubtitle,
-      buttonLabel: t("kyc-wizard.shared.done-button"),
+      buttonLabel: t('kyc-wizard.shared.done-button'),
       canContinue: (data) => Boolean(data.activityLevel),
       content: (data, update) => (
         <SelectOptionsStep
@@ -204,7 +206,7 @@ export default function KycWizard() {
       !draft.goal ||
       !draft.activityLevel
     ) {
-      toast.error("Please complete register data first.");
+      toast.error('Please complete register data first.');
       navigate(ROUTES.auth.register);
       return;
     }
@@ -227,15 +229,13 @@ export default function KycWizard() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden text-white font-sans">
-
-
+    <section className="relative min-h-screen overflow-hidden font-sans text-white">
       <div className="relative z-10 flex min-h-screen items-center justify-center px-5 py-10">
         <div className="w-full">
           <ProgressRing current={stepIndex + 1} total={TOTAL_STEPS} />
 
           <header className="mt-4 text-center">
-            <h1 className="text-[2.15rem] leading-tight uppercase font-black sm:text-[3rem]">
+            <h1 className="text-[2.15rem] leading-tight font-black uppercase sm:text-[3rem]">
               {currentStep.title}
             </h1>
             <p className="mt-2 sm:text-lg">{currentStep.subtitle}</p>
@@ -249,7 +249,7 @@ export default function KycWizard() {
             isLoading={isPending}
             disabled={!canContinue || isPending}
             className={cn(
-              "mt-6 h-12 w-full max-w-xs mx-auto flex items-center justify-center rounded-full cursor-pointer",
+              'mx-auto mt-6 flex h-12 w-full max-w-xs cursor-pointer items-center justify-center rounded-full',
             )}
           >
             {currentStep.buttonLabel}

@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button';
 import Image from '@/components/ui/image';
-import HeroCarousel from './hero-carousel';
 import { stats } from '@/lib/constants/home/hero.constants';
 import { useTranslations } from 'use-intl';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/lib/constants/routes/routes.constant';
 
 export default function HeroSection() {
   // Translations
@@ -47,21 +48,26 @@ export default function HeroSection() {
 
           {/* Buttons */}
           <div className="flex justify-between gap-16 md:mb-2 md:justify-start">
-            <Button className="group relative w-36 cursor-pointer">
-              {t('cta.start')}
-              <span className="bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600 rtl:rotate-270">
-                <ArrowUpRight size={20} className="text-white" />
-              </span>
+            <Button asChild className="group relative w-36 cursor-pointer">
+              <Link to={ROUTES.app.classes}>
+                {t('cta.start')}
+                <span className="bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 group-hover:bg-orange-600 rtl:rotate-270">
+                  <ArrowUpRight size={20} className="text-white" />
+                </span>
+              </Link>
             </Button>
 
             <Button
+              asChild
               variant="outline"
               className="group border-main text-main hover:bg-main/10 hover:text-main relative w-36 cursor-pointer dark:bg-transparent"
             >
-              {t('cta.explore')}
-              <span className="bg-main group-hover:bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 rtl:rotate-270">
-                <ArrowUpRight size={20} className="text-white" />
-              </span>
+              <Link to={ROUTES.app.about}>
+                {t('cta.explore')}
+                <span className="bg-main group-hover:bg-main absolute -inset-e-3.5 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white transition-all duration-300 group-hover:scale-110 rtl:rotate-270">
+                  <ArrowUpRight size={20} className="text-white" />
+                </span>
+              </Link>
             </Button>
           </div>
         </div>
@@ -77,11 +83,6 @@ export default function HeroSection() {
             priority
           />
         </div>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative z-10 mt-auto">
-        <HeroCarousel />
       </div>
     </section>
   );

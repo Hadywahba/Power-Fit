@@ -179,9 +179,9 @@
 
 import SmartCoachChat from './_components/SmartCoachChat'
 
-export default function page() {
+export default function ChatbotPage() {
   return (
-    <div>
+    <div className="min-h-screen bg-zinc-950 px-4 py-8 sm:px-6 lg:px-8">
       <SmartCoachChat />
     </div>
   )

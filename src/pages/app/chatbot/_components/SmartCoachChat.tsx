@@ -12,10 +12,10 @@ import { useTranslations } from 'use-intl';
 
 export default function SmartCoachChat() {
     // translation
-    const t =useTranslations('chatbot');
+    const t = useTranslations('chatbot');
   const [messages, setMessages] = useState<Message[]>([
     {
-      text: 'أهلاً بك! أنا مدربك الذكي 🤖.. كيف يمكنني مساعدتك في رحلتك الرياضية اليوم؟',
+      text: t('default-question'),
       sender: 'bot',
     },
   ]);
@@ -48,7 +48,7 @@ export default function SmartCoachChat() {
 
   return (
     <div
-      className="relative mx-auto flex h-150 w-full max-w-md flex-col overflow-hidden border border-zinc-800 rounded-3xl bg-black text-white shadow-2xl"
+      className="relative mx-auto flex h-150 w-full max-w-4xl flex-col overflow-hidden border border-zinc-800 rounded-3xl bg-black text-white shadow-2xl"
       style={{
         backgroundImage: "linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/assets/images/bot-background.png')",
         backgroundSize: 'cover',
@@ -104,7 +104,7 @@ export default function SmartCoachChat() {
                 <span className="animate-bounce [animation-delay:0.2s]">.</span>
                 <span className="animate-bounce [animation-delay:0.4s]">.</span>
               </span>
-              المدرب يفكر الآن
+              {t('loading')}
             </div>
           )}
           <div ref={scrollRef} />

@@ -15,6 +15,10 @@ export const ROUTES = {
     healthyDetails:`healthyDetails/:id`,
     kyc: '/kyc',
     profile: '/profile',
+    chatbot: '/chatbot',
+    privacyPolicy: '/privacy-policy',
+    security: '/security',
+    help: '/help',
   },
 } as const;
 

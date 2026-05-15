@@ -1,4 +1,4 @@
-import { Menu, UserRound, X } from 'lucide-react';
+import { Bot, Menu, UserRound, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ROUTES } from '@/lib/constants/routes/routes.constant';
@@ -69,6 +69,14 @@ export default function AppNavbar() {
           <LocaleSwitcher />
           {/* them toggle */}
           <ThemeToggle />
+          {/* chatbot link */}
+          <Link
+            to={ROUTES.app.chatbot}
+            aria-label="Smart Coach"
+            className="inline-flex size-9 items-center justify-center rounded-full border border-foreground/20 text-foreground/80 transition-colors hover:border-main hover:text-main"
+          >
+            <Bot size={16} />
+          </Link>
           <div className="hidden md:flex">
             <Link
               to={ROUTES.app.profile}
@@ -139,6 +147,15 @@ export default function AppNavbar() {
                 <LocaleSwitcher />
                 <ThemeToggle />
               </div>
+
+              <Link
+                to={ROUTES.app.chatbot}
+                onClick={() => setMobileMenuOpen(false)}
+                className="mb-2 flex items-center gap-2 rounded-md border border-foreground/10 bg-foreground/5 px-3 py-2 text-sm font-semibold text-foreground/90 hover:bg-foreground/10"
+              >
+                <Bot size={15} />
+                Smart Coach
+              </Link>
 
               {isAuthenticated ? (
                 <div className="flex justify-start">

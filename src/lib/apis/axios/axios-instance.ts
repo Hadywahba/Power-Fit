@@ -1,14 +1,9 @@
 import axios from 'axios';
-import {
-  baseURL,
-  JSON_HEADER,
-  STORAGE_KEY,
-} from '../../constants/api/api.constant';
+import { baseURL, STORAGE_KEY } from '../../constants/api/api.constant';
 import { LOCALE_KEY } from '@/lib/constants/locale/locale.constant';
 
 export const axiosInstance = axios.create({
   baseURL,
-  headers: JSON_HEADER,
 });
 
 axiosInstance.interceptors.request.use(

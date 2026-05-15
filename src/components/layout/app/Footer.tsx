@@ -1,5 +1,12 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 import { useTranslations } from "use-intl";
+
+const socialLinks = [
+  { icon: Facebook,  href: "https://facebook.com",  label: "Facebook" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Youtube,   href: "https://youtube.com",   label: "YouTube" },
+  { icon: Twitter,   href: "https://twitter.com",   label: "Twitter" },
+];
 
 export default function Footer() {
     const t = useTranslations();
@@ -46,6 +53,21 @@ export default function Footer() {
                         <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-[200px]">
                             {t("footer-tagline")}
                         </p>
+                        {/* Social icons */}
+                        <div className="flex items-center gap-2 mt-1">
+                            {socialLinks.map(({ icon: Icon, href, label }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={label}
+                                    className="flex items-center justify-center w-8 h-8 rounded-full border border-gray-300 dark:border-white/20 text-gray-500 dark:text-gray-400 hover:text-main hover:border-main dark:hover:text-main dark:hover:border-main transition-colors"
+                                >
+                                    <Icon size={14} />
+                                </a>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Contact Us */}

@@ -38,7 +38,7 @@ function FeaturesBar() {
   const t = useTranslations();
 
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
       {featureItems.map(({ icon: Icon, labelKey }) => (
         <div
           key={labelKey}
@@ -85,6 +85,7 @@ export default function MainExercises({
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [playlistOpen, setPlaylistOpen] = useState(false);
 
   useEffect(() => {
     if (!activeLevelId && levels.length > 0) {
@@ -104,9 +105,29 @@ export default function MainExercises({
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
+      {/* Mobile playlist toggle button */}
+      <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2 dark:border-zinc-800 lg:hidden">
+        <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300">
+          {t('exercises')}
+        </span>
+        <button
+          type="button"
+          onClick={() => setPlaylistOpen((o) => !o)}
+          className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-bold text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+        >
+          {playlistOpen ? t('hidePlaylist') : t('showPlaylist')}
+        </button>
+      </div>
+
       <div className="flex items-start">
-        {/* Sidebar */}
-        <aside className="min-h-screen w-80 shrink-0 border-r border-zinc-200 dark:border-zinc-800">
+        {/* Sidebar — hidden on mobile, collapsible via toggle */}
+        <aside
+          className={`
+            shrink-0 border-r border-zinc-200 dark:border-zinc-800
+            lg:block lg:min-h-screen lg:w-80
+            ${playlistOpen ? 'block w-full' : 'hidden'}
+          `}
+        >
           <ExercisesPlaylist
             getYouTubeThumbnail={getYouTubeThumbnail}
             levels={mappedLevels}
@@ -117,15 +138,16 @@ export default function MainExercises({
             onSelectVideo={(item) => {
               setSelectedId(item._id);
               setIsPlaying(false);
+              setPlaylistOpen(false);
             }}
           />
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1">
-          <div className="mx-auto flex max-w-5xl flex-col gap-5 py-4">
+        <main className={`flex-1 min-w-0 ${playlistOpen ? 'hidden lg:block' : 'block'}`}>
+          <div className="mx-auto flex max-w-5xl flex-col gap-5 px-4 py-4 sm:px-6">
             {isLoading || !activeVideo ? (
-              <div className="flex min-h-100 items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50/40 text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-400">
+              <div className="flex min-h-60 items-center justify-center rounded-2xl border border-zinc-200 bg-zinc-50/40 text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-400">
                 {isLoading ? (
                   <Spinner className="size-6" />
                 ) : (

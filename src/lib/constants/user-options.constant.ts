@@ -1,4 +1,4 @@
-import type { User } from "@/lib/types/auth";
+import type { User } from '@/lib/types/auth';
 
 /**
  * Shared User Options Configuration
@@ -27,61 +27,73 @@ import type { User } from "@/lib/types/auth";
 
 // Goal configuration - matches KYC wizard values
 export const GOAL_OPTIONS = [
-    "Gain weight",
-    "Lose weight",
-    "Get fitter",
-    "Gain more flexible",
-    "Learn the basic",
+  'Gain weight',
+  'Lose weight',
+  'Get fitter',
+  'Gain more flexible',
+  'Learn the basic',
 ] as const;
 
-export type GoalOption = typeof GOAL_OPTIONS[number];
+export type GoalOption = (typeof GOAL_OPTIONS)[number];
 
 // Activity level configuration - matches KYC wizard values
 export const ACTIVITY_LEVEL_OPTIONS = [
-    "level1",
-    "level2",
-    "level3",
-    "level4",
-    "level5",
+  'level1',
+  'level2',
+  'level3',
+  'level4',
+  'level5',
 ] as const;
 
-export type ActivityLevelOption = typeof ACTIVITY_LEVEL_OPTIONS[number];
+export type ActivityLevelOption = (typeof ACTIVITY_LEVEL_OPTIONS)[number];
 
 // Translation key mappings - matches KYC wizard
 export const GOAL_TRANSLATION_KEYS: Record<GoalOption, string> = {
-    "Gain weight": "kyc-wizard.goal-options.gain-weight",
-    "Lose weight": "kyc-wizard.goal-options.lose-weight",
-    "Get fitter": "kyc-wizard.goal-options.get-fitter",
-    "Gain more flexible": "kyc-wizard.goal-options.gain-more-flexible",
-    "Learn the basic": "kyc-wizard.goal-options.learn-the-basic",
+  'Gain weight': 'kyc-wizard.goal-options.gain-weight',
+  'Lose weight': 'kyc-wizard.goal-options.lose-weight',
+  'Get fitter': 'kyc-wizard.goal-options.get-fitter',
+  'Gain more flexible': 'kyc-wizard.goal-options.gain-more-flexible',
+  'Learn the basic': 'kyc-wizard.goal-options.learn-the-basic',
 };
 
-export const ACTIVITY_LEVEL_TRANSLATION_KEYS: Record<ActivityLevelOption, string> = {
-    level1: "kyc-wizard.activity-level-options.level-1",
-    level2: "kyc-wizard.activity-level-options.level-2",
-    level3: "kyc-wizard.activity-level-options.level-3",
-    level4: "kyc-wizard.activity-level-options.level-4",
-    level5: "kyc-wizard.activity-level-options.level-5",
+export const ACTIVITY_LEVEL_TRANSLATION_KEYS: Record<
+  ActivityLevelOption,
+  string
+> = {
+  level1: 'kyc-wizard.activity-level-options.level-1',
+  level2: 'kyc-wizard.activity-level-options.level-2',
+  level3: 'kyc-wizard.activity-level-options.level-3',
+  level4: 'kyc-wizard.activity-level-options.level-4',
+  level5: 'kyc-wizard.activity-level-options.level-5',
 };
 
 // Utility functions for working with user data
-export const getGoalTranslationKey = (goal: User["goal"]): string => {
-    return GOAL_TRANSLATION_KEYS[goal as GoalOption] || "something-went-wrong";
+export const getGoalTranslationKey = (goal: User['goal']): string => {
+  return GOAL_TRANSLATION_KEYS[goal as GoalOption] || 'something-went-wrong';
 };
 
-export const getActivityLevelTranslationKey = (level: User["activityLevel"]): string => {
-    return ACTIVITY_LEVEL_TRANSLATION_KEYS[level as ActivityLevelOption] || "something-went-wrong";
+export const getActivityLevelTranslationKey = (
+  level: User['activityLevel'],
+): string => {
+  return (
+    ACTIVITY_LEVEL_TRANSLATION_KEYS[level as ActivityLevelOption] ||
+    'something-went-wrong'
+  );
 };
 
 export const isValidGoal = (goal: string): goal is GoalOption => {
-    return GOAL_OPTIONS.includes(goal as GoalOption);
+  return GOAL_OPTIONS.includes(goal as GoalOption);
 };
 
-export const isValidActivityLevel = (level: string): level is ActivityLevelOption => {
-    return ACTIVITY_LEVEL_OPTIONS.includes(level as ActivityLevelOption);
+export const isValidActivityLevel = (
+  level: string,
+): level is ActivityLevelOption => {
+  return ACTIVITY_LEVEL_OPTIONS.includes(level as ActivityLevelOption);
 };
 
 // Get all available options for dynamic UI generation
 export const getAllGoals = (): GoalOption[] => [...GOAL_OPTIONS];
 
-export const getAllActivityLevels = (): ActivityLevelOption[] => [...ACTIVITY_LEVEL_OPTIONS];
+export const getAllActivityLevels = (): ActivityLevelOption[] => [
+  ...ACTIVITY_LEVEL_OPTIONS,
+];

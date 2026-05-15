@@ -25,7 +25,7 @@ export default function ExercisesPlaylist({
   onSelectVideo,
 }: ExercisesPlaylistProps) {
   return (
-    <div className="flex h-full w-90 shrink-0 flex-col overflow-hidden border-r border-zinc-200 bg-white dark:border-zinc-800/60 dark:bg-zinc-900">
+    <div className="flex h-full w-full flex-col overflow-hidden border-r border-zinc-200 bg-white lg:w-80 dark:border-zinc-800/60 dark:bg-zinc-900">
       {/* Tabs */}
       <div className="flex gap-1 px-4 pt-3.5">
         {levels.map((level) => (

@@ -32,7 +32,7 @@ export default function ExercisesCarousel({
     >
       <CarouselContent>
         {pages.flat().map((muscle) => (
-          <CarouselItem key={muscle._id} className="basis-1/4">
+          <CarouselItem key={muscle._id} className="basis-1/2 sm:basis-1/3 lg:basis-1/4">
             <MuscleCard muscle={muscle} to={`${cardBasePath}/${muscle._id}`} />
           </CarouselItem>
         ))}
